@@ -200,6 +200,7 @@ class CompaniesTable extends Table
         $results = $results_UsersAsMembers->union($results_assocWithUsers);
         $results->union($results_assocWithDeps);
         //$results->order(['Companies.name' => 'ASC']);
+        $companies_ids = array();
         foreach ($results as $company) {
             $companies_ids[] = $company->id;
         }
@@ -221,13 +222,17 @@ class CompaniesTable extends Table
         */
     }
     public function companiesOfThisUser($user_type, $user_id, $group_manager) {
+        if($group_manager){
+            return $this->getAllCompaniesData();
+        }
         $companiesTable = TableRegistry::get('Companies');
         //$this->user_type, $this->user_id, $this->Auth->user('group_manager')
         $companies_ids = $this->getCompaniesIdsByUser($user_type, $user_id, $group_manager);
-        if(!empty($companies_ids)){
-            $results = $companiesTable->find('all')->where(['id IN' => $companies_ids]);
-            return $results;
-        }
+        $companies_ids_string = implode("','", $companies_ids);
+        //if(!empty($companies_ids)){
+        $results = $companiesTable->find('all')->where(['id IN' => "'".$companies_ids_string."'"]);
+        return $results;
+        //}
         return null;
     }
     public function getCountDep(){

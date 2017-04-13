@@ -385,12 +385,18 @@ class DepartementsTable extends Table
     }
     
     public function departementsOfThisUser($user_type, $user_id, $group_manager) {
+        if($group_manager){
+            return $this->getAllDep();
+        }
         $departementsTable = TableRegistry::get('Departements');
         $deps_ids = $this->getAllDepByUser($user_type, $user_id, $group_manager);
-        if(!empty($deps_ids)){
-            $results = $departementsTable->find('all')->contain(['Companies'])->where(['departements.id IN' => $deps_ids]);
-            return $results;
-        }
+        $deps_ids_string = implode("','", $deps_ids);
+        //debug($deps_ids_string);die();
+        //if(!empty($deps_ids)){
+        $results = $departementsTable->find('all')->contain(['Companies'])->where(['Departements.id IN' => "'".$deps_ids_string."'"]);
+        return $results;
+        //}
+        
         return null;
     }
     

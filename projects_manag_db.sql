@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 21 Mars 2017 à 13:58
+-- Généré le :  Jeu 13 Avril 2017 à 13:02
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  7.0.15
 
@@ -96,7 +96,8 @@ CREATE TABLE `assoc_companies_users` (
 --
 
 INSERT INTO `assoc_companies_users` (`id`, `user_id`, `company_id`, `accessLevel`, `companyManager`) VALUES
-(1, 10, 6, 5, 1);
+(1, 10, 6, 5, 1),
+(2, 10, 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -147,6 +148,14 @@ CREATE TABLE `assoc_departements_users` (
   `accessLevel` int(11) DEFAULT '0',
   `departementManager` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `assoc_departements_users`
+--
+
+INSERT INTO `assoc_departements_users` (`id`, `departement_id`, `user_id`, `accessLevel`, `departementManager`) VALUES
+(1, 16, 11, 5, 0),
+(3, 13, 10, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -209,7 +218,8 @@ INSERT INTO `assoc_projects_teams` (`id`, `project_id`, `team_id`) VALUES
 (20, 11, 23),
 (21, 11, 24),
 (22, 11, 14),
-(23, 11, 15);
+(23, 11, 15),
+(24, 11, 16);
 
 -- --------------------------------------------------------
 
@@ -289,7 +299,11 @@ INSERT INTO `assoc_teams_users` (`id`, `team_id`, `user_id`, `accessLevel`, `tea
 (50, 21, 10, 3, 0),
 (51, 21, 11, 3, 0),
 (52, 23, 11, 3, 0),
-(53, 24, 11, 3, 0);
+(53, 24, 11, 3, 0),
+(57, 21, 12, 3, 0),
+(58, 25, 11, 3, 0),
+(59, 16, 10, 3, 0),
+(60, 14, 10, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -358,7 +372,7 @@ INSERT INTO `assoc_users_projects` (`id`, `user_id`, `project_id`, `time_dedicat
 (81, 7, 6, 50, 0, 2),
 (82, 8, 6, 30, 1, 2),
 (90, 8, 7, NULL, 0, 2),
-(91, 8, 3, 80, 0, 2),
+(91, 8, 3, 80, 0, 5),
 (92, 1, 8, 20, 0, 3),
 (93, 2, 8, 50, 0, 2),
 (97, 1, 9, NULL, 0, 1),
@@ -368,7 +382,10 @@ INSERT INTO `assoc_users_projects` (`id`, `user_id`, `project_id`, `time_dedicat
 (101, 2, 11, NULL, 1, 3),
 (102, 3, 11, NULL, 0, 3),
 (103, 8, 11, NULL, 0, 3),
-(104, 9, 11, NULL, 0, 3);
+(104, 9, 11, NULL, 0, 3),
+(105, 7, 11, NULL, 0, 3),
+(106, 11, 11, NULL, 0, 3),
+(107, 12, 11, NULL, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -609,14 +626,14 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `name`, `accomplishment`, `description`, `objective`, `path_dir`, `dateBegin`, `dateEnd`, `project_stage_id`, `priority_id`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`) VALUES
-(3, 'projectManager', 80, 'qsdqsqs', 'dfgdg df dfg ', '3-projectmanager', '2016-12-23 08:00:00', '2016-12-23 18:00:00', 3, 2, '2016-12-23 15:24:20', '2017-02-20 14:28:03', NULL, NULL, NULL, NULL),
+(3, 'projectManager', 80, 'qsdqsqs', 'dfgdg df dfg ', '3-projectmanager', '2016-12-23 08:00:00', '2016-12-23 18:00:00', 3, 2, '2016-12-23 15:24:20', '2017-03-23 14:56:31', NULL, NULL, NULL, NULL),
 (5, 'AAEAEZA', 60, 'azeqsd', 'dfdfgd', NULL, '2016-12-26 08:00:00', '2016-12-26 18:00:00', 2, 3, '2016-12-26 10:36:28', '2016-12-29 10:55:37', NULL, NULL, NULL, NULL),
 (6, 'TestTri', 100, 'qsqdqs  aeaze aaze ', 'qsdq qsd qds qsd', NULL, '2016-12-26 08:00:00', '2016-12-26 18:00:00', 8, 2, '2016-12-26 10:56:02', '2016-12-26 10:56:02', NULL, NULL, NULL, NULL),
 (7, 'Authentification GSP', 20, 'tets', 'test', '7-authentificationgsp', '2017-01-21 08:00:00', '2017-01-25 18:00:00', 5, 3, '2017-01-25 09:28:40', '2017-03-02 14:34:02', NULL, NULL, NULL, NULL),
 (8, 'Authorisation', 50, 'Desc', 'Obj', NULL, '2017-03-09 08:00:00', '2017-06-22 08:01:00', 2, 1, '2017-03-02 12:16:11', '2017-03-02 12:16:11', NULL, NULL, NULL, NULL),
 (9, 'Swift Project', 45, '', '', '', NULL, NULL, 2, 1, '2017-03-06 14:33:25', '2017-03-09 08:13:11', NULL, NULL, NULL, NULL),
-(10, 'Project Aswek 1', 0, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 2, 2, '2017-03-16 16:07:41', '2017-03-16 16:08:09', NULL, NULL, NULL, NULL),
-(11, 'Project Aswek 2', 27, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 3, 1, '2017-03-16 16:09:24', '2017-03-17 08:00:31', NULL, NULL, NULL, NULL);
+(10, 'Project Aswek 1', 0, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 2, 2, '2017-03-16 16:07:41', '2017-03-24 15:19:54', NULL, NULL, NULL, NULL),
+(11, 'Project Aswek 2 test', 27, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 3, 1, '2017-03-16 16:09:24', '2017-03-24 15:20:23', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -672,7 +689,8 @@ INSERT INTO `project_urls` (`id`, `name`, `url`, `project_id`) VALUES
 (7, 'qsdqsd', 'aze', 3),
 (8, 'qsdqsdaze', 'azeaze', 7),
 (9, 'azer', 'azer.com', 5),
-(10, 'azeaze', 'azrazrazr', 9);
+(10, 'azeaze', 'azrazrazr', 9),
+(11, 'teste', 'setset', 11);
 
 -- --------------------------------------------------------
 
@@ -712,17 +730,18 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `description`, `departement_id`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`, `path_image`) VALUES
-(14, 'eq1', 'aze', 9, '2016-12-16 15:06:40', '2017-01-04 09:16:16', NULL, NULL, NULL, NULL, ''),
+(14, 'eq1', 'aze', 9, '2016-12-16 15:06:40', '2017-03-29 14:06:16', NULL, NULL, NULL, NULL, ''),
 (15, 'eq2', 'aze', 9, '2016-12-16 15:08:05', '2017-01-04 09:16:06', NULL, NULL, NULL, NULL, ''),
-(16, 'NothingTeam', 'zrzrzer', 12, '2016-12-26 10:53:09', '2017-01-04 09:16:31', NULL, NULL, NULL, NULL, ''),
-(17, 'TeamNothing', 'zaeaez', 12, '2016-12-26 10:54:07', '2017-01-04 09:16:38', NULL, NULL, NULL, NULL, ''),
+(16, 'NothingTeam', 'zrzrzer', 12, '2016-12-26 10:53:09', '2017-03-25 09:49:17', NULL, NULL, NULL, NULL, ''),
+(17, 'TeamNothing', 'zaeaez', 12, '2016-12-26 10:54:07', '2017-03-29 14:17:45', NULL, NULL, NULL, NULL, ''),
 (18, 'Image test', 'Test', 11, '2017-01-04 09:54:29', '2017-03-02 11:14:13', NULL, NULL, NULL, NULL, 'Sans titre.png'),
 (19, 'test test', 'azeqsd', 10, '2017-01-04 10:40:42', '2017-01-04 10:44:35', NULL, NULL, NULL, NULL, 'lotus.png'),
 (20, 'Swift', '', 13, '2017-03-06 14:32:52', '2017-03-08 10:27:36', NULL, NULL, NULL, NULL, '20-swift'),
-(21, 'Aswek Team 1', 'fqsfqsf', 16, '2017-03-15 15:56:50', '2017-03-16 15:47:10', NULL, NULL, NULL, NULL, '21-qsdqsdqsd'),
+(21, 'Aswek Team 1', 'fqsfqsf', 16, '2017-03-15 15:56:50', '2017-03-23 12:48:16', NULL, NULL, NULL, NULL, '21-qsdqsdqsd'),
 (22, 'Aswek Team 2', 'sdf', 16, '2017-03-16 13:35:18', '2017-03-16 15:52:13', NULL, NULL, NULL, NULL, '22-sdf'),
 (23, 'Aswek Team 3', 'azezea', 17, '2017-03-16 13:52:39', '2017-03-16 15:52:25', NULL, NULL, NULL, NULL, '23-azeeza'),
-(24, 'Aswek Team 4', 'azesqd', 17, '2017-03-16 13:52:49', '2017-03-16 15:52:49', NULL, NULL, NULL, NULL, '24-azeqsd');
+(24, 'Aswek Team 4', 'azesqd', 17, '2017-03-16 13:52:49', '2017-03-16 15:52:49', NULL, NULL, NULL, NULL, '24-azeqsd'),
+(25, 'wxcqsdqsd', 'azezae', 16, '2017-03-23 15:16:16', '2017-03-23 15:16:16', NULL, NULL, NULL, NULL, '25-wxcqsdqsd');
 
 -- --------------------------------------------------------
 
@@ -759,7 +778,7 @@ INSERT INTO `users` (`id`, `name`, `lastName`, `description`, `path_image`, `cre
 (8, 'Francois', 'Hollande', '', '', '2016-12-26 10:55:07', '2016-12-26 10:55:07', NULL, NULL, NULL, NULL),
 (9, 'test', 'test', '', '9-testtest', '2017-02-24 14:42:33', '2017-02-24 14:42:33', NULL, NULL, NULL, NULL),
 (10, 'Mouwafek', 'Zribi', '', '10-mouwafekzribi', '2017-03-15 08:43:34', '2017-03-17 11:01:25', NULL, NULL, NULL, NULL),
-(11, 'Aswek', 'Colaborateur 1', 'azeqsd', '11-aswekcolaborateur1', '2017-03-17 10:02:49', '2017-03-17 16:00:06', NULL, NULL, NULL, NULL),
+(11, 'Aswek', 'Colaborateur 1', 'azeqsd', '11-aswekcolaborateur1', '2017-03-17 10:02:49', '2017-03-23 12:48:38', NULL, NULL, NULL, NULL),
 (12, 'Aswek', 'Colaborateur 2', '', '12-aswekcolaborateur2', '2017-03-17 10:03:24', '2017-03-17 10:03:24', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1022,7 +1041,7 @@ ALTER TABLE `assoc_companies_members`
 -- AUTO_INCREMENT pour la table `assoc_companies_users`
 --
 ALTER TABLE `assoc_companies_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `assoc_departements_criterions`
 --
@@ -1037,7 +1056,7 @@ ALTER TABLE `assoc_departements_members`
 -- AUTO_INCREMENT pour la table `assoc_departements_users`
 --
 ALTER TABLE `assoc_departements_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `assoc_members_projects`
 --
@@ -1052,7 +1071,7 @@ ALTER TABLE `assoc_projects_criterions`
 -- AUTO_INCREMENT pour la table `assoc_projects_teams`
 --
 ALTER TABLE `assoc_projects_teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `assoc_teams_criterions`
 --
@@ -1067,7 +1086,7 @@ ALTER TABLE `assoc_teams_members`
 -- AUTO_INCREMENT pour la table `assoc_teams_users`
 --
 ALTER TABLE `assoc_teams_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT pour la table `assoc_users_actiondisciplinaires`
 --
@@ -1082,7 +1101,7 @@ ALTER TABLE `assoc_users_criterions`
 -- AUTO_INCREMENT pour la table `assoc_users_projects`
 --
 ALTER TABLE `assoc_users_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
 -- AUTO_INCREMENT pour la table `authentifications`
 --
@@ -1132,7 +1151,7 @@ ALTER TABLE `project_stages`
 -- AUTO_INCREMENT pour la table `project_urls`
 --
 ALTER TABLE `project_urls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `rapports`
 --
@@ -1142,7 +1161,7 @@ ALTER TABLE `rapports`
 -- AUTO_INCREMENT pour la table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

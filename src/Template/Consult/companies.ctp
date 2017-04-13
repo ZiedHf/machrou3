@@ -16,12 +16,12 @@
                             <div class="col-md-12 col-sm-12">
                                 <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
                                 >
-                                <?=__('Departements')?>
+                                <?=__('Companies')?>
                             </div>
                         </div>
                   	<div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <h2><?=__('Departements')?> <span class="badge"><?=$numberCompanies?></span></h2>
+                                <h2><?=__('Companies')?> <span class="badge"><?=$numberCompanies?></span></h2>
                                 <table id="companiesTable" class="table table-bordered display" cellspacing="0">
                                     <thead>
                                         <tr>

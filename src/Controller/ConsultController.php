@@ -244,7 +244,8 @@ class ConsultController extends AppController
     {
         //$departements = $this->Departements->getAllDep();
         $departements = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
-        $departements = $departements->toArray();
+        $departements = (isset($departements)) ? $departements->toArray() : array();
+        
         foreach($departements as $keyDep => $departement){
             $dep_id = $departement['id'];
             $departements[$keyDep]['numberTeams'] = $this->Departements->getCountTeamsByDep($dep_id);

@@ -161,7 +161,8 @@ class DepartementsController extends AppController{
         $this->paginate = [
             'maxLimit' => 15
         ];
-        $query = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'))->find('search', ['search' => $this->request->query]);
+        $query = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+        $query = $query->find('search', ['search' => $this->request->query]);
         /*$query = $this->Departements
         ->find('search', ['search' => $this->request->query]);*/
         $departements = $this->paginate($query);
