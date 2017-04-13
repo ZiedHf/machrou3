@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
+        <file>
+            <url>src/Model/Table/DepartementsTable.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>218</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/Controller/CompaniesController.php</url>
+            <bookmark id="3">
+                <name/>
+                <line>93</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/Controller/ConsultController.php</url>
+            <bookmark id="2">
+                <name/>
+                <line>224</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/machari3/src/Controller/ConsultController.php</file>
+            <file>file:/C:/xampp/htdocs/machari3/src/Model/Table/DepartementsTable.php</file>
+            <file>file:/C:/xampp/htdocs/machari3/src/Controller/DepartementsController.php</file>
+            <file>file:/C:/xampp/htdocs/machari3/src/Controller/CompaniesController.php</file>
+            <file>file:/C:/xampp/htdocs/machari3/src/Template/Departements/index.ctp</file>
+            <file>file:/C:/xampp/htdocs/machari3/src/Model/Table/CompaniesTable.php</file>
+        </group>
+    </open-files>
+</project-private>

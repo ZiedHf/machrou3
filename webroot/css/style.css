@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 sept. 2016, 17:01:14
+    Author     : HP-PC
+*/
+
+div.bg-white{
+    background-color: #FFF;
+}
+
+.inline-flex{
+    display: inline-flex;
+}
+
+div.add-btn-index{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+ul.liststyle li{
+    list-style: square;
+}
+.display-inline{display: inline;}
+.display-inlineblock{display: inline-block;}
+.width-5per{width: 5%;}
+.width-10per{width: 10%;}
+.width-15per{width: 15%;}
+.width-20per{width: 20%;}
+.width-25per{width: 25%;}
+.width-30per{width: 30%;}
+.width-40per{width: 40%;}
+.width-50per{width: 50%;}
+
+.marginbtn2px{
+    margin-bottom: 2px;
+}
+.marginleft2px{
+    margin-left: 2px;
+}
+.marginright2px{
+    margin-right: 2px;
+}
+.margintop2px{
+    margin-top: 2px;
+}
+.margintop6px{
+    margin-top: 6px;
+}
+.margintop10px{
+    margin-top: 10px;
+}
+.margintop20px{
+    margin-top: 20px;
+}
+.margintop40px{
+    margin-top: 40px;
+}
+.marginbottom2px{
+    margin-bottom: 2px;
+}
+.marginbottom5px{
+    margin-bottom: 5px;
+}
+.marginbottom15px{
+    margin-bottom: 15px;
+}
+.marginbottom10px{
+    margin-bottom: 10px;
+}
+.marginbottom20px{
+    margin-bottom: 20px;
+}
+.error-message{
+    color: red;
+}
+
+

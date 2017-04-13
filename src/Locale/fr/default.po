@@ -1,0 +1,427 @@
+msgid "View"
+msgstr "Consulter"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "previous"
+msgstr "Précédent"
+
+msgid "next"
+msgstr "Suivant"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "Add User"
+msgstr "Ajouter un employé"
+
+msgid "Add Employee"
+msgstr "Ajouter un collaborateur"
+msgid "Edit Employee"
+msgstr "Modifier un collaborateur"
+
+msgid "Add project"
+msgstr "Ajouter un projet"
+
+msgid "pm"
+msgstr "Gestion des projets"
+
+msgid "Projects"
+msgstr "Projets"
+msgid "projects"
+msgstr "projets"
+msgid "Project"
+msgstr "Projet"
+msgid "project"
+msgstr "projet"
+
+msgid "Users"
+msgstr "Collaborateurs"
+
+msgid "Projects list"
+msgstr "Liste des projets"
+
+msgid "Users list"
+msgstr "Liste des collaborateurs"
+msgid "Employee list"
+msgstr "Liste des collaborateurs"
+msgid "Employees list"
+msgstr "Liste des collaborateurs"
+
+msgid "Clients list"
+msgstr "Liste des clients"
+
+msgid "Control panel"
+msgstr "Panneau de contrôle"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Submit"
+msgstr "Envoyer"
+
+msgid "Teams list"
+msgstr "Liste des équipes"
+
+msgid "Add Team"
+msgstr "Ajouter une équipe"
+
+msgid "Clients"
+msgstr "Clients"
+msgid "client"
+msgstr "client"
+
+msgid "Teams"
+msgstr "Équipes"
+msgid "teams"
+msgstr "équipes"
+msgid "Team"
+msgstr "Équipe"
+msgid "team"
+msgstr "équipe"
+
+msgid "Departements list"
+msgstr "Liste des départements"
+
+msgid "Add Departement"
+msgstr "Ajouter un département"
+
+msgid "Rapports list"
+msgstr "Liste des rapports"
+
+msgid "Add Client"
+msgstr "Ajouter un client"
+
+msgid "Edit Client"
+msgstr "Modifier un client"
+
+msgid "Add Rapport"
+msgstr "Ajouter un rapport"
+
+msgid "Disciplinary actions list"
+msgstr "Liste des actions disciplinaires"
+
+msgid "Add disciplinary actions"
+msgstr "Ajouter une action disciplinaire"
+
+msgid "Edit disciplinary actions"
+msgstr "Modifier l'action disciplinaire"
+
+msgid "Disciplinary actions"
+msgstr "Actions disciplinaires"
+msgid "disciplinary action"
+msgstr "action disciplinaire"
+
+msgid "Edit team"
+msgstr "Modifier l'équipe"
+
+msgid "Edit rapport"
+msgstr "Modifier le rapport"
+
+msgid "Edit User"
+msgstr "Modifier un collaborateur"
+
+msgid "Edit Project"
+msgstr "Modifier le projet"
+
+msgid "Edit Departement"
+msgstr "Modifier le département"
+
+msgid "Users"
+msgstr "Collaborateurs"
+
+msgid "Add Project"
+msgstr "Ajouter un projet"
+
+msgid "January"
+msgstr "Janvier"
+msgid "February"
+msgstr "Février"
+msgid "March"
+msgstr "Mars"
+msgid "April"
+msgstr "Avril"
+msgid "May"
+msgstr "Mai"
+msgid "June"
+msgstr "Juin"
+msgid "July"
+msgstr "Juillet"
+msgid "August"
+msgstr "Août"
+msgid "September"
+msgstr "Septembre"
+msgid "October"
+msgstr "Octobre"
+msgid "November"
+msgstr "Novembre"
+msgid "December"
+msgstr "Décembre"
+
+msgid "Departements"
+msgstr "Départements"
+msgid "Departement"
+msgstr "Département"
+msgid "departement"
+msgstr "département"
+msgid "departements"
+msgstr "départements"
+
+msgid "Employees"
+msgstr "Collaborateurs"
+msgid "employees"
+msgstr "collaborateurs"
+msgid "Employee"
+msgstr "Collaborateur"
+msgid "employee"
+msgstr "collaborateur"
+
+msgid "Teams number"
+msgstr "Nombre des équipes"
+
+msgid "Employees number"
+msgstr "Nombre des collaborateurs"
+
+msgid "Projects number"
+msgstr "Nombre des projets"
+
+msgid "x x are available"
+msgstr "{0} {1} sont disponibles"
+
+msgid "no x are available"
+msgstr "Aucun{0} {1} n'est disponible"
+
+msgid "We are x employees"
+msgstr "Nous avons {0} {1}"
+
+msgid "Our teams work on x projects"
+msgstr "Nos {0} travaillent sur {1} {2}"
+
+msgid "We are working with x clients"
+msgstr "Nous collaborons avec {0} {1}"
+
+msgid "See more .."
+msgstr "Voir plus .."
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Reports"
+msgstr "Rapports"
+msgid "report"
+msgstr "rapport"
+msgid "Name"
+msgstr "Nom"
+msgid "name"
+msgstr "Prénom"
+msgid "lastName"
+msgstr "Nom"
+msgid "Password"
+msgstr "Mot de passe"
+msgid "search"
+msgstr "Rechercher"
+msgid "cancel"
+msgstr "Annuler"
+
+msgid "Project name"
+msgstr "Nom projet"
+msgid "Accomplishment"
+msgstr "Accomplissement"
+msgid "Description"
+msgstr "Description"
+msgid "description"
+msgstr "description"
+msgid "Documents"
+msgstr "Documents"
+msgid "document"
+msgstr "document"
+
+msgid "No attachement"
+msgstr "Aucun{0} {1} n\'est attaché{0}."
+msgid "No employee associated"
+msgstr "Aucun{0} {1} n\'est associé{0} à ce projet."
+msgid "No .. associated to this"
+msgstr "Aucun{0} {1} n\'est associé{0} à {2}."
+
+msgid "Time dedicated"
+msgstr "Temps consacré"
+
+msgid "More info"
+msgstr "Plus d\'info"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Last projects"
+msgstr "Les derniers projets"
+
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+msgid "Profile"
+msgstr "Profile"
+msgid "Sign out"
+msgstr "Déconnection"
+msgid "Menu"
+msgstr "Menu"
+msgid "Version"
+msgstr "Version"
+msgid "Image"
+msgstr "Image"
+msgid "Email"
+msgstr "Email"
+msgid "Created By"
+msgstr "Crée par"
+msgid "Modified By"
+msgstr "Modifié par"
+msgid "Created"
+msgstr "Crée le"
+msgid "Modified"
+msgstr "Modifié le"
+
+msgid "Accomplishment less than .."
+msgstr "Accomplissement moins que .."
+msgid "Accomplishment more than .."
+msgstr "Accomplissement plus que .."
+
+msgid "Calendar"
+msgstr "Calendrier"
+
+msgid "Date Begin"
+msgstr "Date début"
+msgid "Date End"
+msgstr "Date Fin"
+
+msgid "Priorities list"
+msgstr "Liste des prioritiés"
+
+msgid "Stages list"
+msgstr "Étapes de projet"
+
+msgid "ProjectStages"
+msgstr "Étapes des projets"
+msgid "Stages"
+msgstr "Étapes"
+
+msgid "Priorities"
+msgstr "Priorités"
+
+msgid "Priority"
+msgstr "Priorité"
+msgid "priority"
+msgstr "priorité"
+
+msgid "Stage"
+msgstr "Étape"
+msgid "stage"
+msgstr "étape"
+
+msgid "Criterions"
+#msgstr "Critères"
+msgstr "Indicateurs de performance"
+msgid "Criterion"
+#msgstr "Critère"
+msgstr "Indicateur de performance"
+msgid "criterion"
+#msgstr "critère"
+msgstr "indicateur de performance"
+msgid "Add Criterion"
+#msgstr "Ajouter un critère"
+msgstr "Ajouter un indicateur de performance"
+msgid "Edit Criterion"
+#msgstr "Modifier un critère"
+msgstr "Modifier un indicateur de performance"
+msgid "Criterions list"
+#msgstr "Liste des critères"
+msgstr "Liste des indicateurs de performance"
+
+msgid "Content"
+msgstr "Contenu"
+
+msgid "Objective"
+msgstr "Objectif"
+msgid "objective"
+msgstr "objectif"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Percent"
+msgstr "Pourcentage"
+
+msgid "Urls list"
+msgstr "Liste des liens"
+msgid "Url"
+msgstr "Lien"
+msgid "url"
+msgstr "lien"
+msgid "Add Url"
+msgstr "Ajouter un lien"
+msgid "Edit Url"
+msgstr "Modifier un lien"
+
+msgid "UserUrls"
+msgstr "Liens externes" 
+msgid "ProjectUrls"
+msgstr "Liens externes" 
+
+msgid "Error"
+msgstr "Erreur"
+msgid "Success"
+msgstr "L'opération a été réussi"
+
+msgid "has been saved."
+msgstr "{0}{1} a été enregistré{2}."
+msgid "could not be saved. Please, try again."
+msgstr "{0}{1} n'a pas été enregistré{2}. Merci de réessayer encore."
+msgid "has been deleted."
+msgstr "{0}{1} a été supprimé{2}."
+msgid "could not be deleted. Please, try again."
+msgstr "{0}{1} n'a pas été supprimé{2}. Merci de réessayer encore."
+
+msgid "No .. selected"
+msgstr "Aucun{0} {1} selectionné{0}"
+
+msgid "display all the"
+msgstr "Afficher les {0}"
+
+msgid "display all employees of teams"
+msgstr "Afficher tout les {0} des {1} selectionné{2}s"
+
+msgid "ProjectManager"
+msgstr "Chef de projet"
+
+msgid "Choose"
+msgstr "Choisir"
+
+msgid "Add Project Stage"
+msgstr "Ajouter une étape"
+msgid "Edit Project Stage"
+msgstr "Modifier une étape"
+msgid "Add Priority"
+msgstr "Ajouter priorité"
+msgid "Edit Priority"
+msgstr "Modifier priorité"
+
+msgid "file"
+msgstr "fichier"
+
+msgid "Companies"
+msgstr "Sociétés"
+msgid "Company"
+msgstr "Société"
+msgid "company"
+msgstr "société"
+msgid "Edit Company"
+msgstr "Modifier la société"
+msgid "Add Company"
+msgstr "Ajouter une société"
+
+msgid "Retry with another email"
+msgstr "Merci de réesayer avec un autre email."
+
+msgid "Access Rights"
+msgstr "Les droits d'accès"
