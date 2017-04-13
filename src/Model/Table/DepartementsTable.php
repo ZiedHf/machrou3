@@ -330,7 +330,8 @@ class DepartementsTable extends Table
     }
     public function getAllDep(){
         $departements = TableRegistry::get('Departements');
-        $results = $departements->find('all')->contain(['Companies'])->order(['Departements.name' => 'ASC'])->toArray();
+        //$results = $departements->find('all')->contain(['Companies'])->order(['Departements.name' => 'ASC'])->toArray();
+        $results = $departements->find('all')->contain(['Companies'])->order(['Departements.name' => 'ASC']);
         //$results = $departements->find('all')->toArray();
         return $results;
     }
