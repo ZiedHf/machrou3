@@ -25,6 +25,9 @@
 
                             echo $this->Form->label(__('Clients'));
                             echo $this->Form->input('authentification.clients_manager', ['type' => 'checkbox', 'data-toggle' => 'toggle', 'label' => false, 'class' => 'form-control']);
+                            
+                            echo $this->Form->label(__('Group Manager'));
+                            echo $this->Form->input('authentification.group_manager', ['type' => 'checkbox', 'data-toggle' => 'toggle', 'label' => false, 'class' => 'form-control']);
                         ?>
 
             </div>

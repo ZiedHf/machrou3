@@ -103,6 +103,7 @@ class ProjectStagesTable extends Table
         if($group_manager){
             return $this->getCountProjectsByStages($morethan);
         }
+        
         $entity = ($user_type == 'user') ? 'Users' : 'Members';
         
         $stages = TableRegistry::get('ProjectStages');
@@ -114,16 +115,16 @@ class ProjectStagesTable extends Table
             $projects_ids[] =  $project->id;
          }
         }
-        
+        //debug($projects_ids);die();
+        $projects_ids_string = implode("','", $projects_ids);
         $results = $stages->find();
         $results->select(['ProjectStages.id', 'ProjectStages.name', 'total_projects' => $results->func()->count('Projects.id')])
-                ->leftJoinWith('Projects', function ($q) use ($projects_ids) {
-                                        return $q->where(["Projects.id IN" => $projects_ids]);
+                ->leftJoinWith('Projects', function ($q) use ($projects_ids_string) {
+                                        return $q->where(["Projects.id IN" => $projects_ids_string]);
                                     })
                 ->group(['ProjectStages.id'])
                 ->having(['total_projects >' => $morethan])
-                ->order(['order_stage' => 'ASC']);
-                                    
+                ->order(['order_stage' => 'ASC']);         
         //debug();die();
         $results = $results->toArray();
         

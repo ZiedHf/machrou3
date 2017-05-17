@@ -155,12 +155,11 @@ class CompaniesTable extends Table
             
             return $results;
         }elseif($user_type == 'member'){
-            $results_assocWithMembers = $companiesTable->find()->contain(['Departements', 'Companies.Members'])
-                    ->innerJoinWith('Companies.Members', function ($q) use($user_id) {
+            $results_assocWithMembers = $companiesTable->find()->contain(['Departements', 'Members'])
+                    ->innerJoinWith('Members', function ($q) use($user_id) {
                                                 return $q->where(['Members.id' => $user_id, 'AssocCompaniesMembers.accessLevel >' => 0]);
                                             });
-                                            
-            $results_assocWithDeps = $companiesTable->find()->contain(['Departements', 'Companies.Members'])
+            $results_assocWithDeps = $companiesTable->find()->contain(['Departements', 'Members'])
                     ->innerJoinWith('Departements.Members', function ($q) use($user_id) {
                                                 return $q->where(['AssocDepartementsMembers.member_id' => $user_id, 'AssocDepartementsMembers.accessLevel >' => 0]);
                                             });
@@ -221,6 +220,7 @@ class CompaniesTable extends Table
         }
         */
     }
+    
     public function companiesOfThisUser($user_type, $user_id, $group_manager) {
         if($group_manager){
             return $this->getAllCompaniesData();
@@ -228,12 +228,11 @@ class CompaniesTable extends Table
         $companiesTable = TableRegistry::get('Companies');
         //$this->user_type, $this->user_id, $this->Auth->user('group_manager')
         $companies_ids = $this->getCompaniesIdsByUser($user_type, $user_id, $group_manager);
-        $companies_ids_string = implode("','", $companies_ids);
-        //if(!empty($companies_ids)){
-        $results = $companiesTable->find('all')->where(['id IN' => "'".$companies_ids_string."'"]);
+        if(empty($companies_ids)){
+            $companies_ids = '';
+        }
+        $results = $companiesTable->find('all')->where(['id IN' => $companies_ids]);
         return $results;
-        //}
-        return null;
     }
     public function getCountDep(){
         $companiesTable = TableRegistry::get('Companies');

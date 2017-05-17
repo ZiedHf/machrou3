@@ -60,6 +60,7 @@ class MembersTable extends Table
         
         $this->belongsToMany('Projects', [
             'joinTable' => 'assoc_projects_members',
+            'through' => 'AssocMembersProjects'
         ]);
     }
 

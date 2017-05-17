@@ -255,7 +255,13 @@ class DepartementsTable extends Table
         }
         */
         //$results = $results_assocWithComp->union($results_assocWithDep);
-        //$results->union($results_assocWithTeam);
+        if(empty($teams_ids)){
+            $teams_ids = '';
+        }
+        if(empty($project_ids)){
+            $project_ids = '';
+        }
+        
         $results = $departements->find()->contain(['Teams' => ['queryBuilder' => function ($q) use ($teams_ids) {
                                             return $q->where(['Teams.id IN' => $teams_ids])->order(['Teams.name' =>'ASC']);
                                         }], 
@@ -365,6 +371,7 @@ class DepartementsTable extends Table
             
             $results = $results->epilog('ORDER BY Departements__name ASC');
             $results = $results->contain(['Companies']);
+            $deps_ids = array();
             foreach ($results as $dep) {
                 $deps_ids[] = $dep->id;
             }
@@ -391,10 +398,10 @@ class DepartementsTable extends Table
         }
         $departementsTable = TableRegistry::get('Departements');
         $deps_ids = $this->getAllDepByUser($user_type, $user_id, $group_manager);
-        $deps_ids_string = implode("','", $deps_ids);
-        //debug($deps_ids_string);die();
-        //if(!empty($deps_ids)){
-        $results = $departementsTable->find('all')->contain(['Companies'])->where(['Departements.id IN' => "'".$deps_ids_string."'"]);
+        if(empty($deps_ids)){
+            $deps_ids = '';
+        }
+        $results = $departementsTable->find('all')->contain(['Companies'])->where(['Departements.id IN' => $deps_ids]);
         return $results;
         //}
         

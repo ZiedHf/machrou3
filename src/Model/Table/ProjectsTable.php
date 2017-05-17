@@ -55,6 +55,12 @@ class ProjectsTable extends Table
             'joinTable' => 'assoc_users_projects',
             'through' => 'AssocUsersProjects'
         ]);
+        
+        $this->belongsToMany('Members', [
+            'joinTable' => 'assoc_members_projects',
+            'through' => 'AssocMembersProjects'
+        ]);
+        
         $this->belongsToMany('Clients', [
             'joinTable' => 'assoc_clients_projects',
         ]);
@@ -257,7 +263,7 @@ class ProjectsTable extends Table
         }elseif($user_type == 'member'){
             $entity = 'Members';
         }
-                  
+        
         //Les projets sur les quels ce user a l'access selon la societe
         $results_ProjectsCompManager = $projects->find()
                                 ->innerJoinWith("Teams.Departements.Companies.$entity", function ($q) use ($user_id, $entity) {

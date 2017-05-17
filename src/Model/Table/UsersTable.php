@@ -230,11 +230,13 @@ class UsersTable extends Table
         $users = TableRegistry::get('Users');
         if($user_type == 'user'){
             $entity = 'Users';
+            $table = TableRegistry::get('Users');
         }elseif($user_type == 'member'){
             $entity = 'Members';
+            $table = TableRegistry::get('Members');
         }
         //Récupérer tous les id de societe sur les quelles cet utilisateur a l'access
-        $UserCompaniesIds = $users->find('all')->contain(['Companies' => ['queryBuilder' => function ($q) use ($entity) {
+        $UserCompaniesIds = $table->find('all')->contain(['Companies' => ['queryBuilder' => function ($q) use ($entity) {
                                             return $q->where(["AssocCompanies$entity.accessLevel >" => 0]);
                                         }]])->where(["$entity.id" => $user_id])->first();
 
@@ -242,7 +244,7 @@ class UsersTable extends Table
         foreach ($UserCompaniesIds->companies as $key => $company) {
             $companiesIds[] = $company->id;
         }
-
+        
         //Recuperer tous les utilisteur qui appartient à ces societés 
         $results_HaveAccessOnComps = null;
         if(!empty($companiesIds)){
@@ -251,9 +253,8 @@ class UsersTable extends Table
                                             return $q->where(['Companies.id IN' => $companiesIds]);
                                         })->distinct();
         }
-
         //Récupérer tous les id des departements sur les quels cet utilisateur a l'access
-        $UserDepsIds = $users->find('all')->contain(['Departements' => ['queryBuilder' => function ($q) use ($entity) {
+        $UserDepsIds = $table->find('all')->contain(['Departements' => ['queryBuilder' => function ($q) use ($entity) {
                                             return $q->where(["AssocDepartements$entity.accessLevel >" => 0]);
                                         }]])->where(["$entity.id" => $user_id])->first();
 
@@ -269,18 +270,19 @@ class UsersTable extends Table
                                             return $q->where(['Departements.id IN' => $depsIds]);
                                         })->distinct();
         }
-
+        
         //Récupérer ses collegues dans cette société
-        $UserCompaniesIds = $users->find('all')//->contain(['Teams', 'Teams.Departements'])->where(['Users.id' => $user_id])->first();
+        $UserCompaniesIds = $table->find('all')//->contain(['Teams', 'Teams.Departements'])->where(['Users.id' => $user_id])->first();
                                 ->innerJoinWith('Teams.Departements', function ($q) use($companiesIds) {
                                             return $q->select(['Departements.company_id']);
                                         })->where(["$entity.id" => $user_id])->first();
-
+        
         $companiesIds = array();
-        foreach ($UserCompaniesIds->_matchingData as $key => $company) {
-            $companiesIds[] = $company->company_id;
+        if(!empty($UserCompaniesIds)){
+            foreach ($UserCompaniesIds->_matchingData as $key => $company) {
+                $companiesIds[] = $company->company_id;
+            }
         }
-
         //Récupérer les collégues selon les ids des sociétés
         $results_Collaborater = null;
         if(!empty($companiesIds)){
@@ -291,23 +293,28 @@ class UsersTable extends Table
         }
 
         //$results_HaveAccessOnComps $results_HaveAccessOnDeps $results_Collaborater
-        $results_HaveAccessOnComps->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
+        $results = array();
+        if(!empty($results_HaveAccessOnComps)){
+            $results_HaveAccessOnComps->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
                                             return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
                                         }], 'Teams.Projects', 'Teams.Departements', 'Rapports', 'Criterions']);
-
-        $results_HaveAccessOnDeps->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
-                                            return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
-                                        }], 'Teams.Projects', 'Teams.Departements', 'Rapports', 'Criterions']);
-
-        $results_Collaborater->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
-                                            return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
-                                        }], 'Teams.Projects', 'Teams.Departements', 'Rapports', 'Criterions']);
-
-        $results = $results_HaveAccessOnComps->union($results_HaveAccessOnDeps);
-        $results = $results->union($results_Collaborater);
-
-        $results = $results->epilog('ORDER BY Users__name ASC')->toArray();
-
+            $results = $results_HaveAccessOnComps;
+        }
+        if(!empty($results_HaveAccessOnDeps)){
+            $results_HaveAccessOnDeps->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
+                                                return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
+                                            }], 'Teams.Projects', 'Teams.Departements', 'Rapports', 'Criterions']);
+            $results = (empty($results)) ? $results_HaveAccessOnDeps : $results->union($results_HaveAccessOnDeps);
+        }
+        if(!empty($results_Collaborater)){
+            $results_Collaborater->contain(['Authentifications', 'Teams' => ['queryBuilder' => function ($q) {
+                                                return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
+                                            }], 'Teams.Projects', 'Teams.Departements', 'Rapports', 'Criterions']);
+            $results = (empty($results)) ? $results_Collaborater : $results->union($results_Collaborater);
+        }
+        if(!empty($results)) {
+            $results = $results->epilog('ORDER BY Users__name ASC')->toArray();
+        }
         return $results;
         
     }
@@ -337,6 +344,9 @@ class UsersTable extends Table
     public function userInTeams($user_id, $team_ids) {
         $users = TableRegistry::get('Users');
         $results = $users->find()->select(['id', 'name', 'lastName'])->contain(['Teams'])->where(['Users.id' => $user_id]);
+        if(empty($team_ids)){
+            $team_ids = '';
+        }
         $results = $results->matching('Teams', function ($q) use ($team_ids) {
                                             return $q->where(['AssocTeamsUsers.accessLevel >' => '1', 'Teams.id IN' => $team_ids])->autoFields(false);
                                         })->autoFields(false);

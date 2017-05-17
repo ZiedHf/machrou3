@@ -67,8 +67,8 @@ class MembersController extends AppController
             'sortWhitelist' => ['Members.name', 'Members.lastName', 'Authentifications.email']
         ];
         
-        
-        $members = $this->paginate($this->Members);
+        //select all except the superadmin
+        $members = $this->paginate($this->Members->find()->where(['Members.id !=' => '1']));
         $pageName = $this->pageName;
         $this->set(compact('members', 'pageName'));
         $this->set('_serialize', ['members']);
@@ -147,9 +147,7 @@ class MembersController extends AppController
             //$email = (!empty($this->request->data['email'])) ? $this->request->data['email'] : null;
             $member = $this->Members->patchEntity($member, $this->request->data);
             if ($result = $this->Members->save($member, ['associated' => ['Authentifications']])) {
-                
                 $this->Flash->success(__('The member has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The member could not be saved. Please, try again.'));
@@ -164,13 +162,13 @@ class MembersController extends AppController
         $member = $this->Members->get($id, [
             'contain' => ['Authentifications']
         ]);
-        //debug($user);die();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $member = $this->Members->patchEntity($member, $this->request->data);
             
             $conn = ConnectionManager::get('default');
             $conn->begin();
-            if ($result = $this->Members->save($member, ['associated' => ['Authentifications']])) {
+            
+            if (($member->id != 1)&&($result = $this->Members->save($member, ['associated' => ['Authentifications']]))) {
                 try {
                     $this->Flash->success(__('has been saved.', ['Le ', __('member'), '']));
                     $conn->commit();
@@ -198,7 +196,7 @@ class MembersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $member = $this->Members->get($id);
-        if ($this->Members->delete($member)) {
+        if (($member->id != 1)&&($this->Members->delete($member))) {
             $this->Flash->success(__('The member has been deleted.'));
         } else {
             $this->Flash->error(__('The member could not be deleted. Please, try again.'));

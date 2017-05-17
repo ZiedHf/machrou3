@@ -177,6 +177,77 @@ class TeamsTable extends Table
         return $results;
     }
     
+    public function getThisTeamDataByUser($id, $user_type, $user_id, $group_manager){
+        
+        if($group_manager){
+            return $this->getTeamDataById($id);
+        }
+        
+        $teams = TableRegistry::get('Teams');
+        
+        $entity = ($user_type == 'user') ? 'Users' : 'Members';
+        
+        //If this user a l'access a cette societe alors on lui donne l'access
+        $results_assocWithComp = $teams->find()
+                       ->innerJoinWith("Departements.Companies.$entity", function ($q) use($user_id, $entity) {
+                                            return $q->where(["$entity.id" => $user_id, "AssocCompanies$entity.accessLevel >" => 0]);
+                                        })->where(['Teams.id' => $id]);
+        if($results_assocWithComp->count() > 0){
+            return $this->getTeamDataById($id);
+        } 
+        
+        //If this user a l'access a ce dep alors on lui donne l'access
+        $results_assocWithDep = $teams->find()
+                       ->innerJoinWith("Departements.$entity", function ($q) use ($user_id, $entity) {
+                                            return $q->where(["$entity.id" => $user_id, "AssocDepartements$entity.accessLevel >" => 0]);
+                                        })->where(['Teams.id' => $id]);
+        
+        if($results_assocWithDep->count() > 0){
+            return $this->getTeamDataById($id);
+        }  
+        
+        $results_assocWithTeam = $teams->find()
+                       ->innerJoinWith("$entity", function ($q) use ($user_id, $entity) {
+                                            return $q->where(["$entity.id" => $user_id, "AssocTeams$entity.accessLevel >" => 4]);
+                                        })->where(['Teams.id' => $id]);
+        //debug($results_assocWithTeam->toArray());die();
+        if($results_assocWithTeam->count() > 0){
+            return $this->getTeamDataById($id);
+        }  
+        
+        //If this user a l'access a une equipe de cette dep on affiche seulement les info de cette equipes
+        /*$results_assocWithTeam = $teams->find()
+                       ->matching("Teams.$entity", function ($q) use ($user_id, $entity) {
+                                            return $q->where(["$entity.id" => $user_id, "AssocTeams$entity.accessLevel >" => 0]);
+                                        })->where(['Teams.id' => $id]);
+        foreach ($results_assocWithTeam as $dep) {
+            $teams_ids[] = $dep->_matchingData['Teams']->id;
+        }
+        */
+        
+        $projectsTable = TableRegistry::get('Projects');
+        $projectsOfThisUser = $projectsTable->getAllProjectDataByUser(null, $user_type, $user_id, $group_manager);
+        foreach ($projectsOfThisUser as $key => $project) {
+            $project_ids[] = $project->id;
+        }
+        
+        if(empty($project_ids)){
+            $project_ids = '';
+        }
+        
+        $results = $teams->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
+                                                            return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
+                                                        }], 
+                                                'Departements', 
+                                                'Projects' => 
+                                                    ['queryBuilder' => function ($q) use ($project_ids) {
+                                                        return $q->where(['Projects.id IN' => $project_ids])->order(['accomplishment' =>'ASC']);
+                                                    }], 
+                                                'Criterions'])->where(['Teams.id' => $id])->first();
+        
+        return $results;
+    }
+    
     public function getTeamsData(){
         $teams = TableRegistry::get('Teams');
         $results = $teams->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {

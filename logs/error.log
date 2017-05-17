@@ -1,0 +1,1736 @@
+2017-05-17 10:09:31 Error: [Cake\Database\Exception] Impossible to generate condition with empty list of values for field (Projects.id)
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\Comparison.php(162): Cake\Database\Expression\Comparison->_stringExpression(Object(Cake\Database\ValueBinder))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\QueryExpression.php(524): Cake\Database\Expression\Comparison->sql(Object(Cake\Database\ValueBinder))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(237): Cake\Database\Expression\QueryExpression->sql(Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildJoinPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'join')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#18 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php(128): Cake\ORM\Query->toArray()
+#19 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(186): App\Model\Table\ProjectStagesTable->getCountProjectsByStagesByUser(0, 'user', 13, 0)
+#20 [internal function]: App\Controller\ConsultController->index()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#35 {main}
+
+
+2017-05-17 10:10:13 Error: [Cake\Database\Exception] Impossible to generate condition with empty list of values for field (Projects.id)
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\Comparison.php(162): Cake\Database\Expression\Comparison->_stringExpression(Object(Cake\Database\ValueBinder))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\QueryExpression.php(524): Cake\Database\Expression\Comparison->sql(Object(Cake\Database\ValueBinder))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(237): Cake\Database\Expression\QueryExpression->sql(Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildJoinPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'join')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#18 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php(128): Cake\ORM\Query->toArray()
+#19 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(187): App\Model\Table\ProjectStagesTable->getCountProjectsByStagesByUser(0, 'user', 13, 0)
+#20 [internal function]: App\Controller\ConsultController->index()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#35 {main}
+
+
+2017-05-17 10:16:06 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 119]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+implode - [internal], line ??
+App\Model\Table\ProjectStagesTable::getCountProjectsByStagesByUser() - APP/Model\Table\ProjectStagesTable.php, line 119
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 186
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:06 Error: [Cake\Database\Exception] Impossible to generate condition with empty list of values for field (Projects.id)
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\Comparison.php(162): Cake\Database\Expression\Comparison->_stringExpression(Object(Cake\Database\ValueBinder))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\QueryExpression.php(524): Cake\Database\Expression\Comparison->sql(Object(Cake\Database\ValueBinder))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(237): Cake\Database\Expression\QueryExpression->sql(Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildJoinPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'join')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#18 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php(130): Cake\ORM\Query->toArray()
+#19 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(186): App\Model\Table\ProjectStagesTable->getCountProjectsByStagesByUser(0, 'user', 13, 0)
+#20 [internal function]: App\Controller\ConsultController->index()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#35 {main}
+
+
+2017-05-17 10:16:06 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:06 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:06 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:06 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:21 Error: [Cake\Database\Exception] Impossible to generate condition with empty list of values for field (Projects.id)
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\Comparison.php(162): Cake\Database\Expression\Comparison->_stringExpression(Object(Cake\Database\ValueBinder))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\QueryExpression.php(524): Cake\Database\Expression\Comparison->sql(Object(Cake\Database\ValueBinder))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(237): Cake\Database\Expression\QueryExpression->sql(Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildJoinPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'join')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#18 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php(130): Cake\ORM\Query->toArray()
+#19 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(186): App\Model\Table\ProjectStagesTable->getCountProjectsByStagesByUser(0, 'user', 13, 0)
+#20 [internal function]: App\Controller\ConsultController->index()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#35 {main}
+
+
+2017-05-17 10:16:21 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:21 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:21 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:21 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:34 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:16:35 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-05-17 10:16:35 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:17:28 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:17:28 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-05-17 10:17:28 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:18:28 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:18:28 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-05-17 10:18:28 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:21:11 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:21:11 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-05-17 10:21:11 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:21:31 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:23:11 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 281]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 281
+App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
+App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:23:12 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-05-17 10:23:12 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:23:20 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('user', 13, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('user', 13, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 10:27:15 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php, line 396]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/companies
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+implode - [internal], line ??
+App\Model\Table\DepartementsTable::departementsOfThisUser() - APP/Model\Table\DepartementsTable.php, line 396
+App\Controller\ConsultController::departements() - APP/Controller\ConsultController.php, line 246
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:27:16 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/companies
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:27:16 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/companies
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:27:16 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/companies
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:27:16 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/companies
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 10:31:02 Error: [InvalidArgumentException] Projects is not associated with Members
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\ProjectsTable), 'Members', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(383): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\ProjectsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\ProjectsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\ProjectsTable), true)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(283): Cake\ORM\Query->sql(Object(Cake\Database\ValueBinder))
+#6 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#23 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php(340): Cake\ORM\Query->toArray()
+#24 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(180): App\Model\Table\ProjectsTable->getAllProjectDataByUser(NULL, 'member', 3, 0)
+#25 [internal function]: App\Controller\ConsultController->index()
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#35 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#36 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#37 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#39 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#40 {main}
+
+
+2017-05-17 10:32:31 Error: [InvalidArgumentException] Projects is not associated with Members
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\ProjectsTable), 'Members', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(383): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\ProjectsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\ProjectsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\ProjectsTable), true)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(283): Cake\ORM\Query->sql(Object(Cake\Database\ValueBinder))
+#6 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#23 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php(340): Cake\ORM\Query->toArray()
+#24 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(179): App\Model\Table\ProjectsTable->getAllProjectDataByUser(NULL, 'member', 3, 0)
+#25 [internal function]: App\Controller\ConsultController->index()
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#35 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#36 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#37 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#39 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#40 {main}
+
+
+2017-05-17 10:33:35 Error: [InvalidArgumentException] Projects is not associated with Members
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\ProjectsTable), 'Members', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(383): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\ProjectsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\ProjectsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\ProjectsTable), true)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(283): Cake\ORM\Query->sql(Object(Cake\Database\ValueBinder))
+#6 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#23 C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php(340): Cake\ORM\Query->toArray()
+#24 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(179): App\Model\Table\ProjectsTable->getAllProjectDataByUser(NULL, 'member', 3, 0)
+#25 [internal function]: App\Controller\ConsultController->index()
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#35 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#36 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#37 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#39 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#40 {main}
+
+
+2017-05-17 10:41:39 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(212): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:44:29 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:47:33 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:47:57 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:48:06 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:48:15 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Members.id' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#10 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#11 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#12 [internal function]: App\Controller\ConsultController->index()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-05-17 10:55:46 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AssocCompaniesMembers.accessLevel' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Association\BelongsToMany.php(456): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Association\SelectableAssociationTrait.php(49): Cake\ORM\Association\BelongsToMany->_buildResultMap(Object(Cake\ORM\Query), Array)
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(593): Cake\ORM\Association\BelongsToMany->eagerLoader(Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\ORM\EagerLoader->loadExternal(Object(Cake\ORM\Query), Object(Cake\Database\Statement\BufferedStatement))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#15 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#16 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#17 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#18 [internal function]: App\Controller\ConsultController->index()
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#33 {main}
+
+
+2017-05-17 10:56:03 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AssocCompaniesMembers.accessLevel' in 'where clause'
+Request URL: /consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Association\BelongsToMany.php(456): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Association\SelectableAssociationTrait.php(49): Cake\ORM\Association\BelongsToMany->_buildResultMap(Object(Cake\ORM\Query), Array)
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(593): Cake\ORM\Association\BelongsToMany->eagerLoader(Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\ORM\EagerLoader->loadExternal(Object(Cake\ORM\Query), Object(Cake\Database\Statement\BufferedStatement))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(404): Cake\ORM\Query->all()
+#15 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(239): Cake\ORM\Query->first()
+#16 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#17 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#18 [internal function]: App\Controller\ConsultController->index()
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#33 {main}
+
+
+2017-05-17 11:02:15 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 11:04:05 Error: [Error] Call to a member function contain() on null
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php(186): App\Model\Table\UsersTable->getAllEmployeesDataByUser('member', 3, 0)
+#1 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(211): App\Model\Table\UsersTable->getCountEmpByUser('member', 3, 0)
+#2 [internal function]: App\Controller\ConsultController->index()
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-05-17 11:05:54 Error: Fatal Error (1): Uncaught Error: Call to a member function sql() on null in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php:283
+Stack trace:
+#0 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php, line 283]
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 216
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 97
+[main] - [internal], line ??
+
+
+
+2017-05-17 11:05:55 Error: [Cake\Error\FatalErrorException] Uncaught Error: Call to a member function sql() on null in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php:283
+Stack trace:
+#0 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder
+Request URL: /machrou3/consult
+Referer URL: http://localhost/machrou3/
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(97): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Uncaught Error:...', 'C:\\xampp\\htdocs...', 283)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2017-05-17 11:12:52 Error: [InvalidArgumentException] Companies is not associated with Companies
+Request URL: /consult/companies
+Referer URL: http://localhost/machrou3/consult
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\CompaniesTable), 'Companies', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(382): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\CompaniesTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\CompaniesTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\CompaniesTable), true)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#13 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(226): Cake\ORM\Query->toArray()
+#14 [internal function]: App\Controller\ConsultController->companies()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#29 {main}
+
+
+2017-05-17 11:16:30 Error: [InvalidArgumentException] Companies is not associated with Companies
+Request URL: /consult/companies
+Referer URL: http://localhost/machrou3/consult
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\CompaniesTable), 'Companies', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(382): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\CompaniesTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\CompaniesTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\CompaniesTable), true)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(283): Cake\ORM\Query->sql(Object(Cake\Database\ValueBinder))
+#6 [internal function]: Cake\Database\QueryCompiler->Cake\Database\{closure}(Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(291): array_map(Object(Closure), Array)
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(140): Cake\Database\QueryCompiler->_buildUnionPart(Array, Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Array, 'union')
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#23 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(226): Cake\ORM\Query->toArray()
+#24 [internal function]: App\Controller\ConsultController->companies()
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#34 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#35 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#36 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#37 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#39 {main}
+
+
+2017-05-17 11:19:57 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous
+Request URL: /consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php(401): Cake\ORM\Query->toArray()
+#10 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(246): App\Model\Table\DepartementsTable->departementsOfThisUser('member', 3, 0)
+#11 [internal function]: App\Controller\ConsultController->departements()
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#26 {main}
+
+
+2017-05-17 11:24:33 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 11:24:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 11:24:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 11:24:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 11:49:59 Error: [InvalidArgumentException] Cannot convert value to integer
+Request URL: /consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\TypeConverterTrait.php(37): Cake\Database\Type\IntegerType->toDatabase(Array, Object(Cake\Database\Driver\Mysql))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\PDOStatement.php(70): Cake\Database\Statement\StatementDecorator->cast(Array, Object(Cake\Database\Type\IntegerType))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(105): Cake\Database\Statement\PDOStatement->bindValue('c0', Array, 'integer')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(98): Cake\Database\Statement\StatementDecorator->bindValue('c0', Array, 'integer')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\ValueBinder.php(147): Cake\Database\Log\LoggingStatement->bindValue('c0', Array, 'integer')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(275): Cake\Database\ValueBinder->attachTo(Object(Cake\Database\Log\LoggingStatement))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#11 C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php(399): Cake\ORM\Query->toArray()
+#12 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(246): App\Model\Table\DepartementsTable->departementsOfThisUser('member', 3, 0)
+#13 [internal function]: App\Controller\ConsultController->departements()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#28 {main}
+
+
+2017-05-17 11:50:23 Error: [InvalidArgumentException] Cannot convert value to integer
+Request URL: /consult/departements
+Referer URL: http://localhost/machrou3/consult/view-departement/9
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\TypeConverterTrait.php(37): Cake\Database\Type\IntegerType->toDatabase(Array, Object(Cake\Database\Driver\Mysql))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\PDOStatement.php(70): Cake\Database\Statement\StatementDecorator->cast(Array, Object(Cake\Database\Type\IntegerType))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(105): Cake\Database\Statement\PDOStatement->bindValue('c0', Array, 'integer')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(98): Cake\Database\Statement\StatementDecorator->bindValue('c0', Array, 'integer')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\ValueBinder.php(147): Cake\Database\Log\LoggingStatement->bindValue('c0', Array, 'integer')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(275): Cake\Database\ValueBinder->attachTo(Object(Cake\Database\Log\LoggingStatement))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#11 C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php(399): Cake\ORM\Query->toArray()
+#12 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(246): App\Model\Table\DepartementsTable->departementsOfThisUser('member', 3, 0)
+#13 [internal function]: App\Controller\ConsultController->departements()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#28 {main}
+
+
+2017-05-17 13:25:03 Error: [BadMethodCallException] Unknown method "where"
+Request URL: /members
+Referer URL: http://localhost/machrou3/members
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Controller\MembersController.php(71): Cake\ORM\Table->__call('where', Array)
+#1 [internal function]: App\Controller\MembersController->index()
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\MembersController))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-05-17 13:25:18 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous
+Request URL: /members
+Referer URL: http://localhost/machrou3/members
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Component\PaginatorComponent.php(189): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(713): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\MembersTable), Array)
+#10 C:\xampp\htdocs\machrou3\src\Controller\MembersController.php(71): Cake\Controller\Controller->paginate(Object(Cake\ORM\Query))
+#11 [internal function]: App\Controller\MembersController->index()
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\MembersController))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#26 {main}
+
+
+2017-05-17 13:59:03 Error: [Cake\Database\Exception] Impossible to generate condition with empty list of values for field (id)
+Request URL: /companies
+Referer URL: http://localhost/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\Comparison.php(162): Cake\Database\Expression\Comparison->_stringExpression(Object(Cake\Database\ValueBinder))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Expression\QueryExpression.php(524): Cake\Database\Expression\Comparison->sql(Object(Cake\Database\ValueBinder))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(132): Cake\Database\Expression\QueryExpression->sql(Object(Cake\Database\ValueBinder))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(257): Cake\Database\QueryCompiler->Cake\Database\{closure}(Object(Cake\Database\Expression\QueryExpression), 'where')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\QueryCompiler.php(99): Cake\Database\Query->traverse(Object(Closure), Array)
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver.php(333): Cake\Database\QueryCompiler->compile(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(262): Cake\Database\Driver->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(228): Cake\Database\Connection->compileQuery(Object(Cake\ORM\Query), Object(Cake\Database\ValueBinder))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(936): Cake\Database\Query->sql(Object(Cake\Database\ValueBinder))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Component\PaginatorComponent.php(189): Cake\ORM\Query->all()
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(713): Cake\Controller\Component\PaginatorComponent->paginate(Object(App\Model\Table\CompaniesTable), Array)
+#18 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(95): Cake\Controller\Controller->paginate(Object(Cake\ORM\Query))
+#19 [internal function]: App\Controller\CompaniesController->index()
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#27 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#29 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#30 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#34 {main}
+
+
+2017-05-17 14:46:19 Error: [InvalidArgumentException] Teams is not associated with Companies
+Request URL: /consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\TeamsTable), 'Companies', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(383): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\TeamsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\TeamsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\TeamsTable), false)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(817): Cake\Database\Query->execute()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(767): Cake\ORM\Query->_performCount()
+#11 C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php(195): Cake\ORM\Query->count()
+#12 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(330): App\Model\Table\TeamsTable->getThisTeamDataByUser('22', 'user', 13, 0)
+#13 [internal function]: App\Controller\ConsultController->viewTeamInfo('22')
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#28 {main}
+
+
+2017-05-17 14:47:14 Error: [InvalidArgumentException] Teams is not associated with Companies
+Request URL: /consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\TeamsTable), 'Companies', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(383): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\TeamsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\TeamsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\TeamsTable), false)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(136): Cake\ORM\Query->sql()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(221): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(817): Cake\Database\Query->execute()
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(767): Cake\ORM\Query->_performCount()
+#11 C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php(195): Cake\ORM\Query->count()
+#12 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(330): App\Model\Table\TeamsTable->getThisTeamDataByUser('22', 'user', 13, 0)
+#13 [internal function]: App\Controller\ConsultController->viewTeamInfo('22')
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#28 {main}
+
+
+2017-05-17 14:48:50 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AssocDepartementsUsers.accessLevel' in 'on clause'
+Request URL: /consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(817): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(767): Cake\ORM\Query->_performCount()
+#7 C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php(204): Cake\ORM\Query->count()
+#8 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(330): App\Model\Table\TeamsTable->getThisTeamDataByUser('22', 'user', 13, 0)
+#9 [internal function]: App\Controller\ConsultController->viewTeamInfo('22')
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#24 {main}
+
+
+2017-05-17 14:50:39 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AssocDepartementsUsers.accessLevel' in 'on clause'
+Request URL: /consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(957): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(905): Cake\ORM\Query->_all()
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(293): Cake\ORM\Query->all()
+#9 C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php(204): Cake\ORM\Query->toArray()
+#10 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(330): App\Model\Table\TeamsTable->getThisTeamDataByUser('22', 'user', 13, 0)
+#11 [internal function]: App\Controller\ConsultController->viewTeamInfo('22')
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#26 {main}
+
+
+2017-05-17 14:54:06 Warning: Warning (2): end() expects parameter 1 to be array, null given in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 19]
+Request URL: /machrou3/consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+end - [internal], line ??
+include - APP/Template\Element\pagedata\teaminfo.ctp, line 19
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Consult\view_team_info.ctp, line 26
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 14:54:06 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 21]
+Request URL: /machrou3/consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+include - APP/Template\Element\pagedata\teaminfo.ctp, line 21
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
+Cake\View\View::element() - CORE\src\View\View.php, line 501
+include - APP/Template\Consult\view_team_info.ctp, line 26
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
+Cake\View\View::_render() - CORE\src\View\View.php, line 973
+Cake\View\View::render() - CORE\src\View\View.php, line 597
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-05-17 14:54:06 Error: [InvalidArgumentException] Teams is not associated with Teams
+Request URL: /consult/view-team-info/22
+Referer URL: http://localhost/machrou3/consult/teams-list
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(256): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\TeamsTable), 'Teams', Array, Array)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(382): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\TeamsTable))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(353): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\TeamsTable))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(984): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\TeamsTable), false)
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(935): Cake\ORM\Query->_transformQuery()
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(1956): Cake\ORM\Query->sql()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Query.php(1132): Cake\Database\Query->__debugInfo()
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php(89): Cake\ORM\Query->__debugInfo()
+#8 [internal function]: DebugKit\Panel\VariablesPanel->DebugKit\Panel\{closure}(Object(Cake\ORM\Query), 'team')
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php(113): array_walk_recursive(Array, Object(Closure))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Event\EventManager.php(422): DebugKit\Panel\VariablesPanel->shutdown(Object(Cake\Event\Event))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Event\EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(518): Cake\Controller\Controller->dispatchEvent('Controller.shut...')
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(132): Cake\Controller\Controller->shutdownProcess()
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ConsultController))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+

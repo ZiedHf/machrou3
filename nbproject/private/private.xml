@@ -28,12 +28,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/machari3/src/Controller/ConsultController.php</file>
-            <file>file:/C:/xampp/htdocs/machari3/src/Model/Table/DepartementsTable.php</file>
-            <file>file:/C:/xampp/htdocs/machari3/src/Controller/DepartementsController.php</file>
-            <file>file:/C:/xampp/htdocs/machari3/src/Controller/CompaniesController.php</file>
-            <file>file:/C:/xampp/htdocs/machari3/src/Template/Departements/index.ctp</file>
-            <file>file:/C:/xampp/htdocs/machari3/src/Model/Table/CompaniesTable.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Users/index.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Consult/index.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Layout/dashgumfree.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/UsersTable.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/AppController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/ConsultController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/UsersController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Consult/teams_list.ctp</file>
         </group>
     </open-files>
 </project-private>

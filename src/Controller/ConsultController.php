@@ -176,15 +176,15 @@ class ConsultController extends AppController
     public function index(){
         //$departements = $this->Departements->getAllDepData();
         $departements = $this->Departements->getAllDepDataOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
-        //getAllDepByUser
         $projects = $this->Projects->getAllProjectDataByUser(null, $this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+
         //$projects = $this->Projects->getAllProjectDataByDepByUser();
+        $project_ids = array();
         foreach ($projects as $key => $project) {
             $project_ids[] = $project->id;
         }
         //$projectStages = $this->ProjectStages->getCountProjectsByStages(0); //have more than 0 project
         $projectStages = $this->ProjectStages->getCountProjectsByStagesByUser(0, $this->user_type, $this->user_id, $this->Auth->user('group_manager')); //have more than 0 project
-        //
         /*$projectStages = $this->ProjectStages->getAllstages();*/
         //debug($this->Auth->user());die();
         //$this->viewBuilder()->layout('consult2');
@@ -210,6 +210,7 @@ class ConsultController extends AppController
         $numberClients = $this->Clients->getCountClients();
         $numberTeams = $this->Teams->getCountTeamsByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $numberEmp = $this->Users->getCountEmpByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+        
         $numberProjects = $this->Projects->getCountProjectsByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $arrayNumber = array('numberDeps' => $numberDeps, 'numberTeams' => $numberTeams, 'numberEmp' => $numberEmp, 'numberProjects' => $numberProjects, 'numberClients' => $numberClients);
         //debug($numberProjects);die();
@@ -323,10 +324,10 @@ class ConsultController extends AppController
         $numberteams = $this->Teams->getCountTeams();
         $pageName = 'Equipes';
         $this->set(compact('pageName', 'teams', 'numberteams'));
-        
     }
     public function viewTeamInfo($id) {
-        $team = $this->Teams->getTeamDataById($id);
+        //$team = $this->Teams->getTeamDataById($id);
+        $team = $this->Teams->getThisTeamDataByUser($id, $this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         //debug($team);die();
         $pageName = 'Equipes';
         $this->set(compact('pageName', 'team'));
