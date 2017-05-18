@@ -167,7 +167,10 @@ class MembersController extends AppController
             
             $conn = ConnectionManager::get('default');
             $conn->begin();
-            
+            if(($member->authentification->group_manager == $this->request->data['authentification']['group_manager'])&&($member->authentification->member_id != 1)){
+                $this->request->data['authentification']['group_manager'] = $member->authentification->group_manager;
+                $this->Flash->error(__('Only the superadmin can modify the group manager.'));
+            }
             if (($member->id != 1)&&($result = $this->Members->save($member, ['associated' => ['Authentifications']]))) {
                 try {
                     $this->Flash->success(__('has been saved.', ['Le ', __('member'), '']));

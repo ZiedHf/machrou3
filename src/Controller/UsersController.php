@@ -455,12 +455,15 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['Authentifications']
         ]);
-        //debug($user);die();
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data, ['associated' => ['Authentifications']]);
-            
             $conn = ConnectionManager::get('default');
             $conn->begin();
+            if(($user->authentification->group_manager == $this->request->data['authentification']['group_manager'])&&($user->authentification->member_id != 1)){
+                $this->request->data['authentification']['group_manager'] = $user->authentification->group_manager;
+                $this->Flash->error(__('Only the superadmin can modify the group manager.'));
+            }
             if ($this->Users->save($user, ['associated' => ['Authentifications']])) {
                 try {
                     $this->Flash->success(__('has been saved.', ['Le ', __('employee'), '']));
