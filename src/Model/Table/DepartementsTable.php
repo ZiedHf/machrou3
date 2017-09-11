@@ -523,22 +523,14 @@ class DepartementsTable extends Table
     
     public function heIsADepartementManager($user_id, $type) {
         $departementsTable = TableRegistry::get('Departements');
-        if($type === 'user'){    
-            $query = $departementsTable->find()->hydrate(false)->contain(['Users'])
-                        ->matching('Users', function ($q) use($user_id) {
-                                                return $q->where(['Users.id' => $user_id, 'AssocDepartementsUsers.accessLevel' => 5]);
-                                            });
-            if($query->count() > 0) {
-                return true;
-            }
-        }elseif($type === 'member'){
-            $query = $departementsTable->find()->hydrate(false)->contain(['Members'])
-                        ->matching('Members', function ($q) use($user_id) {
-                                                return $q->where(['Members.id' => $user_id, 'AssocDepartementsMembers.accessLevel' => 5]);
-                                            })->first();
-            if($query->count() > 0) {
-                return true;
-            }
+        $entity = ($type === 'user') ? 'Users' : 'Members';
+        
+        $query = $departementsTable->find()->hydrate(false)->contain([$entity])
+                    ->matching($entity, function ($q) use($user_id, $entity) {
+                                            return $q->where([$entity.'.id' => $user_id, "AssocDepartements$entity.accessLevel" => 5]);
+                                        });
+        if($query->count() > 0) {
+            return true;
         }
         return false;
     }

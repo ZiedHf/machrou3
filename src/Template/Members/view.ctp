@@ -6,11 +6,13 @@
                 <?= $this->Html->link('<i class="fa fa-list-ul" aria-hidden="true"></i>', ['action' => 'index'], ['escape' => false]) ?>
             </div>
         </legend>
+    </div>
+</div>
 <div class="members view large-9 medium-8 columns content">
     <h3><?= h($member->name) ?></h3>
     <table class="table table-striped table-hover">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
+            <th scope="row"><?= __('name') ?></th>
             <td><?= h($member->name) ?></td>
         </tr>
         <tr>
@@ -18,20 +20,8 @@
             <td><?= h($member->lastName) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Path Image') ?></th>
-            <td><?= h($member->path_image) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Email') ?></th>
             <td><?= (!empty($member->authentification)) ? h($member->authentification->email) : '-' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created By') ?></th>
-            <td><?= $this->Number->format($member->created_by) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified By') ?></th>
-            <td><?= $this->Number->format($member->modified_by) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

@@ -22,6 +22,13 @@ class TeamsController extends AppController
         $this->pageName = 'Teams';
         $this->dir = TEAMS_UPLOAD;
         $this->loadComponent('Search.Prg', ['actions' => ['index', 'lookup']]);
+        
+        $this->user_type = $this->Auth->user('type');
+        if($this->user_type == 'user'){
+            $this->user_id = $this->Auth->user('user_id');
+        }elseif($this->user_type == 'member'){
+            $this->user_id = $this->Auth->user('member_id');
+        }
     }
     
     public function isAuthorized($user = null){
@@ -52,7 +59,6 @@ class TeamsController extends AppController
                     }
                 }
             }
-            
         }    
             /*
              * Donner l'access à tous les membres de projet sans exception
@@ -166,12 +172,18 @@ class TeamsController extends AppController
      * @return \Cake\Network\Response|null
      */
     public function index(){
+//        $query = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+//        $query = $query->find('search', ['search' => $this->request->query]);
+//        $departements = $this->paginate($query);
+        
+        //debug($teams);die();
+        
         $this->paginate = [
             'contain' => ['Departements'],
             'maxLimit' => 15
         ];
-        $query = $this->Teams
-        ->find('search', ['search' => $this->request->query]);
+        $query = $this->Teams->getTeamsDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+        $query = $query->find('search', ['search' => $this->request->query]);
         
         $teams = $this->paginate($query);
         
@@ -190,7 +202,7 @@ class TeamsController extends AppController
      */
     public function view($id = null){
         $team = $this->Teams->get($id, [
-            'contain' => ['Departements', 'Projects', 'Users' => ['queryBuilder' => function ($q) {
+            'contain' => ['Departements', 'Departements.Companies', 'Projects', 'Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
                                                         }], 'Criterions']
         ]);

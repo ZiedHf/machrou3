@@ -236,7 +236,8 @@ class ConsultController extends AppController
             $departements[$keyDep]['employees'] = $this->Users->getUsersByIdDep($dep_id);
         }
         */
-        $numberCompanies = $this->Companies->getCountDep();
+        //$numberCompanies = $this->Companies->getCountDep();
+        $numberCompanies = count($companies);
         $pageName = 'Companies';
         $this->set(compact('numberCompanies', 'companies', 'pageName'));
     }
@@ -255,7 +256,8 @@ class ConsultController extends AppController
             $departements[$keyDep]['employees'] = $this->Users->getUsersByIdDep($dep_id);
         }
         //debug($departements); die();
-        $numberDepartements = $this->Departements->getCountDep();
+        //$numberDepartements = $this->Departements->getCountDep();
+        $numberDepartements = count($departements);
         $pageName = 'Départements';
         $this->set(compact('departements', 'projects', 'cakeDescription', 'pageName', 'arrayNumber', 'numberDepartements'));
         //$this->set('_serialize', ['departements']);
@@ -314,14 +316,15 @@ class ConsultController extends AppController
     }
     
     public function teamsList() {
-        $teams = $this->Teams->getTeamsDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
+        $teams = $this->Teams->getTeamsDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'))->toArray();
         foreach ($teams as $key => $team) {
             $id = $team['id'];
             $teams[$key]['numberProjects'] = $this->Teams->getCountProjectsByTeam($id);
             $teams[$key]['numberUsers'] = $this->Teams->getCountUsersByTeam($id);
         }
         
-        $numberteams = $this->Teams->getCountTeams();
+        //$numberteams = $this->Teams->getCountTeams();
+        $numberteams = count($teams);
         $pageName = 'Equipes';
         $this->set(compact('pageName', 'teams', 'numberteams'));
     }
@@ -339,7 +342,8 @@ class ConsultController extends AppController
         $projects = $this->Projects->getAllProjectDataByUser($stage_id, $this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         //();
         //debug($projects);die();
-        $numberProjects = $this->Projects->getCountProjects();
+        //$numberProjects = $this->Projects->getCountProjects();
+        $numberProjects = count($projects);
         $files = null;
         foreach ($projects as $key => $project) {
             if($project->path_dir !== null){
@@ -374,7 +378,8 @@ class ConsultController extends AppController
     
     public function employeesList() {
         $employees = $this->Users->getAllEmployeesDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
-        $numberEmp = $this->Users->getCountEmp();
+        //$numberEmp = $this->Users->getCountEmp();
+        $numberEmp = count($employees);
         $pageName = 'Employés';
         
         $this->set(compact('pageName', 'employees', 'numberEmp'));
@@ -433,53 +438,5 @@ class ConsultController extends AppController
         //debug($projects); die();
         $pageName = 'Calendar';
         $this->set(compact('pageName', 'projects'));
-    }
-    public function add()
-    {
-        /*$departement = $this->Departements->newEntity();
-        if ($this->request->is('post')) {
-            $departement = $this->Departements->patchEntity($departement, $this->request->data);
-            if ($this->Departements->save($departement)) {
-                $this->Flash->success(__('The departement has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The departement could not be saved. Please, try again.'));
-            }
-        }
-        $this->set(compact('departement'));
-        $this->set('_serialize', ['departement']);*/
-    }
-
-    public function edit($id = null)
-    {
-        /*$departement = $this->Departements->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $departement = $this->Departements->patchEntity($departement, $this->request->data);
-            if ($this->Departements->save($departement)) {
-                $this->Flash->success(__('The departement has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The departement could not be saved. Please, try again.'));
-            }
-        }
-        $this->set(compact('departement'));
-        $this->set('_serialize', ['departement']);*/
-    }
-
-    public function delete($id = null)
-    {
-        /*$this->request->allowMethod(['post', 'delete']);
-        $departement = $this->Departements->get($id);
-        if ($this->Departements->delete($departement)) {
-            $this->Flash->success(__('The departement has been deleted.'));
-        } else {
-            $this->Flash->error(__('The departement could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);*/
     }
 }

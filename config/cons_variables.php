@@ -7,7 +7,7 @@
  */
 
 define('Name_app', 'Machrou3');
-define('Version', '0.9');
+define('Version', '1.1 (dev)');
 define('DOSSIER_RACINE', 'machrou3');
 //Project Files
 define('PROJECTS_UPLOAD', WWW_ROOT.'uploads'.DS.'projects');

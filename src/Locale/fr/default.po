@@ -220,6 +220,8 @@ msgid "name"
 msgstr "Prénom"
 msgid "lastName"
 msgstr "Nom"
+msgid "LastName"
+msgstr "Nom"
 msgid "Password"
 msgstr "Mot de passe"
 msgid "search"
@@ -246,6 +248,12 @@ msgid "No employee associated"
 msgstr "Aucun{0} {1} n\'est associé{0} à ce projet."
 msgid "No .. associated to this"
 msgstr "Aucun{0} {1} n\'est associé{0} à {2}."
+
+msgid "Assoc"
+msgstr "Association"
+
+msgid "Members"
+msgstr "Membres"
 
 msgid "Time dedicated"
 msgstr "Temps consacré"
@@ -425,3 +433,27 @@ msgstr "Merci de réesayer avec un autre email."
 
 msgid "Access Rights"
 msgstr "Les droits d'accès"
+
+msgid "assocCompaniesMembers"
+msgstr "Association : Membres / Sociétés"
+
+msgid "assocUsersProjects"
+msgstr "Association : Collaborateurs / Projects"
+
+msgid "assocTeamsUsers"
+msgstr "Association : Collaborateurs / Equipes"
+
+msgid "assocTeamsMembers"
+msgstr "Association : Membres / Equipes"
+
+msgid "assocMembersProjects"
+msgstr "Association : Membres / Projects"
+
+msgid "assocDepartementsUsers"
+msgstr "Association : Collaborateurs / Départements"
+
+msgid "assocDepartementsMembers"
+msgstr "Association : Membres / Départements"
+
+msgid "assocCompaniesUsers"
+msgstr "Association : Collaborateurs / Sociétés"

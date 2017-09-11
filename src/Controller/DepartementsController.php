@@ -94,14 +94,14 @@ class DepartementsController extends AppController{
         }
         //sessionUserId User ou Member
         $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
-        //Si l'action est add = test s'il est un Manager d'une societe 
+        //Si l'action est add = test s'il est un Manager d'une societe, he have access to this function 
         if((in_array($this->request->action, ['add']))&&($this->Departements->Companies->heIsACompanyManager($sessionUserId, $user['type']))) {
             if(!($this->request->is(['patch', 'post', 'put']))){
                 return true;
             }
             return false;//Pas nécessaire de terminer cette fonction
         }
-        //Celui ci est un CompanyManager = Lui donner l'access
+        //Celui ci est un CompanyManager = donner lui l'access
         
         $company_id = (isset($departement_id)) ? $this->Departements->getThisDepCompanyId($departement_id) : null;
         
@@ -182,9 +182,9 @@ class DepartementsController extends AppController{
      */
     public function view($id = null){
         $departement = $this->Departements->get($id, [
-            'contain' => ['Teams', 'Criterions']
+            'contain' => ['Companies' ,'Teams', 'Criterions']
         ]);
-
+        
         $pageName = $this->pageName;
         $this->set(compact('pageName'));
         $this->set('departement', $departement);

@@ -252,68 +252,80 @@ class TeamsTable extends Table
         $teams = TableRegistry::get('Teams');
         $results = $teams->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
-                                                        }], 'Departements', 'Projects', 'Criterions'])->order(['Teams.name' => 'ASC'])->toArray();
+                                                        }], 'Departements', 'Projects', 'Criterions'])->order(['Teams.name' => 'ASC']);
         return $results;
     }
     
+//    public function getTeamsIdsByThisSessionAuth($user_type, $user_id, $group_manager){
+//        if($group_manager){
+//            return $this->getTeamsData();
+//        }
+//        
+//        $teams = TableRegistry::get('Teams');
+//        $teams_ids = array();
+//        $entity = ($user_type === 'user') ? 'Users' : 'Members';
+//        
+//        $results = $teams->find()->select('id')
+//                           ->innerJoinWith('Departements.Companies.'.$entity, function ($q) use($user_id, $entity) {
+//                                                return $q->where([$entity.'.id' => $user_id, 'accessLevel' > 0]);
+//                                            });
+//                                            
+//        foreach ($results as $key => $team) {
+//            $teams_ids[] = $team->id;
+//        }
+//        $results = $teams->find()->select('id')
+//                           ->innerJoinWith('Departements.'.$entity, function ($q) use($user_id, $entity) {
+//                                                return $q->where([$entity.'.id' => $user_id, 'accessLevel' > 0]);
+//                                            });
+//                                            
+//        foreach ($results as $key => $team) {
+//            $teams_ids[] = $team->id;
+//        }
+//        $results = $teams->find()->select('id')
+//                           ->innerJoinWith($entity, function ($q) use($user_id, $entity) {
+//                                                return $q->where([$entity.'.id' => $user_id]);
+//                                            });
+//                                            
+//        foreach ($results as $key => $team) {
+//            $teams_ids[] = $team->id;
+//        }
+//        
+//        debug($teams_ids); die();
+//    }
+    
     public function getTeamsDataByUser($user_type, $user_id, $group_manager){
         if($group_manager){
+            //return $this->getTeamsData()->toArray();
             return $this->getTeamsData();
         }
         
         $teams = TableRegistry::get('Teams');
+        $entity = ($user_type === 'user') ? 'Users' : 'Members';
+        //Get All Teams By Companies assoc privilege
+        $results_assocWithComp = $teams->find()
+                       ->innerJoinWith('Departements.Companies.'.$entity, function ($q) use($user_id, $entity) {
+                                            return $q->where([$entity.'.id' => $user_id]);
+                                        });
+        //Get All Teams By departement assoc privilege
+        $results_assocWithDep = $teams->find()
+                       ->innerJoinWith('Departements.'.$entity, function ($q) use($user_id, $entity) {
+                                            return $q->where([$entity.'.id' => $user_id]);
+                                        });
         
-        if($user_type == 'user'){
-            //$results = $teams->find('all');
-            
-            $results_assocWithComp = $teams->find()
-                           ->innerJoinWith('Departements.Companies.Users', function ($q) use($user_id) {
-                                                return $q->where(['Users.id' => $user_id]);
-                                            });
-                                            
-            $results_assocWithDep = $teams->find()
-                           ->innerJoinWith('Departements.Users', function ($q) use($user_id) {
-                                                return $q->where(['Users.id' => $user_id]);
-                                            });
-                     
-            $results_assocWithTeams = $teams->find()
-                           ->innerJoinWith('Users', function ($q) use($user_id) {
-                                                return $q->where(['Users.id' => $user_id]);
-                                            });
-            $results = $results_assocWithComp->union($results_assocWithDep);
-            $results->union($results_assocWithTeams);
-            //debug($results->toArray());die();
-                                            
-            $results = $results->contain(['Users' => ['queryBuilder' => function ($q) {
-                                                                return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
-                                                            }], 'Departements', 'Projects', 'Criterions'])->order(['Teams.name' => 'ASC'])->toArray();
-            return $results;
-        }elseif($user_type == 'member'){
-            $results = $teams->find('all');
-            
-            $results_assocWithComp = $teams->find()
-                           ->innerJoinWith('Departements.Companies.Members', function ($q) use($user_id) {
-                                                return $q->where(['Members.id' => $user_id]);
-                                            });
-                                            
-            $results_assocWithDep = $teams->find()
-                           ->innerJoinWith('Departements.Members', function ($q) use($user_id) {
-                                                return $q->where(['Members.id' => $user_id]);
-                                            });
-                     
-            $results_assocWithTeams = $teams->find()
-                           ->innerJoinWith('Members', function ($q) use($user_id) {
-                                                return $q->where(['Members.id' => $user_id]);
-                                            });
-            $results = $results_assocWithComp->union($results_assocWithDep);
-            $results->union($results_assocWithTeams);
-            //debug($results->toArray());die();
-                                            
-            $results = $results->contain(['Members' => ['queryBuilder' => function ($q) {
-                                                                return $q->where(['AssocTeamsMembers.accessLevel >' => '1']);
-                                                            }], 'Departements', 'Projects', 'Criterions'])->order(['Teams.name' => 'ASC'])->toArray();
-            return $results;
-        }
+        //Get All Teams By Privilege
+        $results_assocWithTeams = $teams->find()
+                       ->innerJoinWith($entity, function ($q) use($user_id, $entity) {
+                                            return $q->where([$entity.'.id' => $user_id]);
+                                        });
+        $results = $results_assocWithComp->union($results_assocWithDep);
+        $results->union($results_assocWithTeams);
+        //debug($results->toArray());die();
+
+        $results = $results->contain([$entity => ['queryBuilder' => function ($q) use ($entity) {
+                                                            return $q->where(['AssocTeams'.$entity.'.accessLevel >' => '1']);
+                                                        }], 'Departements', 'Projects', 'Criterions'])->order(['Teams.name' => 'ASC']);
+        return $results;
+        
     }
     
     public function getCountProjectsByTeam($id){

@@ -13,7 +13,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('criterion_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -22,7 +21,6 @@
         <tbody>
             <?php foreach ($assocUsersCriterions as $assocUsersCriterion): ?>
             <tr>
-                <td><?= $this->Number->format($assocUsersCriterion->id) ?></td>
                 <td><?= $assocUsersCriterion->has('user') ? $this->Html->link($assocUsersCriterion->user->name, ['controller' => 'Users', 'action' => 'view', $assocUsersCriterion->user->id]) : '' ?></td>
                 <td><?= $assocUsersCriterion->has('criterion') ? $this->Html->link($assocUsersCriterion->criterion->name, ['controller' => 'Criterions', 'action' => 'view', $assocUsersCriterion->criterion->id]) : '' ?></td>
                 <td class="actions">

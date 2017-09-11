@@ -1,7 +1,7 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <legend>
-            <h3><?= __('Assoc Companies Users') ?></h3>
+            <h3><?= __('Assoc') ?> : <?= __('Users') ?> / <?= __('Companies') ?></h3>
             <div class="pull-right">
                 <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus-sign"></span>'), ['action' => 'add'], ['escape' => false]) ?>
             </div>
@@ -11,7 +11,6 @@
             <table  class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('company_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('accessLevel') ?></th>
@@ -21,7 +20,6 @@
                 <tbody>
                     <?php foreach ($assocCompaniesUsers as $assocCompaniesUser): ?>
                     <tr>
-                        <td><?= $this->Number->format($assocCompaniesUser->id) ?></td>
                         <td><?= $assocCompaniesUser->has('user') ? $this->Html->link($assocCompaniesUser->user->name, ['controller' => 'Users', 'action' => 'view', $assocCompaniesUser->user->id]) : '' ?></td>
                         <td><?= $assocCompaniesUser->has('company') ? $this->Html->link($assocCompaniesUser->company->name, ['controller' => 'Companies', 'action' => 'view', $assocCompaniesUser->company->id]) : '' ?></td>
                         <td><?= unserialize(ACCESSLEVEL)[$this->Number->format($assocCompaniesUser->accessLevel)] ?></td>

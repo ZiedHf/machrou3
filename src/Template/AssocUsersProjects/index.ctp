@@ -1,7 +1,7 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <legend>
-            <h3><?= __('Assoc Users Projects') ?></h3>
+            <h3><?= __('Assoc') ?> : <?= __('Users') ?> / <?= __('Projects') ?></h3>
             <div class="pull-right">
                 <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus-sign"></span>'), ['action' => 'add'], ['escape' => false]) ?>
             </div>
@@ -10,7 +10,6 @@
             <table  class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('accessLevel') ?></th>
@@ -20,7 +19,6 @@
                 <tbody>
                     <?php foreach ($assocUsersProjects as $assocUsersProject): ?>
                     <tr>
-                        <td><?= $this->Number->format($assocUsersProject->id) ?></td>
                         <td><?= $assocUsersProject->has('user') ? $this->Html->link($assocUsersProject->user->name, ['controller' => 'Users', 'action' => 'view', $assocUsersProject->user->id]) : '' ?></td>
                         <td><?= $assocUsersProject->has('project') ? $this->Html->link($assocUsersProject->project->name, ['controller' => 'Projects', 'action' => 'view', $assocUsersProject->project->id]) : '' ?></td>
                         <td><?= unserialize(ACCESSLEVEL)[$this->Number->format($assocUsersProject->accessLevel)] ?></td>

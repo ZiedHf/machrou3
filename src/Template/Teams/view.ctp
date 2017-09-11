@@ -18,6 +18,10 @@
                     <td><?= $team->has('departement') ? $this->Html->link($team->departement->name, ['controller' => 'Departements', 'action' => 'view', $team->departement->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th scope="row"><?= __('Company') ?></th>
+                    <td><?= $team->departement->has('company') ? $this->Html->link($team->departement->company->name, ['controller' => 'Comapnies', 'action' => 'view', $team->departement->company->id]) : '' ?></td>
+                </tr>
+                <tr>
                     <th scope="row"><?= __('Created') ?></th>
                     <td><?= h($team->created) ?></td>
                 </tr>

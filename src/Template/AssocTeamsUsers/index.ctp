@@ -1,7 +1,7 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <legend>
-            <h3><?= __('Assoc Teams Users') ?></h3>
+            <h3><?= __('Assoc') ?> : <?= __('Users') ?> / <?= __('Teams') ?></h3>
             <div class="pull-right">
                 <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus-sign"></span>'), ['action' => 'add'], ['escape' => false]) ?>
             </div>
@@ -10,9 +10,8 @@
             <table  class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                        <th scope="col"><?= $this->Paginator->sort('team_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('team_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('accessLevel') ?></th>
                         <th scope="col" class="actions"><?= __('Actions') ?></th>
                     </tr>
@@ -20,9 +19,8 @@
                 <tbody>
                     <?php foreach ($assocTeamsUsers as $assocTeamsUser): ?>
                     <tr>
-                        <td><?= $this->Number->format($assocTeamsUser->id) ?></td>
-                        <td><?= $assocTeamsUser->has('team') ? $this->Html->link($assocTeamsUser->team->name, ['controller' => 'Teams', 'action' => 'view', $assocTeamsUser->team->id]) : '' ?></td>
                         <td><?= $assocTeamsUser->has('user') ? $this->Html->link($assocTeamsUser->user->name, ['controller' => 'Users', 'action' => 'view', $assocTeamsUser->user->id]) : '' ?></td>
+                        <td><?= $assocTeamsUser->has('team') ? $this->Html->link($assocTeamsUser->team->name, ['controller' => 'Teams', 'action' => 'view', $assocTeamsUser->team->id]) : '' ?></td>
                         <td><?= unserialize(ACCESSLEVEL)[$assocTeamsUser->accessLevel] ?></td>
                         <td class="actions">
                             <?= $this->Html->link('<i class="fa fa-eye" aria-hidden="true"></i> '.__('View'), ['action' => 'view', $assocTeamsUser->id], ['class' => 'btn btn-primary', 'escape' => false]) ?>

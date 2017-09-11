@@ -14,6 +14,10 @@
                     <td><?= h($departement->name) ?></td>
                 </tr>
                 <tr>
+                    <th scope="row"><?= __('Companies') ?></th>
+                    <td><?= $departement->has('company') ? $this->Html->link($departement->company->name, ['controller' => 'Companiess', 'action' => 'view', $departement->company->id]) : '' ?></td>
+                </tr>
+                <tr>
                     <th scope="row"><?= __('Created') ?></th>
                     <td><?= h($departement->created) ?></td>
                 </tr>

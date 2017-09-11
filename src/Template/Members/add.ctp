@@ -24,8 +24,13 @@
                             <?php
                                 echo $this->Form->input('name', ['label' => __('name'), 'class' => 'form-control']);
                                 echo $this->Form->input('lastName', ['label' => __('lastName'), 'class' => 'form-control']);
-                                echo $this->Form->input('password', ['label' => __('Password'), 'class' => 'form-control']);
-                                echo $this->Form->input('email', ['label' => __('Email'), 'class' => 'form-control']);
+
+//                                echo $this->Form->input('password', ['label' => __('Password'), 'class' => 'form-control']);
+//                                echo $this->Form->input('email', ['label' => __('Email'), 'class' => 'form-control']);
+                                echo $this->Form->input('authentification.email', ['label' => __('Email'), 'class' => 'form-control']);
+                                echo $this->Form->input('authentification.password', ['type' => 'password', 'class' => 'form-control']);
+                                echo $this->Form->input('authentification.type', ['type' => 'hidden', 'value' => 'member']);
+                                
                                 echo $this->Form->input('description', ['label' => __('description'), 'class' => 'form-control']);
                                 echo $this->Form->input('path_image');
                             ?>
@@ -50,12 +55,13 @@
                         </div>
                     </div>
                 </div>
-        
+        </div>
         
         <?= $this->Form->button(__('Submit')) ?>
         <?= $this->Form->end() ?>
     </div>
 </div>
+
     
 <?php
     

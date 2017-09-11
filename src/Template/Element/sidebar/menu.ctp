@@ -77,16 +77,16 @@
                                     ['escape' => false]); ?>
             <ul class="treeview-menu">
               <li <?=(isset($pageName))&&($pageName === 'assocCompaniesUsers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Companies').'/'.__('Users').'</span>', ['controller' => 'AssocCompaniesUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Users').'/'.__('Companies').'</span>', ['controller' => 'AssocCompaniesUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocDepartementsUsers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Departements').'/'.__('Users').'</span>', ['controller' => 'AssocDepartementsUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Users').'/'.__('Departements').'</span>', ['controller' => 'AssocDepartementsUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocTeamsUsers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Teams').'/'.__('Users').'</span>', ['controller' => 'AssocTeamsUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Users').'/'.__('Teams').'</span>', ['controller' => 'AssocTeamsUsers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocUsersProjects') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Projects').'/'.__('Users').'</span>', ['controller' => 'AssocUsersProjects', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Users').'/'.__('Projects').'</span>', ['controller' => 'AssocUsersProjects', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
             </ul>
         </li>
@@ -96,16 +96,16 @@
                                     ['escape' => false]); ?>
             <ul class="treeview-menu">
               <li <?=(isset($pageName))&&($pageName === 'assocCompaniesMembers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Companies').'/'.__('Members').'</span>', ['controller' => 'AssocCompaniesMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Members').'/'.__('Companies').'</span>', ['controller' => 'AssocCompaniesMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocDepartementsMembers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Departements').'/'.__('Members').'</span>', ['controller' => 'AssocDepartementsMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Members').'/'.__('Departements').'</span>', ['controller' => 'AssocDepartementsMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocTeamsMembers') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Teams').'/'.__('Members').'</span>', ['controller' => 'AssocTeamsMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Members').'/'.__('Teams').'</span>', ['controller' => 'AssocTeamsMembers', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
               <li <?=(isset($pageName))&&($pageName === 'assocMembersProjects') ? 'class="active"' : '' ?>>
-                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Projects').'/'.__('Members').'</span>', ['controller' => 'AssocMembersProjects', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
+                  <?= $this->Html->link('<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>'.__('Members').'/'.__('Projects').'</span>', ['controller' => 'AssocMembersProjects', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
               </li>
             </ul>
         </li>

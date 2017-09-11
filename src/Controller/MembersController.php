@@ -101,16 +101,19 @@ class MembersController extends AppController
     {
         $member = $this->Members->newEntity();
         if ($this->request->is('post')) {
-            $member = $this->Members->patchEntity($member, $this->request->data);
+            $member = $this->Members->patchEntity($member, $this->request->data, ['associated' => ['Authentifications']]);
+            //$user = $this->Users->patchEntity($user, $this->request->data, ['associated' => ['Authentifications', 'Criterions', 'Teams']]);
+            //debug($member);die();
             $conn = ConnectionManager::get('default');
             $conn->begin();
-            if ((!$this->Members->Authentifications->checkIfEmailValid($this->request->data['email']))&&($result = $this->Members->save($member))){
+//            if ((!$this->Members->Authentifications->checkIfEmailValid($this->request->data['email']))&&($result = $this->Members->save($member))){
+            if ($this->Members->save($member, ['associated' => ['Authentifications']])) {
                 try {
                     //enregistrer le mot de passe et l'email
-                    if(!empty($this->request->data['email'])){
-                        $password = (!empty($this->request->data['password'])) ? $this->request->data['password'] : null;
-                        $auth_id = $this->Members->Authentifications->addProfile($result->id, $this->request->data['email'], $password, 'member', $this->request->data['criterions_rights'], $this->request->data['priorities_rights'], $this->request->data['stages_rights'], $this->request->data['clients_rights']);
-                    }
+//                    if(!empty($this->request->data['email'])){
+//                        $password = (!empty($this->request->data['password'])) ? $this->request->data['password'] : null;
+//                        $auth_id = $this->Members->Authentifications->addProfile($result->id, $this->request->data['email'], $password, 'member', $this->request->data['criterions_rights'], $this->request->data['priorities_rights'], $this->request->data['stages_rights'], $this->request->data['clients_rights']);
+//                    }
                     $this->Flash->success(__('The member has been saved.'));
                     $conn->commit();
                 } catch (\Exception $ex) {
@@ -167,7 +170,7 @@ class MembersController extends AppController
             
             $conn = ConnectionManager::get('default');
             $conn->begin();
-            if(($member->authentification->group_manager == $this->request->data['authentification']['group_manager'])&&($member->authentification->member_id != 1)){
+            if(($member->authentification->group_manager != $this->request->data['authentification']['group_manager'])&&($member->authentification->member_id != 1)){
                 $this->request->data['authentification']['group_manager'] = $member->authentification->group_manager;
                 $this->Flash->error(__('Only the superadmin can modify the group manager.'));
             }

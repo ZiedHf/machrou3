@@ -1,10 +1,9 @@
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 119]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-07-31 08:58:53 Notice: Notice (8): Undefined index: email in [C:\xampp\htdocs\machrou3\src\Controller\MembersController.php, line 125]
+Request URL: /machrou3/members/add
+Referer URL: http://localhost/machrou3/members/add
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::getCountProjectsByStagesByUser() - APP/Model\Table\ProjectStagesTable.php, line 119
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 186
+App\Controller\MembersController::add() - APP/Controller\MembersController.php, line 125
 Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
 Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
 Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
@@ -22,13 +21,47 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-01 10:24:16 Notice: Notice (8): Undefined variable: member_id in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 307]
+Request URL: /machrou3/teams/view/15
+Referer URL: http://localhost/machrou3/teams
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 307
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 113
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 33
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:06:29 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 270]
+Request URL: /machrou3/teams
+Referer URL: http://localhost/machrou3/departements
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 270
 Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
 Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
 Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
 Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
@@ -40,8 +73,8 @@ Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
 Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
 Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
 Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-App\Model\Table\ProjectStagesTable::getCountProjectsByStagesByUser() - APP/Model\Table\ProjectStagesTable.php, line 130
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 186
+App\Model\Table\TeamsTable::getTeamsByThisSession() - APP/Model\Table\TeamsTable.php, line 272
+App\Controller\TeamsController::index() - APP/Controller\TeamsController.php, line 172
 Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
 Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
 Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
@@ -59,13 +92,14 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-01 11:06:29 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 270]
+Request URL: /machrou3/teams
+Referer URL: http://localhost/machrou3/departements
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 270
 Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
 Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
 Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
 Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
@@ -95,242 +129,15 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-01 11:07:53 Notice: Notice (8): Array to string conversion in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php, line 1938]
+Request URL: /machrou3/teams
+Referer URL: http://localhost/machrou3/departements
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:06 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-App\Model\Table\ProjectStagesTable::getCountProjectsByStagesByUser() - APP/Model\Table\ProjectStagesTable.php, line 130
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 186
+Cake\ORM\Table::callFinder() - CORE\src\ORM\Table.php, line 1938
+Cake\ORM\Table::find() - CORE\src\ORM\Table.php, line 966
+App\Model\Table\TeamsTable::getTeamsByThisSession() - APP/Model\Table\TeamsTable.php, line 268
+App\Controller\TeamsController::index() - APP/Controller\TeamsController.php, line 172
 Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
 Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
 Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
@@ -348,13 +155,371 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-01 11:07:53 Notice: Notice (8): Array to string conversion in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php, line 1948]
+Request URL: /machrou3/teams
+Referer URL: http://localhost/machrou3/departements
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
+sprintf - [internal], line ??
+Cake\ORM\Table::callFinder() - CORE\src\ORM\Table.php, line 1948
+Cake\ORM\Table::find() - CORE\src\ORM\Table.php, line 966
+App\Model\Table\TeamsTable::getTeamsByThisSession() - APP/Model\Table\TeamsTable.php, line 268
+App\Controller\TeamsController::index() - APP/Controller\TeamsController.php, line 172
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:49:13 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 324]
+Request URL: /machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 324
+Cake\ORM\Association\BelongsToMany::_buildQuery() - CORE\src\ORM\Association\BelongsToMany.php, line 1257
+Cake\ORM\Association\BelongsToMany::eagerLoader() - CORE\src\ORM\Association\SelectableAssociationTrait.php, line 48
+Cake\ORM\EagerLoader::loadExternal() - CORE\src\ORM\EagerLoader.php, line 593
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\Controller\Component\PaginatorComponent::paginate() - CORE\src\Controller\Component\PaginatorComponent.php, line 189
+Cake\Controller\Controller::paginate() - CORE\src\Controller\Controller.php, line 713
+App\Controller\TeamsController::index() - APP/Controller\TeamsController.php, line 189
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:49:13 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 324]
+Request URL: /machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 324
+Cake\ORM\Association\BelongsToMany::_buildQuery() - CORE\src\ORM\Association\BelongsToMany.php, line 1257
+Cake\ORM\Association\BelongsToMany::eagerLoader() - CORE\src\ORM\Association\SelectableAssociationTrait.php, line 48
+Cake\ORM\EagerLoader::loadExternal() - CORE\src\ORM\EagerLoader.php, line 593
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
+DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
+array_walk_recursive - [internal], line ??
+DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
+Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:49:13 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 324]
+Request URL: /machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 324
+Cake\ORM\Association\BelongsToMany::_buildQuery() - CORE\src\ORM\Association\BelongsToMany.php, line 1257
+Cake\ORM\Association\BelongsToMany::eagerLoader() - CORE\src\ORM\Association\SelectableAssociationTrait.php, line 48
+Cake\ORM\EagerLoader::loadExternal() - CORE\src\ORM\EagerLoader.php, line 593
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
+DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
+array_walk_recursive - [internal], line ??
+DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
+Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:49:13 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 324]
+Request URL: /machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 324
+Cake\ORM\Association\BelongsToMany::_buildQuery() - CORE\src\ORM\Association\BelongsToMany.php, line 1257
+Cake\ORM\Association\BelongsToMany::eagerLoader() - CORE\src\ORM\Association\SelectableAssociationTrait.php, line 48
+Cake\ORM\EagerLoader::loadExternal() - CORE\src\ORM\EagerLoader.php, line 593
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
+DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
+array_walk_recursive - [internal], line ??
+DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
+Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:49:13 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 324]
+Request URL: /machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\TeamsTable::App\Model\Table\{closure}() - APP/Model\Table\TeamsTable.php, line 324
+Cake\ORM\Association\BelongsToMany::_buildQuery() - CORE\src\ORM\Association\BelongsToMany.php, line 1257
+Cake\ORM\Association\BelongsToMany::eagerLoader() - CORE\src\ORM\Association\SelectableAssociationTrait.php, line 48
+Cake\ORM\EagerLoader::loadExternal() - CORE\src\ORM\EagerLoader.php, line 593
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
+DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
+array_walk_recursive - [internal], line ??
+DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
+Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
+Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:51:57 Notice: Notice (8): Undefined variable: member_id in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 307]
+Request URL: /machrou3/teams/edit/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 307
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-01 11:52:02 Notice: Notice (8): Undefined variable: member_id in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 307]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 307
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-02 08:18:09 Notice: Notice (8): Undefined variable: member_id in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 307]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 307
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-02 08:32:53 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 300]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 300
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-02 08:32:53 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 308]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::App\Model\Table\{closure}() - APP/Model\Table\CompaniesTable.php, line 308
 Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
+Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
+Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
+Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
+Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
+Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
+Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
+Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::first() - CORE\src\Datasource\QueryTrait.php, line 404
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 309
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-02 08:32:53 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 308]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::App\Model\Table\{closure}() - APP/Model\Table\CompaniesTable.php, line 308
+Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
 Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
 Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
 Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
@@ -384,13 +549,61 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-02 08:33:15 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 308]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
+App\Model\Table\CompaniesTable::App\Model\Table\{closure}() - APP/Model\Table\CompaniesTable.php, line 308
 Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
+Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
+Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
+Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
+Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
+Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
+Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
+Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
+Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
+Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
+Cake\ORM\Query::first() - CORE\src\Datasource\QueryTrait.php, line 404
+App\Model\Table\CompaniesTable::getUserAccessByCompany() - APP/Model\Table\CompaniesTable.php, line 309
+Cake\ORM\Association::__call() - CORE\src\ORM\Association.php, line 988
+App\Controller\TeamsController::haveAccessRight() - APP/Controller\TeamsController.php, line 120
+App\Controller\TeamsController::isAuthorized() - APP/Controller\TeamsController.php, line 40
+Cake\Auth\ControllerAuthorize::authorize() - CORE\src\Auth\ControllerAuthorize.php, line 93
+Cake\Controller\Component\AuthComponent::isAuthorized() - CORE\src\Controller\Component\AuthComponent.php, line 504
+Cake\Controller\Component\AuthComponent::authCheck() - CORE\src\Controller\Component\AuthComponent.php, line 309
+Cake\Controller\Component\AuthComponent::startup() - CORE\src\Controller\Component\AuthComponent.php, line 260
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
+Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::startupProcess() - CORE\src\Controller\Controller.php, line 501
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 116
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-02 08:33:15 Notice: Notice (8): Undefined variable: entity in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 308]
+Request URL: /machrou3/teams/view/20
+Referer URL: http://localhost/machrou3/teams
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+App\Model\Table\CompaniesTable::App\Model\Table\{closure}() - APP/Model\Table\CompaniesTable.php, line 308
+Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
+Cake\ORM\Association\BelongsToMany::attachTo() - CORE\src\ORM\Association\BelongsToMany.php, line 366
 Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
 Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
 Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
@@ -420,439 +633,12 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
+2017-08-02 08:38:31 Notice: Notice (8): Undefined variable: team in [C:\xampp\htdocs\machrou3\src\Template\Departements\view.ctp, line 18]
+Request URL: /machrou3/departements/view/10
+Referer URL: http://localhost/machrou3/teams
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:20 Notice: Notice (8): Undefined variable: projects_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectStagesTable.php, line 123]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\ProjectStagesTable::App\Model\Table\{closure}() - APP/Model\Table\ProjectStagesTable.php, line 123
-Cake\ORM\Association::attachTo() - CORE\src\ORM\Association.php, line 584
-Cake\ORM\EagerLoader::attachAssociations() - CORE\src\ORM\EagerLoader.php, line 362
-Cake\ORM\Query::_transformQuery() - CORE\src\ORM\Query.php, line 984
-Cake\ORM\Query::sql() - CORE\src\ORM\Query.php, line 935
-Cake\Database\Driver\Mysql::prepare() - CORE\src\Database\Driver\Mysql.php, line 136
-Cake\Database\Connection::prepare() - CORE\src\Database\Connection.php, line 221
-Cake\Database\Connection::run() - CORE\src\Database\Connection.php, line 274
-Cake\Database\Query::execute() - CORE\src\Database\Query.php, line 190
-Cake\ORM\Query::_execute() - CORE\src\ORM\Query.php, line 957
-Cake\ORM\Query::_all() - CORE\src\Datasource\QueryTrait.php, line 276
-Cake\ORM\Query::all() - CORE\src\ORM\Query.php, line 905
-Cake\ORM\Query::toArray() - CORE\src\Datasource\QueryTrait.php, line 293
-DebugKit\Panel\VariablesPanel::DebugKit\Panel\{closure}() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 81
-array_walk_recursive - [internal], line ??
-DebugKit\Panel\VariablesPanel::shutdown() - ROOT\vendor\cakephp\debug_kit\src\Panel\VariablesPanel.php, line 113
-Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 422
-Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 391
-Cake\Controller\Controller::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
-Cake\Error\ExceptionRenderer::_shutdown() - CORE\src\Error\ExceptionRenderer.php, line 373
-Cake\Error\ExceptionRenderer::_outputMessage() - CORE\src\Error\ExceptionRenderer.php, line 321
-Cake\Error\ExceptionRenderer::render() - CORE\src\Error\ExceptionRenderer.php, line 194
-Cake\Error\Middleware\ErrorHandlerMiddleware::handleException() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 99
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:16:34 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:17:28 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:18:28 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:21:11 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:21:31 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 280]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 280
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:23:11 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Model\Table\UsersTable.php, line 281]
-Request URL: /machrou3/consult
-Referer URL: http://localhost/machrou3/
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\UsersTable::getAllEmployeesDataByUser() - APP/Model\Table\UsersTable.php, line 281
-App\Model\Table\UsersTable::getCountEmpByUser() - APP/Model\Table\UsersTable.php, line 186
-App\Controller\ConsultController::index() - APP/Controller\ConsultController.php, line 212
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 10:27:15 Notice: Notice (8): Undefined variable: deps_ids in [C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php, line 373]
-Request URL: /machrou3/consult/departements
-Referer URL: http://localhost/machrou3/consult/companies
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\DepartementsTable::getAllDepByUser() - APP/Model\Table\DepartementsTable.php, line 373
-App\Model\Table\DepartementsTable::departementsOfThisUser() - APP/Model\Table\DepartementsTable.php, line 395
-App\Controller\ConsultController::departements() - APP/Controller\ConsultController.php, line 246
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 11:20:31 Notice: Notice (8): Array to string conversion in [C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php, line 400]
-Request URL: /machrou3/consult/departements
-Referer URL: http://localhost/machrou3/consult/view-departement/9
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\DepartementsTable::departementsOfThisUser() - APP/Model\Table\DepartementsTable.php, line 400
-App\Controller\ConsultController::departements() - APP/Controller\ConsultController.php, line 246
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 11:24:33 Notice: Notice (8): Array to string conversion in [C:\xampp\htdocs\machrou3\src\Model\Table\DepartementsTable.php, line 400]
-Request URL: /machrou3/consult/departements
-Referer URL: http://localhost/machrou3/consult/view-departement/9
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\DepartementsTable::departementsOfThisUser() - APP/Model\Table\DepartementsTable.php, line 400
-App\Controller\ConsultController::departements() - APP/Controller\ConsultController.php, line 246
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 13:55:48 Notice: Notice (8): Undefined variable: companies_ids_string in [C:\xampp\htdocs\machrou3\src\Model\Table\CompaniesTable.php, line 231]
-Request URL: /machrou3/companies
-Referer URL: http://localhost/machrou3/companies
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\CompaniesTable::companiesOfThisUser() - APP/Model\Table\CompaniesTable.php, line 231
-App\Controller\CompaniesController::index() - APP/Controller\CompaniesController.php, line 95
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 14:54:06 Notice: Notice (8): Undefined property: Cake\ORM\Query::$name in [C:\xampp\htdocs\machrou3\src\Template\Consult\view_team_info.ctp, line 21]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Consult\view_team_info.ctp, line 21
+include - APP/Template\Departements\view.ctp, line 18
 Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
 Cake\View\View::_render() - CORE\src\View\View.php, line 973
 Cake\View\View::render() - CORE\src\View\View.php, line 597
@@ -873,17 +659,12 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 14:54:06 Notice: Notice (8): Undefined property: Cake\ORM\Query::$name in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 3]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
+2017-08-02 08:38:31 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Template\Departements\view.ctp, line 18]
+Request URL: /machrou3/departements/view/10
+Referer URL: http://localhost/machrou3/teams
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Element\pagedata\teaminfo.ctp, line 3
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
-Cake\View\View::element() - CORE\src\View\View.php, line 501
-include - APP/Template\Consult\view_team_info.ctp, line 26
+include - APP/Template\Departements\view.ctp, line 18
 Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
 Cake\View\View::_render() - CORE\src\View\View.php, line 973
 Cake\View\View::render() - CORE\src\View\View.php, line 597
@@ -904,139 +685,17 @@ Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
 
 
 
-2017-05-17 14:54:06 Notice: Notice (8): Undefined property: Cake\ORM\Query::$name in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 9]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
+2017-08-02 08:38:31 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Template\Departements\view.ctp, line 18]
+Request URL: /machrou3/departements/view/10
+Referer URL: http://localhost/machrou3/teams
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Element\pagedata\teaminfo.ctp, line 9
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
-Cake\View\View::element() - CORE\src\View\View.php, line 501
-include - APP/Template\Consult\view_team_info.ctp, line 26
+include - APP/Template\Departements\view.ctp, line 18
 Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
 Cake\View\View::_render() - CORE\src\View\View.php, line 973
 Cake\View\View::render() - CORE\src\View\View.php, line 597
 Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
 Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 14:54:06 Notice: Notice (8): Undefined property: Cake\ORM\Query::$departement in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 13]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Element\pagedata\teaminfo.ctp, line 13
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
-Cake\View\View::element() - CORE\src\View\View.php, line 501
-include - APP/Template\Consult\view_team_info.ctp, line 26
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::render() - CORE\src\View\View.php, line 597
-Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 14:54:06 Notice: Notice (8): Trying to get property of non-object in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 13]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Element\pagedata\teaminfo.ctp, line 13
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
-Cake\View\View::element() - CORE\src\View\View.php, line 501
-include - APP/Template\Consult\view_team_info.ctp, line 26
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::render() - CORE\src\View\View.php, line 597
-Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 14:54:06 Notice: Notice (8): Undefined property: Cake\ORM\Query::$description in [C:\xampp\htdocs\machrou3\src\Template\Element\pagedata\teaminfo.ctp, line 30]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-include - APP/Template\Element\pagedata\teaminfo.ctp, line 30
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::_renderElement() - CORE\src\View\View.php, line 1363
-Cake\View\View::element() - CORE\src\View\View.php, line 501
-include - APP/Template\Consult\view_team_info.ctp, line 26
-Cake\View\View::_evaluate() - CORE\src\View\View.php, line 1014
-Cake\View\View::_render() - CORE\src\View\View.php, line 973
-Cake\View\View::render() - CORE\src\View\View.php, line 597
-Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 617
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 127
-Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
-Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
-Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
-Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
-Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
-[main] - ROOT\webroot\index.php, line 37
-
-
-
-2017-05-17 14:54:44 Notice: Notice (8): Undefined variable: project_ids in [C:\xampp\htdocs\machrou3\src\Model\Table\TeamsTable.php, line 233]
-Request URL: /machrou3/consult/view-team-info/22
-Referer URL: http://localhost/machrou3/consult/teams-list
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
-App\Model\Table\TeamsTable::getThisTeamDataByUser() - APP/Model\Table\TeamsTable.php, line 233
-App\Controller\ConsultController::viewTeamInfo() - APP/Controller\ConsultController.php, line 330
-Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
-Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
 Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
 Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
 Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65

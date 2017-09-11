@@ -28,12 +28,16 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/UsersTable.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Layout/default.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Locale/fr/default.po</file>
             <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/CompaniesTable.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/TeamsTable.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/DepartementsTable.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/ConsultController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/DashboardController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Dashboard/index.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/AppController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/config/bootstrap.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/config/app.php</file>
             <file>file:/C:/xampp/htdocs/machrou3/src/Controller/CompaniesController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/config/cons_variables.php</file>
         </group>
     </open-files>
 </project-private>

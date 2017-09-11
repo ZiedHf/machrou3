@@ -178,7 +178,8 @@ class CompaniesTable extends Table
         }
         $entity = ($user_type == 'user') ? 'Users' : 'Members';
         $companiesTable = TableRegistry::get('Companies');
-        //if($user_type == 'user'){
+        
+        //Get this employees companies - only for employess
         $results_UsersAsMembers = ($user_type == 'user') ? 
                                         $companiesTable->find()
                                         ->innerJoinWith('Departements.Teams.Users', function ($q) use($user_id) {
@@ -186,17 +187,19 @@ class CompaniesTable extends Table
                                                                 })
                                                         : null;
 
+        //Get this user or member association with companies
         $results_assocWithUsers = $companiesTable->find()
-                ->innerJoinWith('Users', function ($q) use($user_id, $entity) {
+                ->innerJoinWith($entity, function ($q) use($user_id, $entity) {
                                             return $q->where(["$entity.id" => $user_id, "AssocCompanies$entity.accessLevel >" => 0]);
                                         });
-
+        
+        //Get this user or member association with departements
         $results_assocWithDeps = $companiesTable->find()
-                ->innerJoinWith('Departements.Users', function ($q) use($user_id, $entity, $user_type) {
+                ->innerJoinWith('Departements.'.$entity, function ($q) use($user_id, $entity, $user_type) {
                                             return $q->where(["AssocDepartements$entity.".$user_type."_id" => $user_id, "AssocDepartements$entity.accessLevel >" => 0]);
                                         });
 
-        $results = $results_UsersAsMembers->union($results_assocWithUsers);
+        $results = ($results_UsersAsMembers !== null) ? $results_UsersAsMembers->union($results_assocWithUsers) : $results_assocWithUsers;
         $results->union($results_assocWithDeps);
         //$results->order(['Companies.name' => 'ASC']);
         $companies_ids = array();
@@ -293,6 +296,19 @@ class CompaniesTable extends Table
     
     public function getUserAccessByCompany($user_id, $type, $company_id) {
         $companiesTable = TableRegistry::get('Companies');
+        
+        if(($type == 'user')&&($type != 'member')){
+            return 0;
+        }
+        
+        $entity = ($type === 'user') ? 'Users' : 'Members';
+        
+        $query = $companiesTable->find()->hydrate(false)->contain([$entity])->where(['Companies.id' => $company_id])
+                        ->matching($entity, function ($q) use($user_id, $entity) {
+                                                return $q->where([$entity.'.id' => $user_id]);
+                                            })->first();
+        return $query['_matchingData']['AssocCompanies'.$entity]['accessLevel'];
+        /*    
         if($type === 'user'){
             $query = $companiesTable->find()->hydrate(false)->contain(['Users'])->where(['Companies.id' => $company_id])
                         ->matching('Users', function ($q) use($user_id) {
@@ -301,13 +317,13 @@ class CompaniesTable extends Table
             return $query['_matchingData']['AssocCompaniesUsers']['accessLevel'];
         }elseif($type === 'member'){
             $query = $companiesTable->find()->hydrate(false)->contain(['Members'])->where(['Companies.id' => $company_id])
-                    ->matching('Members', function ($q) use($member_id) {
-                                            return $q->where(['Members.id' => $member_id]);
+                    ->matching('Members', function ($q) use($user_id) {
+                                            return $q->where(['Members.id' => $user_id]);
                                         })->first();
             return $query['_matchingData']['AssocCompaniesMembers']['accessLevel'];
         }else{
             return 0;
-        }
+        }*/
     }
     /*
     public function getMemberAccessByCompany($member_id, $company_id) {
@@ -344,23 +360,16 @@ class CompaniesTable extends Table
     
     public function heIsACompanyManager($user_id, $type) {
         $companiesTable = TableRegistry::get('Companies');
-        if($type === 'user'){    
-            $query = $companiesTable->find()->hydrate(false)->contain(['Users'])
-                        ->matching('Users', function ($q) use($user_id) {
-                                                return $q->where(['Users.id' => $user_id, 'AssocCompaniesUsers.accessLevel' => 5]);
-                                            });
-            if($query->count() > 0) {
-                return true;
-            }
-        }elseif($type === 'member'){
-            $query = $companiesTable->find()->hydrate(false)->contain(['Members'])
-                        ->matching('Members', function ($q) use($user_id) {
-                                                return $q->where(['Members.id' => $user_id, 'AssocCompaniesMembers.accessLevel' => 5]);
-                                            })->first();
-            if($query->count() > 0) {
-                return true;
-            }
+        $entity = ($type === 'user') ? 'Users' : 'Members';
+        
+        $query = $companiesTable->find()->hydrate(false)->contain([$entity])
+                    ->matching($entity, function ($q) use($user_id, $entity) {
+                                            return $q->where([$entity.'.id' => $user_id, "AssocCompanies$entity.accessLevel" => 5]);
+                                        });
+        if($query->count() > 0) {
+            return true;
         }
+        
         return false;
     }
 }

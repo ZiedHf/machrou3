@@ -1,7 +1,7 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <legend>
-            <h3><?= __('Assoc Departements Users') ?></h3>
+            <h3><?= __('Assoc') ?> : <?= __('Users') ?> / <?= __('Departements') ?></h3>
             <div class="pull-right">
                 <?= $this->Html->link(__('<span class="glyphicon glyphicon-plus-sign"></span>'), ['action' => 'add'], ['escape' => false]) ?>
             </div>
@@ -10,9 +10,8 @@
             <table  class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                        <th scope="col"><?= $this->Paginator->sort('departement_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('departement_id') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('accessLevel') ?></th>
                         <th scope="col" class="actions"><?= __('Actions') ?></th>
                     </tr>
@@ -20,9 +19,8 @@
                 <tbody>
                     <?php foreach ($assocDepartementsUsers as $assocDepartementsUser): ?>
                     <tr>
-                        <td><?= $this->Number->format($assocDepartementsUser->id) ?></td>
-                        <td><?= $assocDepartementsUser->has('departement') ? $this->Html->link($assocDepartementsUser->departement->name, ['controller' => 'Departements', 'action' => 'view', $assocDepartementsUser->departement->id]) : '' ?></td>
                         <td><?= $assocDepartementsUser->has('user') ? $this->Html->link($assocDepartementsUser->user->name, ['controller' => 'Users', 'action' => 'view', $assocDepartementsUser->user->id]) : '' ?></td>
+                        <td><?= $assocDepartementsUser->has('departement') ? $this->Html->link($assocDepartementsUser->departement->name, ['controller' => 'Departements', 'action' => 'view', $assocDepartementsUser->departement->id]) : '' ?></td>
                         <td><?= unserialize(ACCESSLEVEL)[$this->Number->format($assocDepartementsUser->accessLevel)] ?></td>
                         <td class="actions">
                             <?= $this->Html->link('<i class="fa fa-eye" aria-hidden="true"></i> '.__('View'), ['action' => 'view', $assocDepartementsUser->id], ['class' => 'btn btn-primary', 'escape' => false]) ?>
