@@ -1,64 +1,55 @@
-<?php $cakeDescription = 'Projects management'; ?>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <?= $this->Html->charset('UTF-8') ?>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <?= $this->Html->meta('viewport', 'width=device-width, initial-scale=1.0'); ?>
-    <?= $this->Html->meta('description', 'Projects management application'); ?>
-    <?= $this->Html->meta('author', 'Khidma company'); ?>
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+<!--
+Copyright (C) Khidma Company,  All Rights Reserved
+Unauthorized copying of this file, via any medium is strictly prohibited
+Proprietary and confidential
+Written by Zied Haffoudhi <ziedhaffoudhi@gmail.com>, 2017.
+-->
+<html lang="fr">
+    <head>
+      <?= $this->Html->charset('UTF-8') ?>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <?= $this->Html->meta('viewport', 'width=device-width, initial-scale=1.0'); ?>
 
-    <?= $this->Html->css('consult/normalize.css') ?>
-    <?= $this->Html->css('consult/flickity.css') ?>
-    <?= $this->Html->css('consult/main.css') ?>
-    <?= $this->Html->css('consult/style.css') ?>
-    <!-- Font Awesome -->
-    <?= $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css') ?>   
-    <?= $this->Html->script('consult/modernizr.custom.js') ?>
+      <?= (isset($cakeDescription)) ? $this->Html->meta('description', $cakeDescription) : $this->Html->meta('description', 'Gestion des projets') ?>
+      <?= $this->Html->meta('author', 'Khidma company'); ?>
+      <title>
+          <?= Name_app ?> <?= Version ?> :
+          <?= $this->fetch('title') ?>
+      </title>
+      <!--?= $this->Html->meta('icon') ?-->
+      <?= $this->Html->meta('favicon.ico', 'favicon/favicon.ico', ['type' => 'icon']); ?>
+      <?= $this->Html->meta(['href' => 'favicon/apple-touch-icon.png', 'rel' => 'apple-touch-icon', 'sizes' => '180x180']); ?>
+      <?= $this->Html->meta(['href' => 'favicon/favicon-32x32.png', 'rel' => 'icon', 'sizes' => '32x32', 'type' => 'image/png']); ?>
+      <?= $this->Html->meta(['href' => 'favicon/favicon-16x16.png', 'rel' => 'icon', 'sizes' => '16x16', 'type' => 'image/png']); ?>
+      <?= $this->Html->meta(['href' => 'favicon/manifest.json', 'rel' => 'manifest']); ?>
+      <?= $this->Html->meta(['href' => 'favicon/safari-pinned-tab.svg', 'rel' => 'mask-icon', 'color' => '#5bbad5']); ?>
+      <?= $this->Html->meta('theme-color', '#ffffff'); ?>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-</head>
-<body>
-	<div class="container">
-		<div class="hero">
-			<div class="hero__back hero__back--static"></div>
-			<div class="hero__back hero__back--mover"></div>
-			<div class="hero__front"></div>
-		</div>
-		<header class="codrops-header">
-			<!--div class="codrops-links">
-				<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/InteractiveColoringConcept/" title="Previous Demo"><span>Previous Demo</span></a>
-				<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/2015/05/06/photography-website-concept/" title="Back to the article"><span>Back to the Codrops article</span></a>
-			</div>
-			<h1 class="codrops-title">Christian Zana <span>Photography</span></h1-->
-			<nav class="menu">
-				<a class="menu__item" href="#"><span>About</span></a>
-				<!--a class="menu__item menu__item--current" href="#"><span>Dashboard</span></a-->
-                                <?= $this->Html->link('Dashboard', ['controller' => 'dashboard', 'action' => 'index'], ['class' => 'menu__item menu__item--current']); ?>
-				<!--a class="menu__item" href="#"><span>Contact</span></a-->
-			</nav>
-		</header>
-		<div class="stack-slider">
-			<div class="stacks-wrapper">
-				<?=$this->fetch('content');?>
-			</div>
-			<!-- /stacks-wrapper -->
-		</div>
-		<!-- /stacks -->
-                <?= $this->Html->image('consult/three-dots.svg', ['class' => 'loader', 'width' => '60', 'alt' => 'Loader image']); ?>
-	</div>
-    
-	<!-- /container -->
-	<!-- Flickity v1.0.0 http://flickity.metafizzy.co/ -->
-        <?= $this->Html->script('consult/flickity.pkgd.min.js'); ?>
-        <?= $this->Html->script('consult/smoothscroll.js'); ?>
-        <?= $this->Html->script('consult/main.js'); ?>
-</body>
+
+      <?= $this->Html->css('../machrou3_template/css/icon.css') ?>
+      <?= $this->Html->css('../machrou3_template/materialize/css/materialize.min.css') ?>
+
+      <?= $this->Html->css('../machrou3_template/fonts/Planewalker/font.css') ?>
+      <?= $this->Html->css('../machrou3_template/fonts/ChantelliAntiqua/font.css') ?>
+      <?= $this->Html->css('../machrou3_template/css/consult.css') ?>
+
+
+
+      <?= $this->fetch('meta') ?>
+      <?= $this->fetch('css') ?>
+    </head>
+
+    <body class="blue lighten-5">
+      <?= $this->element('sidebar/header', ['pageName' => $pageName]) ?>
+
+      <?= $this->fetch('content') ?>
+
+      <?= $this->Html->script('https://code.jquery.com/jquery-3.2.1.min.js') ?>
+      <!--?= $this->Html->script('../dashgumfree/assets/js/jquery-1.8.3.min.js') ?-->
+      <?= $this->Html->script('../machrou3_template/materialize/js/materialize.min.js') ?>
+      <?= $this->Html->script('../machrou3_template/js/script.js') ?>
+      <?= $this->fetch('script'); ?>
+
+    </body>
 </html>

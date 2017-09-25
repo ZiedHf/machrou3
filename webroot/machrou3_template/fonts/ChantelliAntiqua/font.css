@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'ChantelliAntiqua';
+	src: url('./ChantelliAntiqua.eot');
+	src: local('ChantelliAntiqua'), url('./ChantelliAntiqua.woff') format('woff'), url('./ChantelliAntiqua.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_490">Text with this font applied</p> */
+.fontsforweb_fontid_490 {
+	font-family: 'ChantelliAntiqua' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */

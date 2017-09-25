@@ -28,16 +28,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Layout/default.ctp</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Locale/fr/default.po</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Model/Table/CompaniesTable.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/DashboardController.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Dashboard/index.ctp</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/AppController.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/config/bootstrap.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/config/app.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/CompaniesController.php</file>
-            <file>file:/C:/xampp/htdocs/machrou3/config/cons_variables.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Layout/machrou3_template/login.html</file>
+            <file>file:/C:/xampp/htdocs/machrou3/webroot/machrou3_template/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/machrou3/webroot/machrou3_template/js/script.js</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Authentifications/login.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Controller/AuthentificationsController.php</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Element/Flash/materialize_warning.ctp</file>
+            <file>file:/C:/xampp/htdocs/machrou3/src/Template/Layout/login.ctp</file>
         </group>
     </open-files>
 </project-private>

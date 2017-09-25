@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright (C) Khidma Company,  All Rights Reserved
+${licensePrefix}Unauthorized copying of this file, via any medium is strictly prohibited
+${licensePrefix}Proprietary and confidential
+${licensePrefix}Written by Zied Haffoudhi <ziedhaffoudhi@gmail.com>, 2017.
+<#if licenseLast??>
+${licenseLast}
+</#if>

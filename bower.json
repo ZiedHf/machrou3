@@ -1,0 +1,30 @@
+{
+  "name": "machrou3",
+  "homepage": "https://github.com/ZiedHf/machrou3",
+  "authors": [
+    "ZiedHf <ziedhaffoudhi@gmail.com>"
+  ],
+  "description": "Projects manager",
+  "main": "index.php",
+  "keywords": [
+    "projects",
+    "management",
+    "companies",
+    "employees"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "vue": "^2.4.2",
+    "materialize": "^0.100.2",
+    "jquery": "^3.2.1"
+  }
+}

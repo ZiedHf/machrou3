@@ -43,7 +43,7 @@ class AuthentificationsController extends AppController
                 //$this->Auth->redirectUrl();
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->error(__('Invalid email or password, try again'));
+            $this->Flash->materializeWarning(__('Invalid email or password, try again'), ['key' => 'materialize']);
             //$this->redirect(['controller' => 'Authentifications', 'action' => 'login']);
         }
     }

@@ -19,7 +19,7 @@ class ConsultController extends AppController
         parent::initialize();
         //$this->loadHelper('Html');
         $this->pageName = 'consult';
-        
+
         $this->loadModel('Companies');
         $this->loadModel('Departements');
         $this->loadModel('Projects');
@@ -27,9 +27,10 @@ class ConsultController extends AppController
         $this->loadModel('Users');
         $this->loadModel('Clients');
         $this->loadModel('ProjectStages');
-        
-        $this->viewBuilder()->layout('dashgumfree');
-        
+
+        //$this->viewBuilder()->layout('dashgumfree');
+        $this->viewBuilder()->layout('consult');
+
         $this->user_type = $this->Auth->user('type');
         if($this->user_type == 'user'){
             $this->user_id = $this->Auth->user('user_id');
@@ -43,7 +44,7 @@ class ConsultController extends AppController
         parent::beforeFilter($event);
         //$this->Auth->allow(['index']);
     }
-    
+
     public function isAuthorized($user = null){
         if(parent::isAuthorized($user)){
             return true;
@@ -59,7 +60,7 @@ class ConsultController extends AppController
         }
         */
         //Autorisation pour le client
-        if((isset($user['type']))&&($user['type'] === 'client')){ 
+        if((isset($user['type']))&&($user['type'] === 'client')){
             if(in_array($this->request->action, ['index', 'projectsList', 'clientsList'])) {
                 return true;
             }
@@ -78,7 +79,7 @@ class ConsultController extends AppController
         //Autorisation pour le user
         }elseif((isset($user['type']))&&(($user['type'] === 'user')||($user['type'] === 'member'))){
             $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
-            
+
             if(in_array($this->request->action, ['clientsList', 'viewClientInfo'])) {
                 if($user['clients_manager']){
                     return true;
@@ -102,7 +103,7 @@ class ConsultController extends AppController
                         return true;
                     }
                 }
-                
+
             }elseif($this->request->action == 'viewTeamInfo'){
                 $teamsController = New TeamsController;
                 $team_id = $this->request->params['pass'][0];
@@ -159,15 +160,15 @@ class ConsultController extends AppController
                 }
             }
         //Autorisation pour le member
-        }/*elseif((isset($user['type']))&&($user['type'] === 'member')){ 
+        }/*elseif((isset($user['type']))&&($user['type'] === 'member')){
             if(in_array($this->request->action, ['index', 'departements', 'teamsList', 'projectsList', 'employeesList', 'clientsList', 'calendar'])) {
                 return true;
             }
         }*/
-        
+
         return false;
     }
-    
+
     /**
      * Index method
      *
@@ -210,7 +211,7 @@ class ConsultController extends AppController
         $numberClients = $this->Clients->getCountClients();
         $numberTeams = $this->Teams->getCountTeamsByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $numberEmp = $this->Users->getCountEmpByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
-        
+
         $numberProjects = $this->Projects->getCountProjectsByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $arrayNumber = array('numberDeps' => $numberDeps, 'numberTeams' => $numberTeams, 'numberEmp' => $numberEmp, 'numberProjects' => $numberProjects, 'numberClients' => $numberClients);
         //debug($numberProjects);die();
@@ -227,7 +228,7 @@ class ConsultController extends AppController
         $companies = $companies->toArray();
         //debug($companies);die();
         /*
-        
+
         foreach($departements as $keyDep => $departement){
             $dep_id = $departement['id'];
             $departements[$keyDep]['numberTeams'] = $this->Departements->getCountTeamsByDep($dep_id);
@@ -241,13 +242,13 @@ class ConsultController extends AppController
         $pageName = 'Companies';
         $this->set(compact('numberCompanies', 'companies', 'pageName'));
     }
-    
+
     public function departements($id = null)
     {
         //$departements = $this->Departements->getAllDep();
         $departements = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $departements = (isset($departements)) ? $departements->toArray() : array();
-        
+
         foreach($departements as $keyDep => $departement){
             $dep_id = $departement['id'];
             $departements[$keyDep]['numberTeams'] = $this->Departements->getCountTeamsByDep($dep_id);
@@ -274,7 +275,7 @@ class ConsultController extends AppController
                 $files[$project_id] = $this->Projects->getFilesByProjects($project->path_dir); // les noms des dossiers seulement
             }
         }
-        
+
         $this->loadModel('Priorities');
         $this->loadModel('ProjectStages');
         $stages = $this->ProjectStages->getStagesListByOrder()->toArray();
@@ -283,7 +284,7 @@ class ConsultController extends AppController
         $pageName = 'Départements';
         $this->set(compact('pageName', 'departement', 'files', 'action', 'stages', 'priorities'));
     }
-    
+
     public function viewProject($dep_id, $project_id) {
         $departement = ($dep_id > 0) ? $this->Departements->getThisDepData($dep_id) : null;
         $project = $this->Projects->getAllProjectDataById($project_id);
@@ -298,15 +299,15 @@ class ConsultController extends AppController
         $pageName = 'Départements';
         $this->set(compact('pageName', 'departement', 'project', 'files', 'images', 'projectManager'));
     }
-    
+
     public function viewUser($dep_id, $user_id) {
         $departement = $this->Departements->getThisDepData($dep_id);
         $user = $this->Users->getAllUserDataById($user_id);
-        
+
         $pageName = 'Départements';
         $this->set(compact('pageName', 'departement', 'user'));
     }
-    
+
     public function viewTeam($dep_id, $team_id) {
         $departement = $this->Departements->getThisDepData($dep_id);
         $team = $this->Teams->getTeamDataById($team_id);
@@ -314,7 +315,7 @@ class ConsultController extends AppController
         $pageName = 'Départements';
         $this->set(compact('pageName', 'departement', 'team'));
     }
-    
+
     public function teamsList() {
         $teams = $this->Teams->getTeamsDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'))->toArray();
         foreach ($teams as $key => $team) {
@@ -322,7 +323,7 @@ class ConsultController extends AppController
             $teams[$key]['numberProjects'] = $this->Teams->getCountProjectsByTeam($id);
             $teams[$key]['numberUsers'] = $this->Teams->getCountUsersByTeam($id);
         }
-        
+
         //$numberteams = $this->Teams->getCountTeams();
         $numberteams = count($teams);
         $pageName = 'Equipes';
@@ -335,7 +336,7 @@ class ConsultController extends AppController
         $pageName = 'Equipes';
         $this->set(compact('pageName', 'team'));
     }
-    
+
     public function projectsList($stage_id = null) {
         //$projects = $this->Projects->getAllProjectData();
         //$projects = $this->Projects->getAllProjectData($stage_id);
@@ -351,62 +352,62 @@ class ConsultController extends AppController
                 $files[$project_id] = $this->Projects->getFilesByProjects($project->path_dir); // les noms des dossiers seulement
             }
         }
-        
+
         $this->loadModel('Priorities');
         $this->loadModel('ProjectStages');
         $stages = $this->ProjectStages->getStagesListByOrder()->toArray();
         $priorities = $this->Priorities->getPrioritiesListByOrder()->toArray();
-        
+
         $pageName = 'Projets';
         $action = 'viewProjectInfo';
         $this->set(compact('pageName', 'projects', 'numberProjects', 'files', 'action', 'priorities', 'stages'));
     }
-    
+
     public function viewProjectInfo($dep_id = null, $project_id) {
         $project = $this->Projects->getAllProjectDataById($project_id);
         $this->loadModel('AssocUsersProjects');
         $projectManager_id = $this->AssocUsersProjects->getProjectManagerByIdProject($project->id);
         $projectManager = $this->Projects->Users->getUserDataById($projectManager_id);
-        
+
         //debug($projectManager);die();
         $files = $this->Projects->getFilesByProjects($project->path_dir); // les noms des dossiers seulement
         $images = $this->getImagesFiles($files);
         $pageName = 'Projets';
-        
+
         $this->set(compact('pageName', 'project', 'files', 'images', 'projectManager'));
     }
-    
+
     public function employeesList() {
         $employees = $this->Users->getAllEmployeesDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         //$numberEmp = $this->Users->getCountEmp();
         $numberEmp = count($employees);
         $pageName = 'Employés';
-        
+
         $this->set(compact('pageName', 'employees', 'numberEmp'));
     }
-    
+
     public function viewUserInfo($id) {
         $user = $this->Users->getAllUserDataById($id);
         $pageName = 'Employés';
         //debug($user); die();
         $this->set(compact('pageName', 'user'));
     }
-    
+
     public function clientsList() {
         $clients = $this->Clients->getAllClientsData();
         $numberClients = $this->Clients->getCountClients();
         $pageName = 'Clients';
-        
+
         $this->set(compact('pageName', 'clients', 'numberClients'));
     }
-    
+
     public function viewClientInfo($id) {
         $client = $this->Clients->getAllClientDataById($id);
         //debug($client);die();
         $pageName = 'Clients';
         $this->set(compact('pageName', 'client'));
     }
-    
+
     public function calendar() {
         $projects_db = $this->Projects->calendar_projectsData();
         $i = 0;
@@ -416,16 +417,16 @@ class ConsultController extends AppController
                 $projects[$i]['title'] = $project['name'];
                 //if(isset($project['dateBegin'])) {$projects[$i]['start'] = $project['dateBegin']->i18nFormat('YYYY/M/dd HH:mm');}
                 if(isset($project['dateBegin'])) {$projects[$i]['start'] = $project['dateBegin']->i18nFormat('YYYY-MM-d HH:mm');}
-                
+
                 //if(isset($project['dateBegin'])) {$projects[$i]['start'] = '2016-11-18T08:00:00';}
                 //debug($projects[$i]['start']); die();
                 //if(isset($project['dateEnd'])) {$projects[$i]['end'] = $project['dateEnd']->i18nFormat('YYYY/M/dd HH:mm');}
                 if(isset($project['dateEnd'])) {$projects[$i]['end'] = $project['dateEnd']->i18nFormat('YYYY-MM-d HH:mm');}
                 //if(isset($project['dateEnd'])) {$projects[$i]['end'] = '2016-11-20T18:00:00';}
-                $projects[$i]['url'] = Router::url([ 
+                $projects[$i]['url'] = Router::url([
                                             'controller' => 'Consult',
                                             'action' => 'viewProjectInfo',
-                                            0, 
+                                            0,
                                             $project['id']
                                             ],TRUE);
                 $projects[$i]['editable'] = false;
