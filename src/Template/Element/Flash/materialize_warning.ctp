@@ -3,7 +3,7 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
     $message = h($message);
 }
 ?>
-<div id="card-alert" class="card orange lighten-5 z-depth-2">
+<div class="card-alert card orange lighten-5 z-depth-2">
     <div class="card-content orange-text">
         <p><?= $message ?></p>
     </div>

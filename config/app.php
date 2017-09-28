@@ -229,7 +229,7 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            
+
             'username' => 'root',
             'password' => '',
             'database' => 'projects_manag_db',
@@ -238,7 +238,7 @@ return [
             'flags' => [],
             'cacheMetadata' => true,
             'log' => false,
-            
+
             /*
             'username' => 'khidma_zied',
             'password' => 'ziehaffoudhi',

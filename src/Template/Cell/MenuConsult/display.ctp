@@ -70,7 +70,7 @@
           <div class="background blue lighten-2">
 
           </div>
-          <a href="#!user"><img class="circle" src="./images/anonymous.jpg"></a>
+          <a href="#!user"><?= $this->Html->image('../machrou3_template/images/anonymous.jpg', ['class' => 'circle', 'alt' => 'User Image']); ?></a>
           <a href="#!name"><span class="white-text name">John Doe</span></a>
           <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div>

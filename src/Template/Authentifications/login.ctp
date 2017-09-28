@@ -9,7 +9,7 @@ include the remember me checkbox
       <div class="col s12">
         <h4>Login</h4>
       </div>
-      
+
       <?= $this->Form->create('auth', ['class' => 'col s12', 'inputContainer' => '{{content}}']); ?>
         <div class="row">
           <div class="input-field col s12">
@@ -41,7 +41,7 @@ include the remember me checkbox
               <h1 class="fontsforweb_fontid_70660 center">MACHROU3<sub>V1.0</sub></h1>
               <div class="row">
                 <div class="col s12">
-                    <?= $this->Flash->render('materialize') ?>
+                    <?= $this->Flash->render() ?>
                 </div>
                 <div class="col s12">
                   <ul class="collapsible popout" data-collapsible="accordion">
@@ -143,3 +143,10 @@ include the remember me checkbox
     </div>
   </section>
 </main>
+
+
+<?php
+$this->Html->scriptStart(['block' => true]);
+    echo "initializeLoginPage();";
+$this->Html->scriptEnd();
+?>

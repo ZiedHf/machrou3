@@ -32,6 +32,7 @@ Written by Zied Haffoudhi <ziedhaffoudhi@gmail.com>, 2017.
 
       <?= $this->Html->css('../machrou3_template/fonts/Planewalker/font.css') ?>
       <?= $this->Html->css('../machrou3_template/fonts/ChantelliAntiqua/font.css') ?>
+      <?= $this->Html->css('../machrou3_template/css/style.css') ?>
       <?= $this->Html->css('../machrou3_template/css/consult.css') ?>
 
 

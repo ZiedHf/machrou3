@@ -67,9 +67,9 @@ class AppController extends Controller
                 'controller' => 'Authentifications',
                 'action' => 'login'
             ],
-            'flash' => ['element' => 'error']
+            'flash' => ['element' => 'materialize_error']
         ]);
-        
+
         $this->Auth->allow(['login', 'logout']);
     }
 
@@ -87,8 +87,8 @@ class AppController extends Controller
         if((isset($user['group_manager']))&&($user['group_manager'] == true)){//If the user or the member are group manager give them full access
             return true;
         }
-        
-        
+
+
         return false;
     }
     /**
@@ -105,7 +105,7 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
-    
+
     public function beforeFilter(Event $event)
     {
         //$this->set('logged_in', $this->Auth->loggedIn());
@@ -117,14 +117,14 @@ class AppController extends Controller
             //return $this->redirect($this->Auth->redirectUrl());
         }
     }
-    
+
     public function slug($z){
         $z = strtolower($z);
         $z = preg_replace('/[^.a-z0-9-]+/', '', $z);
         //$z = str_replace(' ', '-', $z);
         return trim($z, '-');
     }
-    
+
     public function isImage($file) {
         $image_ext = array('jpg', 'jpeg', 'png');
         $ext = pathinfo($file, PATHINFO_EXTENSION);
@@ -145,26 +145,26 @@ class AppController extends Controller
         }
         return $images;
     }
-    
+
     public function viewPic($path_dir = null, $url = null){
         if(($path_dir == null) || ($url == null) || (! $this->isImage($url))) {
             return false;
         }
-        
+
         $this->response->file(PROJECTS_UPLOAD.DS.$path_dir.DS.$url);
         return $this->response;
     }
-    
+
     public function encrypt_var($var) {
         $result = Security::encrypt('Test', KEY);
         return $result;
     }
-    
+
     public function decrypt_var($var) {
         $result = Security::decrypt($var, KEY);
         return $result;
     }
-    
+
     //public function app_file_upload($id, $data, $field, $folderName){
     public function app_file_upload($id, $fileToUpload, $folderName){
         //upload image
@@ -196,12 +196,12 @@ class AppController extends Controller
         $files = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
         return $files;
     }
-    
+
     public function setPassword($password)
     {
         return (new DefaultPasswordHasher)->hash($password);
     }
-    
+
     public function return_array($param, $field, $field2 = null) { //Retourner un array d'un seul field d'un autre array plus compliqué
         foreach($param as $key => $value){
             if($field2 === null){

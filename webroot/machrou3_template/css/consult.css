@@ -2,9 +2,6 @@
 When creating your CSS selector,
 change "brown" to something of your choosing
 */
-html{
-  font-family: ChantelliAntiqua, cursive, sans-serif;
-}
 .waves-effect.waves-blue .waves-ripple {
  /* The alpha value allows the text and background color
  of the button to still show through. */
@@ -16,7 +13,3 @@ li ul.collapsible.collapsible-accordion li.bold a.collapsible-header {
 }
 
 i.material-icons.x-large{font-size: 10rem;}
-
-h1.fontsforweb_fontid_70660 sub{
-  font-size:20px;
-}

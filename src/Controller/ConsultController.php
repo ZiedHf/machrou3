@@ -176,6 +176,7 @@ class ConsultController extends AppController
      */
     public function index(){
         //$departements = $this->Departements->getAllDepData();
+
         $departements = $this->Departements->getAllDepDataOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $projects = $this->Projects->getAllProjectDataByUser(null, $this->user_type, $this->user_id, $this->Auth->user('group_manager'));
 

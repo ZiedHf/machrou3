@@ -14,25 +14,25 @@ class AuthentificationsController extends AppController
     public function initialize() {
         parent::initialize();
     }
-    
+
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         $this->Auth->allow(['login', 'logout']);
         //debug($this->request->params);
         if (($this->Auth->user()) && ($this->request->params['action'] == 'login')) {
-            return $this->redirect($this->Auth->redirectUrl());   
+            return $this->redirect($this->Auth->redirectUrl());
         }
     }
-    
+
     public function isAuthorized($user = null){
         $parentValue = parent::isAuthorized($user);
         //debug($user['Auth']['User']); die();
         if($parentValue) return true;
-        
+
         return false;
     }
-    
+
     public function login()
     {
         $this->viewBuilder()->layout('login');
@@ -43,12 +43,12 @@ class AuthentificationsController extends AppController
                 //$this->Auth->redirectUrl();
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->materializeWarning(__('Invalid email or password, try again'), ['key' => 'materialize']);
+            $this->Flash->materializeWarning(__('Invalid email or password, try again'));
             //$this->redirect(['controller' => 'Authentifications', 'action' => 'login']);
         }
     }
     /**
-     * 
+     *
      * @return type
      */
     public function logout()

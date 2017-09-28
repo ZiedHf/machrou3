@@ -5,7 +5,6 @@
         <h1 class="fontsforweb_fontid_70660 center"><?=Name_app?><sub><?=Version?></sub></h1>
       </div>
       <div class="col s12">
-        <?= $this->Flash->render('auth') ?>
         <?= $this->Flash->render() ?>
       </div>
       <div class="row">

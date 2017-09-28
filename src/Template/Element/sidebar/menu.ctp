@@ -50,8 +50,8 @@
             <?= $this->Html->link('<i class="fa fa-wrench"></i><span>'.__('Projects').'</span>', ['controller' => 'Projects', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
         </li>
         <li class="<?=(isset($pageName))&&(($pageName === 'UserUrls')||($pageName === 'ProjectUrls')) ? 'active' : '' ?> treeview">
-            <?= $this->Html->link('<i class="fa fa-link"></i><span>'.__('Urls').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>', 
-                                    '#', 
+            <?= $this->Html->link('<i class="fa fa-link"></i><span>'.__('Urls').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>',
+                                    '#',
                                     ['escape' => false]); ?>
             <ul class="treeview-menu">
               <li <?=(isset($pageName))&&($pageName === 'ProjectUrls') ? 'class="active"' : '' ?>>
@@ -72,8 +72,8 @@
             <?= $this->Html->link('<i class="fa fa-tasks"></i><span>'.__('ProjectStages').'</span>', ['controller' => 'ProjectStages', 'action' => 'index', '_full' => true], ['escape' => false]); ?>
         </li>
         <li class="<?=(isset($pageName))&&(in_array($pageName, ['assocCompaniesUsers', 'assocDepartementsUsers', 'assocTeamsUsers', 'assocUsersProjects'])) ? 'active' : '' ?> treeview">
-            <?= $this->Html->link('<i class="fa fa-universal-access" aria-hidden="true"></i>'.__('AccessRight').'/'.__('Users').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>', 
-                                    '#', 
+            <?= $this->Html->link('<i class="fa fa-universal-access" aria-hidden="true"></i>'.__('AccessRight').'/'.__('Users').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>',
+                                    '#',
                                     ['escape' => false]); ?>
             <ul class="treeview-menu">
               <li <?=(isset($pageName))&&($pageName === 'assocCompaniesUsers') ? 'class="active"' : '' ?>>
@@ -91,8 +91,8 @@
             </ul>
         </li>
         <li class="<?=(isset($pageName))&&(in_array($pageName, ['assocCompaniesMembers', 'assocDepartementsMembers', 'assocTeamsMembers', 'assocMembersProjects'])) ? 'active' : '' ?> treeview">
-            <?= $this->Html->link('<i class="fa fa-universal-access" aria-hidden="true"></i>'.__('AccessRight').'/'.__('Members').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>', 
-                                    '#', 
+            <?= $this->Html->link('<i class="fa fa-universal-access" aria-hidden="true"></i>'.__('AccessRight').'/'.__('Members').'</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>',
+                                    '#',
                                     ['escape' => false]); ?>
             <ul class="treeview-menu">
               <li <?=(isset($pageName))&&($pageName === 'assocCompaniesMembers') ? 'class="active"' : '' ?>>

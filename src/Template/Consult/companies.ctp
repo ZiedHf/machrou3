@@ -7,7 +7,6 @@
                 <div class="col s12 m12 l10 offset-l1">
                   <div class="row">
                     <div class="col s12 m6 offset-m3">
-                      <?= $this->Flash->render('auth') ?>
                       <?= $this->Flash->render() ?>
                     </div>
                   </div>
@@ -19,9 +18,9 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                      <h2><?=__('Companies')?> <span class="badge"><?=$numberCompanies?></span></h2>
-                      <table id="companiesTable" class="table mdl-data-table">
+                    <div class="col s12">
+                      <h3 class="center"><?=__('Companies')?></h3>
+                      <table id="companiesTable">
                         <thead>
                           <tr>
                             <th><?=__('Company')?></th>

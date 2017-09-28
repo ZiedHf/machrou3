@@ -1,0 +1,41 @@
+@media only screen and (min-width: 993px){
+  header, main, footer{
+    padding-left: 300px;
+  }
+  .carousel{
+    height:620px;
+  }
+}
+
+@media only screen and (max-width: 993px){
+  .carousel{
+    height:720px;
+  }
+}
+
+.indicators .indicator-item.active {
+    background-color: #000000!important;
+}
+
+.indicators .indicator-item{
+  background-color: rgba(22,22,22,0.5)!important;
+}
+
+.tap-target {
+  color: #fff;
+  a {
+    color: #fff;
+    text-decoration:underline;
+  }
+}
+
+div.bottom_desc{
+  bottom: 5px; right: 20px; position: fixed;
+}
+span.bold{
+  font-weight: bold;
+}
+
+input[type="password"]{
+  font-family: sans-serif;
+}
