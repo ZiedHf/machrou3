@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col s12">
                 <h3 class="center"><?=__('Departements')?></h3>
-                <table id="departementsTable">
+                <table class="table_sorter" id="departementsTable">
                   <thead>
                     <tr>
                       <th><?=__('Departements')?></th>
@@ -42,7 +42,7 @@
                       <th><?=__('Projects number')?></th>
                     </tr>
                     <tr class="tablesorter-ignoreRow">
-                      <th colspan="7" class="ts-pager form-horizontal">
+                      <th colspan="6" class="ts-pager form-horizontal">
                         <button type="button" class="btn first"><i class="small material-icons">first_page</i></button>
                         <button type="button" class="btn prev"><i class="small material-icons">navigate_before</i></button>
                         <span class="pagedisplay"></span>

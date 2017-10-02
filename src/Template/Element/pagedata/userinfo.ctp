@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-md-12 col-sm-12">
-        <h2><?=__('Employee')?> : <?php echo "$user->name $user->lastName"; ?></h2>
+    <div class="col s12">
+        <h4><?=__('Employee')?> : <?php echo "$user->name $user->lastName"; ?></h4>
         <hr>
         <div class="col-lg-offset-1">
             <table class="table table-bordered">
@@ -58,8 +58,8 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                    <?php 
-                        foreach($user->projects as $key => $project){ 
+                    <?php
+                        foreach($user->projects as $key => $project){
                             $time_dedicated = $project['_joinData']->time_dedicated;
                     ?>
                     <tr>
@@ -112,7 +112,7 @@
                             <td><?=__('Name')?></td>
                             <td><?=__('Url')?></td>
                         </tr>
-                        <?php 
+                        <?php
                             foreach ($user->user_urls as $key => $url) {
                         ?>
                         <tr>
@@ -142,7 +142,7 @@
                             <td><?=__('Content')?></td>
                             <td><?=__('Percent')?></td>
                         </tr>
-                        <?php 
+                        <?php
                             foreach ($user->criterions as $key => $criterion) {
                         ?>
                         <tr>
@@ -161,4 +161,4 @@
             </div>
         </div>
     </div>
-</div>	
+</div>

@@ -21,7 +21,7 @@
                   	<div class="row">
                       <div class="col s12">
                         <h3 class="center"><?=__('Teams')?></h3>
-                                <table id="teamsTable">
+                                <table id="teamsTable" class="table_sorter">
                                     <thead>
                                     <tr>
                                         <th><?=__('Team')?></th>
@@ -38,7 +38,7 @@
                                         <th><?=__('Employees number')?></th>
                                     </tr>
                                     <tr class="tablesorter-ignoreRow">
-                                      <th colspan="7" class="ts-pager form-horizontal">
+                                      <th colspan="4" class="ts-pager form-horizontal">
                                         <button type="button" class="btn first"><i class="small material-icons">first_page</i></button>
                                         <button type="button" class="btn prev"><i class="small material-icons">navigate_before</i></button>
                                         <span class="pagedisplay"></span>

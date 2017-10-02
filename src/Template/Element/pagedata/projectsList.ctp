@@ -1,5 +1,5 @@
 <?php //debug($projects); die(); ?>
-<table class="table table-bordered row-border hover order-column" data-products="projectsTable">
+<table class="table_sorter table table-bordered row-border hover order-column" data-products="projectsTable">
     <thead>
         <tr>
             <th><?=__('Project name')?></th>
@@ -22,7 +22,7 @@
             <th><?=__('Documents')?></th>
         </tr>
         <tr class="tablesorter-ignoreRow">
-          <th colspan="7" class="ts-pager form-horizontal">
+          <th colspan="<?= (!empty($projects[0]->teams)) ? "7" : "6" ?>" class="ts-pager form-horizontal">
             <button type="button" class="btn first"><i class="small material-icons">first_page</i></button>
             <button type="button" class="btn prev"><i class="small material-icons">navigate_before</i></button>
             <span class="pagedisplay"></span>

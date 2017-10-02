@@ -28,7 +28,7 @@ $( document ).ready(function(){
       edge : 'right'
     });
 
-    //For Materialize Alert 
+    //For Materialize Alert
     $('button.close').click(function(){
       if($(this).attr("data-dismiss") === 'alert'){
         $(this).parent().fadeOut( "slow", function(){});
@@ -92,6 +92,27 @@ function initializeConsultTeamsListPage(){
     });
 }
 
+function initializeConsultViewDepartementPage(){
+  $(document).ready(function(){
+    idParserPriority = 'priority';
+    idParserStage = 'stage';
+    headers = {
+      2: {
+        sorter:idParserPriority
+      },
+      3: {
+        sorter:idParserStage
+      }
+    };
+    $(document).ready(function(){
+        makeParser(idParserPriority, priorities);
+        makeParser(idParserStage, stages);
+        tableSorterMaster(headers);
+    });
+
+  });
+}
+
 function lowerStrings(obj) {
   for (let attr in obj) {
     if (typeof obj[attr] === 'string') {
@@ -110,88 +131,79 @@ function makeCustomSort(s, priorities){
   return s;
 }
 
+function makeParser(idParser, variable){
+  // add parser through the tablesorter addParser method
+  variable = lowerStrings(variable);
+  $.tablesorter.addParser({
+    // set a unique id
+    id: idParser,
+    is: function(s) {
+      // return false so this parser is not auto detected
+      return false;
+    },
+    format: function(s) {
+      // format your data for normalization
+      return makeCustomSort(s, variable);
+    },
+    // set type, either numeric or text
+    type: 'numeric'
+  });
+}
+
 function initializeConsultViewListProjectPage(priorities, stages){
+  idParserPriority = 'priority';
+  idParserStage = 'stage';
   headers = {
     2: {
-      sorter:'priority'
+      sorter:idParserPriority
     },
     3: {
-      sorter:'stage'
+      sorter:idParserStage
     }
   };
   $(document).ready(function(){
-      // add parser through the tablesorter addParser method
-      priorities = lowerStrings(priorities);
-      $.tablesorter.addParser({
-        // set a unique id
-        id: 'priority',
-        is: function(s) {
-          // return false so this parser is not auto detected
-          return false;
-        },
-        format: function(s) {
-          // format your data for normalization
-          return makeCustomSort(s, priorities);
-        },
-        // set type, either numeric or text
-        type: 'numeric'
-      });
-
-      stages = lowerStrings(stages);
-      $.tablesorter.addParser({
-        // set a unique id
-        id: 'stage',
-        is: function(s) {
-          // return false so this parser is not auto detected
-          return false;
-        },
-        format: function(s) {
-          // format your data for normalization
-          return makeCustomSort(s, stages);
-        },
-        // set type, either numeric or text
-        type: 'numeric'
-      });
-
+      makeParser(idParserPriority, priorities);
+      makeParser(idParserStage, stages);
       tableSorterMaster(headers);
-
   });
 }
-  function tableSorterMaster(headers = {}){
-      $("table").tablesorter({
-        theme : "materialize",
+  function tableSorterMaster(headers = {}){//tfoot tr:last th.ts-pager
+      $("table.table_sorter").each(function(headers){
+          $(this).tablesorter({
+            theme : "materialize",
 
-        widthFixed: true,
-        // widget code contained in the jquery.tablesorter.widgets.js file
-        // use the zebra stripe widget if you plan on hiding any rows (filter widget)
-        widgets : [ "filter", "zebra" ],
+            widthFixed: true,
+            // widget code contained in the jquery.tablesorter.widgets.js file
+            // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+            widgets : [ "filter", "zebra" ],
 
-        headers: headers,
+            headers: headers,
 
-        widgetOptions : {
-          // using the default zebra striping class name, so it actually isn't included in the theme variable above
-          // this is ONLY needed for materialize theming if you are using the filter widget, because rows are hidden
-          zebra : ["even", "odd"],
+            widgetOptions : {
+              // using the default zebra striping class name, so it actually isn't included in the theme variable above
+              // this is ONLY needed for materialize theming if you are using the filter widget, because rows are hidden
+              zebra : ["even", "odd"],
 
-          // reset filters button
-          filter_reset : ".reset"
-        }
-      })
-      .tablesorterPager({
+              // reset filters button
+              filter_reset : ".reset"
+            }
+          })
+          .tablesorterPager({
 
-        // target the pager markup - see the HTML block below
-        container: $(".ts-pager"),
+            // target the pager markup - see the HTML block below
+            container: $(this).find("tfoot > tr:last > th.ts-pager"),
 
-        // target the pager page select dropdown - choose a page
-        cssGoto  : ".pagenum",
+            // target the pager page select dropdown - choose a page
+            cssGoto  : ".pagenum",
 
-        // remove rows from the table to speed up the sort of large tables.
-        // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
-        removeRows: false,
+            // remove rows from the table to speed up the sort of large tables.
+            // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+            removeRows: false,
 
-        // output string - default is '{page}/{totalPages}';
-        // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
-        output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
-
+            // output string - default is '{page}/{totalPages}';
+            // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+            output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+          });
       });
+
   }
