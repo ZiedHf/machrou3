@@ -26,7 +26,7 @@ class MenuConsultCell extends Cell
     {
         $this->loadModel('ProjectStages');
         $menu_stages = $this->ProjectStages->getCountProjectsByStages(0); //have more than 0 project
-        //$pageName = "";
-        $this->set(compact('menu_stages', 'pageName'));
+
+        $this->set(compact('menu_stages', 'pageName', 'name'));
     }
 }

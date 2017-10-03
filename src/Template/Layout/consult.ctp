@@ -42,7 +42,7 @@ Written by Zied Haffoudhi <ziedhaffoudhi@gmail.com>, 2017.
     </head>
 
     <body class="blue lighten-5">
-      <?= $this->element('sidebar/header', ['pageName' => $pageName]) ?>
+      <?= $this->element('sidebar/header', ['pageName' => $pageName, 'breadcrumbs' => isset($breadcrumbs) ? $breadcrumbs : array(['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']])]) ?>
 
       <?= $this->fetch('content') ?>
 

@@ -35,7 +35,7 @@ class ProjectsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('projects');
         $this->displayField('name');
         $this->primaryKey('id');
@@ -55,32 +55,32 @@ class ProjectsTable extends Table
             'joinTable' => 'assoc_users_projects',
             'through' => 'AssocUsersProjects'
         ]);
-        
+
         $this->belongsToMany('Members', [
             'joinTable' => 'assoc_members_projects',
             'through' => 'AssocMembersProjects'
         ]);
-        
+
         $this->belongsToMany('Clients', [
             'joinTable' => 'assoc_clients_projects',
         ]);
-        
+
         $this->belongsToMany('Criterions', [
             'joinTable' => 'assoc_projects_criterions',
         ]);
-        
+
         $this->belongsTo('Priorities', [
             'foreignKey' => 'priority_id'
         ]);
-        
+
         $this->belongsTo('ProjectStages', [
             'foreignKey' => 'project_stage_id'
         ]);
-        
+
         $this->hasMany('ProjectUrls', [
             'className' => 'ProjectUrls'
         ]);
-        
+
         $this->addBehavior('Search.Search');
         $this->searchManager()
             ->add('q', 'Search.Like', [
@@ -171,7 +171,7 @@ class ProjectsTable extends Table
 
         $validator
             ->allowEmpty('objective');
-        
+
         $validator
             ->allowEmpty('path_doc');
 
@@ -182,12 +182,12 @@ class ProjectsTable extends Table
         $validator
             ->integer('modified_by')
             ->allowEmpty('modified_by');
-        
+
         $validator
             ->allowEmpty('created_type');
         $validator
             ->allowEmpty('modified_type');
-        
+
         $validator->dateTime('dateBegin')->allowEmpty('dateBegin');
         $validator->dateTime('dateEnd')->allowEmpty('dateEnd');
 
@@ -199,22 +199,22 @@ class ProjectsTable extends Table
         $validator = $this->validationDefault($validator);
         return $validator;
     }*/
-    
+
     public function getProjectsList() {
         $projects = TableRegistry::get('Projects');
         $result = $projects->find('list')->order(['name' => 'ASC'])->toArray();
         return $result;
     }
-    
+
     public function getAllProjectData($stage_id = null){
         $projects = TableRegistry::get('Projects');
         //$results = $projects->find('all')->contain(['Users', 'Clients', 'Teams', 'Teams.Users','Teams.Departements'])->order(['name' => 'ASC'])->toArray();
         if($stage_id === null){
-            
+
             $results = $projects->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                        }], 
-                                                    'Clients', 
+                                                        }],
+                                                    'Clients',
                                                     'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                     'Teams.Users',
                                                     'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -222,8 +222,8 @@ class ProjectsTable extends Table
                                                     'ProjectStages'
                                                     ])->order(['Projects.name' => 'ASC'])->toArray();
         }else{
-            $results = $projects->find('all')->contain(['Users', 
-                                                    'Clients', 
+            $results = $projects->find('all')->contain(['Users',
+                                                    'Clients',
                                                     'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                     'Teams.Users',
                                                     'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -231,7 +231,7 @@ class ProjectsTable extends Table
                                                     'ProjectStages'
                                                     ])->where(['Projects.project_stage_id' => $stage_id])->order(['Projects.name' => 'ASC'])->toArray();
         }
-        
+
         foreach ($results as $keyProject => $project){
             $arrayDep = array();
             foreach ($project->teams as $keyTeam => $team){ // Récuperer le departement (important pour l'utiliser dans la page home)
@@ -247,15 +247,15 @@ class ProjectsTable extends Table
                 $results[$keyProject]['files'] = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
             }*/
         }
-        
+
         return $results;
     }
-    
+
     public function getAllProjectDataByUser($stage_id = null, $user_type = null, $user_id = null, $group_manager = null){
         if($group_manager){
             return $this->getAllProjectData($stage_id);
         }
-        
+
         $projects = TableRegistry::get('Projects');
         $entity = null;
         if($user_type == 'user'){
@@ -263,22 +263,22 @@ class ProjectsTable extends Table
         }elseif($user_type == 'member'){
             $entity = 'Members';
         }
-        
+
         //Les projets sur les quels ce user a l'access selon la societe
         $results_ProjectsCompManager = $projects->find()
                                 ->innerJoinWith("Teams.Departements.Companies.$entity", function ($q) use ($user_id, $entity) {
                                         return $q->where(["$entity.id" => $user_id, "AssocCompanies$entity.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
                                                 'Priorities',
                                                 'ProjectStages'
                                                 ]);
-        //Filtre selon le stage s'il existe                                            
+        //Filtre selon le stage s'il existe
         ($stage_id !== null) ? $results_ProjectsCompManager->where(['Projects.project_stage_id' => $stage_id])
                                                 ->order(['Projects.name' => 'ASC'])
                             : $results_ProjectsCompManager->order(['Projects.name' => 'ASC']);
@@ -289,15 +289,15 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "AssocDepartements$entity.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
                                                 'Priorities',
                                                 'ProjectStages'
                                                 ]);
-        //Filtre selon le stage s'il existe       
+        //Filtre selon le stage s'il existe
         ($stage_id !== null) ? $results_ProjectsDepManager->where(['Projects.project_stage_id' => $stage_id])
                                                 ->order(['Projects.name' => 'ASC'])
                             : $results_ProjectsDepManager->order(['Projects.name' => 'ASC']);
@@ -307,8 +307,8 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "AssocTeams$entity.accessLevel >" => 3]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -326,8 +326,8 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "$table.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -344,7 +344,7 @@ class ProjectsTable extends Table
         $results->union($results_HisProjects);
         //debug($results->toArray()); die();
         $results = $results->epilog('ORDER BY Projects__name ASC')->toArray();
-        
+
         foreach ($results as $keyProject => $project){
             $arrayDep = array();
             foreach ($project->teams as $keyTeam => $team){ // Récuperer le departement (important pour l'utiliser dans la page home)
@@ -360,18 +360,18 @@ class ProjectsTable extends Table
                 $results[$keyProject]['files'] = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
             }*/
         }
-        
+
         return $results;
     }
-    
+
     //
     public function getLastProjectsData($num){ //getProjectsData limit $num
         $projects = TableRegistry::get('Projects');
-        
+
         $results = $projects->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
                                                         }], 'Clients', 'Teams', 'Teams.Users','Teams.Departements', 'Priorities', 'ProjectStages'])->order(['created' => 'DESC'])->limit($num)->toArray();
-        
+
         foreach ($results as $keyProject => $project){
             $arrayDep = array();
             foreach ($project->teams as $keyTeam => $team){ // Récuperer le departement (important pour l'utiliser dans la page home)
@@ -380,17 +380,17 @@ class ProjectsTable extends Table
             }
             $results[$keyProject]['departement'] = $arrayDep;
         }
-        
+
         return $results;
     }
-    
+
     public function getLastProjectsDataByUser($num, $user_type, $user_id, $group_manager){ //getProjectsData limit $num
         if($group_manager){
             return $this->getLastProjectsData($num);
         }
-        
+
         $entity = ($user_type == 'user') ? 'Users' : 'Members';
-        
+
         $projects = TableRegistry::get('Projects');
         /*
         $results = $projects->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
@@ -403,7 +403,7 @@ class ProjectsTable extends Table
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
                                                         }], 'Clients', 'Teams', 'Teams.Users','Teams.Departements', 'Priorities', 'ProjectStages']);
-        
+
         //Les projets sur les quels ce user a l'access selon la dep
         $results_ProjectsDepManager = $projects->find()
                                 ->innerJoinWith("Teams.Departements.$entity", function ($q) use ($user_id, $entity) {
@@ -411,7 +411,7 @@ class ProjectsTable extends Table
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
                                                         }], 'Clients', 'Teams', 'Teams.Users','Teams.Departements', 'Priorities', 'ProjectStages']);
-        
+
         //Les projets sur les quels ce user a l'access selon la Team
         $results_ProjectsTeamsManager = $projects->find()
                                 ->innerJoinWith("Teams.$entity", function ($q) use ($user_id, $entity) {
@@ -419,7 +419,7 @@ class ProjectsTable extends Table
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                             return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
                                                         }], 'Clients', 'Teams', 'Teams.Users','Teams.Departements', 'Priorities', 'ProjectStages']);
-        
+
         //Ses projets
         $results_HisProjects = $projects->find()
                                 ->innerJoinWith("$entity", function ($q) use ($user_id, $entity) {
@@ -447,10 +447,10 @@ class ProjectsTable extends Table
             }
             $results[$keyProject]['departement'] = $arrayDep;
         }
-        
+
         return $results;
     }
-    
+
     public function getAllProjectDataByDep($dep_id){
         $projects = TableRegistry::get('Projects');
         /*$results = $projects->find('all')->contain(['Users', 'Teams'  => function ($q) {
@@ -462,7 +462,7 @@ class ProjectsTable extends Table
         $results = $results->matching('Teams', function ($q) use ($dep_id) {
             return $q->where(['Teams.departement_id' => $dep_id]);
         })->toArray();
-        
+
         foreach ($results as $keyProject => $project){
             $arrayDep = array();
             foreach ($project->teams as $keyTeam => $team){ // Récuperer le departement (important pour l'utiliser dans la page home)
@@ -478,10 +478,10 @@ class ProjectsTable extends Table
                 $results[$keyProject]['files'] = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
             }*/
         }
-        
+
         return $results;
     }
-    
+
     public function getAllProjectDataById($id){
         $projects = TableRegistry::get('Projects');
         $results = $projects->find('all')->contain(['Users' => [
@@ -525,7 +525,7 @@ class ProjectsTable extends Table
                                                         }
                                                     ]])
                 ->where(['Projects.id' => $id])->toArray();
-        
+
         foreach ($results as $keyProject => $project){
             $arrayDep = array();
             foreach ($project->teams as $keyTeam => $team){ // Récuperer le departement (important pour l'utiliser dans la page home)
@@ -534,14 +534,14 @@ class ProjectsTable extends Table
                 //debug($team->departement_id); die();
             }
             $results[$keyProject]['departement'] = $arrayDep;
-            
+
             //scan directory and get all files
             if($project->path_dir !== null){
                 $allFiles = scandir(PROJECTS_UPLOAD.DS.$project->path_dir);
                 $results[$keyProject]['files'] = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
             }
         }
-        
+
         return $results[0];
     }
     /*public function getProjectDataById($id) {
@@ -556,7 +556,7 @@ class ProjectsTable extends Table
         $results = $projects->find('list')->count();
         return $results;
     }
-    
+
     public function getCountProjectsByUser($user_type, $user_id, $group_manager){
         if($group_manager){
             $this->getCountProjects();
@@ -564,22 +564,22 @@ class ProjectsTable extends Table
         $projects = $this->getAllProjectDataByUser(null, $user_type, $user_id, $group_manager);
         return count($projects);
     }
-    
+
     public function getFilesByProjects($path_dir) { // Retourner les chemins des fichiers
-        if($path_dir === null){
+        if(empty($path_dir)){
             return null;
         }
         $allFiles = scandir(PROJECTS_UPLOAD.DS.$path_dir);
         $files = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
         return $files;
     }
-    
+
     public function calendar_projectsData() {
         $projects = TableRegistry::get('Projects');
         $results = $projects->find('all')->select(['id', 'name', 'dateBegin', 'dateEnd'])->toArray();
         return $results;
     }
-    
+
     public function isOwnedBy($project_id, $owner_id, $owner_type) {
         if($owner_type === 'client'){
             $assoc = TableRegistry::get('AssocClientsProjects');
@@ -594,7 +594,7 @@ class ProjectsTable extends Table
             return false;
         }
     }
-    
+
     public function getusers_project($project_id) {
         $projectsTable = TableRegistry::get('Projects');
         $result = $projectsTable->find()->hydrate(false)->contain(['Users' => ['queryBuilder' => function ($q) {
@@ -602,7 +602,7 @@ class ProjectsTable extends Table
                                                         }]])
                                             ->where(['Projects.id' => $project_id])
                                             ->toArray();
-        
+
         $users = array();
         foreach($result[0]['users'] as $u => $user) {
             if((!in_array($user['id'], $users))){
@@ -611,7 +611,7 @@ class ProjectsTable extends Table
         }
         return $users;
     }
-    
+
     public function getNotMembersProject($project_id) {
         $projectsTable = TableRegistry::get('Projects');
         $result = $projectsTable->find()->hydrate(false)->contain(['Users' => ['queryBuilder' => function ($q) {
@@ -619,7 +619,7 @@ class ProjectsTable extends Table
                                                         }]])
                                             ->where(['Projects.id' => $project_id])
                                             ->toArray();
-        
+
         $users = array();
         foreach($result[0]['users'] as $u => $user) {
             if((!in_array($user['id'], $users))){
@@ -628,13 +628,13 @@ class ProjectsTable extends Table
         }
         return $users;
     }
-    
+
     public function getProjectManagerByIdProject($id) {
         $assoc = TableRegistry::get('AssocUsersProjects');
         $result = $assoc->find('all')->select('user_id')->where(['project_id' => $id, 'accessLevel' => 5])->first();
         return (!empty($result)) ? $result->user_id : null;
     }
-    
+
     public function getThisProjectCompaniesId($project_id) {
         $projectsTable = TableRegistry::get('Projects');
         $results = $projectsTable->find()->hydrate(false)->contain(['Teams.Departements'])
@@ -646,7 +646,7 @@ class ProjectsTable extends Table
         }
         return $companies_id;
     }
-    
+
     public function getThisProjectDepartementsId($project_id) {
         $projectsTable = TableRegistry::get('Projects');
         $results = $projectsTable->find()->hydrate(false)->contain(['Teams'])
@@ -657,7 +657,7 @@ class ProjectsTable extends Table
         }
         return $departements_id;
     }
-    
+
     public function getThisProjectTeamsId($project_id) {
         $projectsTable = TableRegistry::get('Projects');
         $results = $projectsTable->find()->hydrate(false)->contain(['Teams'])
@@ -668,7 +668,7 @@ class ProjectsTable extends Table
         }
         return $teams_id;
     }
-    
+
     public function getUserAccessByProject($user_id, $type, $project_id) {
         $projectsTable = TableRegistry::get('Projects');
         if($type === 'user'){
@@ -687,12 +687,12 @@ class ProjectsTable extends Table
             return 0;
         }
     }
-    
+
     public function getAllProjects_ByUser($user_type, $user_id, $group_manager) {
         if($group_manager){
             return $this->getAllProjects_ByManager();
         }
-        
+
         $projects = TableRegistry::get('Projects');
         $entity = null;
         if($user_type == 'user'){
@@ -700,15 +700,15 @@ class ProjectsTable extends Table
         }elseif($user_type == 'member'){
             $entity = 'Members';
         }
-                  
+
         //Les projets sur les quels ce user a l'access selon la societe
         $results_ProjectsCompManager = $projects->find()
                                 ->innerJoinWith("Teams.Departements.Companies.$entity", function ($q) use ($user_id, $entity) {
                                         return $q->where(["$entity.id" => $user_id, "AssocCompanies$entity.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -722,8 +722,8 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "AssocDepartements$entity.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -736,8 +736,8 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "AssocTeams$entity.accessLevel >" => 3]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -751,8 +751,8 @@ class ProjectsTable extends Table
                                         return $q->where(["$entity.id" => $user_id, "$table.accessLevel >" => 0]);
                                     })->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
@@ -765,24 +765,24 @@ class ProjectsTable extends Table
         $results->union($results_HisProjects);
         //debug($results->toArray()); die();
         $results = $results->epilog('ORDER BY Projects__name ASC');
-        
+
         return $results;
     }
-    
+
     public function getAllProjects_ByManager() {
         $projects = TableRegistry::get('Projects');
-            
+
         $results = $projects->find('all')->contain(['Users' => ['queryBuilder' => function ($q) {
                                                         return $q->where(['AssocUsersProjects.accessLevel >' => '1']);
-                                                    }], 
-                                                'Clients', 
+                                                    }],
+                                                'Clients',
                                                 'Teams' => ['sort' => ['Teams.name' => 'ASC']],
                                                 'Teams.Users',
                                                 'Teams.Departements'  => ['sort' => ['Departements.name' => 'ASC']],
                                                 'Priorities',
                                                 'ProjectStages'
                                                 ])->order(['Projects.name' => 'ASC']);
-    
+
         return $results;
     }
 }

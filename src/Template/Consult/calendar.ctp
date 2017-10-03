@@ -8,7 +8,6 @@
                 <div class="row">
                     <div class="row">
                         <div class="col-xs-12">
-                              <?= $this->Flash->render('auth') ?>
                               <?= $this->Flash->render() ?>
                         </div>
                     </div>
@@ -21,7 +20,7 @@
 
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
+      *********************************************************************************************************************************************************** -->
 
                     <!--Notifications-->
                     <?= $this->cell('Slider') ?>
@@ -33,7 +32,7 @@
         <link rel='stylesheet' href='../lib/cupertino/jquery-ui.min.css' />
         <link href='../fullcalendar.css' rel='stylesheet' />
         <link href='../fullcalendar.print.css' rel='stylesheet' media='print' />
-      
+
         <script src='../lib/moment.min.js'></script>
         <script src='../lib/jquery.min.js'></script>
         <script src='../fullcalendar.min.js'></script>
@@ -43,7 +42,7 @@
     $this->Html->css('../js/fullcalendar/lib/cupertino/jquery-ui.min.css', ['block' => true]);
     $this->Html->css('../js/fullcalendar/fullcalendar.min.css', ['block' => true]);
     $this->Html->css('../js/fullcalendar/fullcalendar.print.css', ['block' => true, 'media' => 'print']);
-    
+
     $this->Html->script('fullcalendar/lib/moment.min.js', ['block' => true]);
     $this->Html->script('fullcalendar/fullcalendar.js', ['block' => true]);
     $this->Html->script('fullcalendar/locale/fr.js', ['block' => true]);
@@ -52,4 +51,4 @@
         echo "projects =".json_encode($projects).";";
         echo "initializeConsultCalendar(projects);";
     $this->Html->scriptEnd();
-?>      
+?>

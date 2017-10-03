@@ -45,7 +45,6 @@
         </ul>
       </div>
     </nav>
-
-    <?= $this->cell('Slider') ?>
+    <?= $this->cell('Slider', ['breadcrumbs' => $breadcrumbs]) ?>
 
   </header>

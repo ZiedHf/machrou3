@@ -68,9 +68,18 @@
     </ul>
     <div class="row">
       <div class="col s11 m9 offset-s1 l11">
-        <a href="#!" class="breadcrumb">First</a>
+        <?php
+          if(!empty($breadcrumbs)){
+            $this->Breadcrumbs->templates([
+              'item' => '<li><a href="{{url}}"{{innerAttrs}}>{{title}}</a></li>{{separator}}'
+            ]);
+            $this->Breadcrumbs->add($breadcrumbs);
+            echo $this->Breadcrumbs->render(['class' => 'breadcrumbs'], ['separator' => '<i class="material-icons">chevron_right</i>']);
+          }
+        ?>
+        <!--a href="#!" class="breadcrumb">First</a>
         <a href="#!" class="breadcrumb">Second</a>
-        <a href="#!" class="breadcrumb">Third</a>
+        <a href="#!" class="breadcrumb">Third</a-->
       </div>
       <div class="col m3 l1 right-align hide-on-small-only">
         <a data-activates="slide-last-project" class="btn waves-effect waves-light blue lighten-1">

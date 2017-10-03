@@ -241,7 +241,11 @@ class ConsultController extends AppController
         //$numberCompanies = $this->Companies->getCountDep();
         $numberCompanies = count($companies);
         $pageName = 'Companies';
-        $this->set(compact('numberCompanies', 'companies', 'pageName'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Companies'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'companies']]
+        ]);
+        $this->set(compact('numberCompanies', 'companies', 'pageName', 'breadcrumbs'));
     }
 
     public function departements($id = null)
@@ -261,7 +265,11 @@ class ConsultController extends AppController
         //$numberDepartements = $this->Departements->getCountDep();
         $numberDepartements = count($departements);
         $pageName = 'Départements';
-        $this->set(compact('departements', 'projects', 'cakeDescription', 'pageName', 'arrayNumber', 'numberDepartements'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Departements'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'departements']]
+        ]);
+        $this->set(compact('departements', 'projects', 'cakeDescription', 'pageName', 'arrayNumber', 'numberDepartements', 'breadcrumbs'));
         //$this->set('_serialize', ['departements']);
     }
 
@@ -283,7 +291,12 @@ class ConsultController extends AppController
         $priorities = $this->Priorities->getPrioritiesListByOrder()->toArray();
         $action = 'viewProject';
         $pageName = 'Départements';
-        $this->set(compact('pageName', 'departement', 'files', 'action', 'stages', 'priorities'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Departements'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'departements']],
+          ['title' => $departement->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => 'viewDepartement', $id]]
+        ]);
+        $this->set(compact('pageName', 'departement', 'files', 'action', 'stages', 'priorities', 'breadcrumbs'));
     }
 
     public function viewProject($dep_id, $project_id) {
@@ -298,6 +311,12 @@ class ConsultController extends AppController
         $images = $this->getImagesFiles($files);
         //debug($files); die();
         $pageName = 'Départements';
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Departements'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'departements']],
+          ['title' => $departement->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => 'viewDepartement', $dep_id]],
+          ['title' => $project->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $dep_id, $project_id]]
+        ]);
         $this->set(compact('pageName', 'departement', 'project', 'files', 'images', 'projectManager'));
     }
 
@@ -306,7 +325,13 @@ class ConsultController extends AppController
         $user = $this->Users->getAllUserDataById($user_id);
 
         $pageName = 'Départements';
-        $this->set(compact('pageName', 'departement', 'user'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Departements'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'departements']],
+          ['title' => $departement->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => 'viewDepartement', $dep_id]],
+          ['title' => $user->name.' '.$user->lastName, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $dep_id, $user_id]]
+        ]);
+        $this->set(compact('pageName', 'departement', 'user', 'breadcrumbs'));
     }
 
     public function viewTeam($dep_id, $team_id) {
@@ -314,7 +339,13 @@ class ConsultController extends AppController
         $team = $this->Teams->getTeamDataById($team_id);
         //debug($team); die();
         $pageName = 'Départements';
-        $this->set(compact('pageName', 'departement', 'team'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Departements'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'departements']],
+          ['title' => $departement->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => 'viewDepartement', $dep_id]],
+          ['title' => $team->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $dep_id, $team_id]]
+        ]);
+        $this->set(compact('pageName', 'departement', 'team', 'breadcrumbs'));
     }
 
     public function teamsList() {
@@ -328,14 +359,23 @@ class ConsultController extends AppController
         //$numberteams = $this->Teams->getCountTeams();
         $numberteams = count($teams);
         $pageName = 'Equipes';
-        $this->set(compact('pageName', 'teams', 'numberteams'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Teams'), 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action']]]
+        ]);
+        $this->set(compact('pageName', 'teams', 'numberteams', 'breadcrumbs'));
     }
     public function viewTeamInfo($id) {
         //$team = $this->Teams->getTeamDataById($id);
         $team = $this->Teams->getThisTeamDataByUser($id, $this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         //debug($team);die();
         $pageName = 'Equipes';
-        $this->set(compact('pageName', 'team'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Teams'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'teamsList']],
+          ['title' => $team->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $id]]
+        ]);
+        $this->set(compact('pageName', 'team', 'breadcrumbs'));
     }
 
     public function projectsList($stage_id = null) {
@@ -360,8 +400,12 @@ class ConsultController extends AppController
         $priorities = $this->Priorities->getPrioritiesListByOrder()->toArray();
 
         $pageName = 'Projets';
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Projects'), 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action']]]
+        ]);
         $action = 'viewProjectInfo';
-        $this->set(compact('pageName', 'projects', 'numberProjects', 'files', 'action', 'priorities', 'stages'));
+        $this->set(compact('pageName', 'projects', 'numberProjects', 'files', 'action', 'priorities', 'stages', 'breadcrumbs'));
     }
 
     public function viewProjectInfo($dep_id = null, $project_id) {
@@ -370,12 +414,16 @@ class ConsultController extends AppController
         $projectManager_id = $this->AssocUsersProjects->getProjectManagerByIdProject($project->id);
         $projectManager = $this->Projects->Users->getUserDataById($projectManager_id);
 
-        //debug($projectManager);die();
+        //debug($project->path_dir);die();
         $files = $this->Projects->getFilesByProjects($project->path_dir); // les noms des dossiers seulement
         $images = $this->getImagesFiles($files);
         $pageName = 'Projets';
-
-        $this->set(compact('pageName', 'project', 'files', 'images', 'projectManager'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Projects'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'projectsList']],
+          ['title' => $project->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $dep_id, $project->id]],
+        ]);
+        $this->set(compact('pageName', 'project', 'files', 'images', 'projectManager', 'breadcrumbs'));
     }
 
     public function employeesList() {
@@ -384,29 +432,46 @@ class ConsultController extends AppController
         $numberEmp = count($employees);
         $pageName = 'Employés';
 
-        $this->set(compact('pageName', 'employees', 'numberEmp'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Users'), 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action']]],
+        ]);
+        $this->set(compact('pageName', 'employees', 'numberEmp', 'breadcrumbs'));
     }
 
     public function viewUserInfo($id) {
         $user = $this->Users->getAllUserDataById($id);
         $pageName = 'Employés';
         //debug($user); die();
-        $this->set(compact('pageName', 'user'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Users'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'employeesList']],
+          ['title' => $user->name.' '.$user->lastName, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $user->id]]
+        ]);
+        $this->set(compact('pageName', 'user', 'breadcrumbs'));
     }
 
     public function clientsList() {
         $clients = $this->Clients->getAllClientsData();
         $numberClients = $this->Clients->getCountClients();
         $pageName = 'Clients';
-
-        $this->set(compact('pageName', 'clients', 'numberClients'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Clients'), 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action']]]
+        ]);
+        $this->set(compact('pageName', 'clients', 'numberClients', 'breadcrumbs'));
     }
 
     public function viewClientInfo($id) {
         $client = $this->Clients->getAllClientDataById($id);
         //debug($client);die();
         $pageName = 'Clients';
-        $this->set(compact('pageName', 'client'));
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Clients'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'clientsList']],
+          ['title' => $client->name, 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action'], $id]]
+        ]);
+        $this->set(compact('pageName', 'client', 'breadcrumbs'));
     }
 
     public function calendar() {
@@ -439,6 +504,10 @@ class ConsultController extends AppController
         //debug(Router::$this->Url->build(['controller' => 'Consult', 'action' => 'index']));die();
         //debug($projects); die();
         $pageName = 'Calendar';
+        $breadcrumbs = ([
+          ['title' => __('Dashboard'), 'url' => ['controller' => $this->request->params['controller'], 'action' => 'index']],
+          ['title' => __('Calendar'), 'url' => ['controller' => $this->request->params['controller'], 'action' => $this->request->params['action']]]
+        ]);
         $this->set(compact('pageName', 'projects'));
     }
 }

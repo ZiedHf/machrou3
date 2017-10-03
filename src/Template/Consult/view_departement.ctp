@@ -4,20 +4,11 @@
       <!--main content start-->
       <section id="main-content">
         <div class="container">
-            <div class="col s12 m12 l10 offset-l1">
+            <div class="col s12 l11 offset-l1">
               <div class="row">
                 <div class="col s12 m6 offset-m3">
                   <?= $this->Flash->render() ?>
                 </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12 col-sm-12">
-                      <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
-                      >
-                      <?=$this->Html->link(__('Departement'), ['controller' => 'consult', 'action' => 'departements'])?>
-                      >
-                      <?=$departement->name?>
-                  </div>
               </div>
                   	<div class="row">
                       <div class="col s12">
@@ -65,11 +56,11 @@
                             <h4><?=__('Criterions')?></h4>
                             <?php if(!empty($departement->criterions)){ ?>
                             <div class="col-lg-offset-1">
-                                <table class="table table-bordered">
+                                <table class="bordered highlight">
                                     <tr>
-                                        <td><?=__('Name')?></td>
-                                        <td><?=__('Content')?></td>
-                                        <td><?=__('Percent')?></td>
+                                        <th><?=__('Name')?></th>
+                                        <th><?=__('Content')?></th>
+                                        <th><?=__('Percent')?></th>
                                     </tr>
                                     <?php
                                         foreach ($departement->criterions as $key => $criterion) {

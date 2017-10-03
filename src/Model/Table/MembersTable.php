@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * Members Model
@@ -43,21 +44,21 @@ class MembersTable extends Table
         $this->hasOne('Authentifications', [
             'foreignKey' => 'member_id'
         ]);
-        
+
         $this->belongsToMany('Companies', [
             'joinTable' => 'assoc_companies_members',
             'through' => 'AssocCompaniesMembers'
         ]);
-        
+
         $this->belongsToMany('Departements', [
             'joinTable' => 'assoc_departements_members',
             'through' => 'AssocDepartementsMembers'
         ]);
-        
+
         $this->belongsToMany('Teams', [
             'joinTable' => 'assoc_teams_members',
         ]);
-        
+
         $this->belongsToMany('Projects', [
             'joinTable' => 'assoc_projects_members',
             'through' => 'AssocMembersProjects'
@@ -95,12 +96,18 @@ class MembersTable extends Table
         $validator
             ->integer('modified_by')
             ->allowEmpty('modified_by');
-        
+
         $validator
             ->allowEmpty('created_type');
         $validator
             ->allowEmpty('modified_type');
 
         return $validator;
+    }
+
+    public function getMemberDataById($id) {
+        $users = TableRegistry::get('Members');
+        $result = $users->find('all')->contain(['Authentifications'])->where(['Members.id' => $id])->order(['name' => 'ASC'])->first();
+        return $result;
     }
 }

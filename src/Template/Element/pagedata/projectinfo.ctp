@@ -4,30 +4,30 @@ $files ==> Les noms des fichiers
 $images ==> Les noms des images
 -->
 <div class="row">
-    <div class="col-md-12 col-sm-12">
-        <h2>Projet : <?=$project->name?></h2>
+    <div class="col s12">
+        <h4>Projet : <?=$project->name?></h4>
         <hr>
-        <div class="col-lg-offset-1">
-            <table class="table table-bordered">
+        <div class="col m11 offset-m1">
+            <table class="bordered highlight">
                 <tr>
                     <th><?=__('Project name')?> :</th>
                     <td><?=$project->name?></td>
                 </tr>
                 <tr>
                     <th><?=__('ProjectManager')?> :</th>
-                    <td>    
+                    <td>
                         <?=($projectManager !== null) ? $this->Html->link($projectManager->name.' '.$projectManager->lastName, ['controller' => 'Consult', 'action' => 'viewUserInfo', $projectManager->id]) : '-'?>
                     </td>
                 </tr>
                 <tr>
                     <th><?=__('Date Begin')?> :</th>
-                    <td>    
+                    <td>
                         <?=($project->dateBegin !== null) ? h($project->dateBegin) : '-'?>
                     </td>
                 </tr>
                 <tr>
                     <th><?=__('Date End')?> :</th>
-                    <td>    
+                    <td>
                         <?=($project->dateEnd !== null) ? h($project->dateEnd) : '-'?>
                     </td>
                 </tr>
@@ -35,9 +35,7 @@ $images ==> Les noms des images
                     <th><?=__('Accomplishment')?> :</th>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" aria-valuemin="0" aria-valuemax="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" style="min-width: 10%; width: <?=$project->accomplishment?>%;">
-                              <?=$project->accomplishment?>%
-                            </div>
+                          <div class="determinate" style="width: <?=$project->accomplishment?>%"></div>
                         </div>
                     </td>
                 </tr>
@@ -73,10 +71,10 @@ $images ==> Les noms des images
                 <tr>
                     <th><?=__('Documents')?> :</th>
                     <td>
-                        <?php 
+                        <?php
                             //scan directory and get all files
                             $project_id = $project->id;
-                            if(!empty($files)){ 
+                            if(!empty($files)){
                                 echo '<ul class="liststyle">';
                                 foreach($files as $keyFiles => $file){
                                     echo "<li>";
@@ -97,20 +95,24 @@ $images ==> Les noms des images
     </div>
 </div>
 
+<hr>
+
 <div class="row">
-    <div class="col-md-12 col-sm-12">
-        <h3><?=__('Employees')?></h3>
-        <hr>
+    <div class="col s12">
+
+        <h4><?=__('Employees')?></h4>
+
+        <div class="col m11 offset-m1">
         <?php if(!empty($project->users)){ ?>
-        <div class="col-lg-offset-1">
-            <table class="table table-bordered">
+
+            <table class="bordered highlight">
                 <tr>
-                    <td><?=__('Name')?></td>
-                    <td><?=__('Time dedicated')?></td>
+                    <th><?=__('Name')?></th>
+                    <th><?=__('Time dedicated')?></th>
                 </tr>
-                <?php 
-                    foreach ($project->users as $key => $employee) { 
-                        $time_dedicated = $employee['_joinData']->time_dedicated; 
+                <?php
+                    foreach ($project->users as $key => $employee) {
+                        $time_dedicated = $employee['_joinData']->time_dedicated;
                 ?>
                 <tr>
                     <td><?=$this->Html->link($employee->name.' '.$employee->lastName, ['controller' => 'Consult', 'action' => 'viewUserInfo', $employee->id]);?></td>
@@ -128,27 +130,32 @@ $images ==> Les noms des images
                 </tr>
                 <?php } ?>
             </table>
-        </div>
+
         <?php }else{ ?>
-            <div class="col-lg-offset-1">
-                <?=__('No employee associated', ['', __('employee')])?>
+            <div class="card-alert card grey lighten-5 z-depth-2">
+                <div class="card-content grey-text">
+                    <p><?=__('No employee associated', ['', __('employee')])?></p>
+                </div>
             </div>
         <?php } ?>
+        </div>
     </div>
 </div>
 
+<hr>
+
 <div class="row">
-    <div class="col-md-12 col-sm-12">
-        <h3><?=__('Urls')?></h3>
-        <hr>
+    <div class="col s12">
+        <h4><?=__('Urls')?></h4>
+
+        <div class="col m11 offset-m1">
         <?php if(!empty($project->project_urls)){ ?>
-        <div class="col-lg-offset-1">
-            <table class="table table-bordered">
+            <table class="bordered highlight">
                 <tr>
-                    <td><?=__('Name')?></td>
-                    <td><?=__('Url')?></td>
+                    <th><?=__('Name')?></th>
+                    <th><?=__('Url')?></th>
                 </tr>
-                <?php 
+                <?php
                     foreach ($project->project_urls as $key => $url) {
                 ?>
                 <tr>
@@ -157,28 +164,33 @@ $images ==> Les noms des images
                 </tr>
                 <?php } ?>
             </table>
-        </div>
+
         <?php }else{ ?>
-            <div class="col-lg-offset-1">
-                <?=__('No .. associated to this', ['', __('url'), 'ce '.__('project')])?>
-            </div>
+          <div class="card-alert card grey lighten-5 z-depth-2">
+              <div class="card-content grey-text">
+                  <p><?=__('No .. associated to this', ['', __('url'), 'ce '.__('project')])?></p>
+              </div>
+          </div>
         <?php } ?>
+        </div>
     </div>
 </div>
 
+<hr>
+
 <div class="row">
-    <div class="col-md-12 col-sm-12">
-        <h3><?=__('Criterions')?></h3>
-        <hr>
+    <div class="col s12">
+        <h4><?=__('Criterions')?></h4>
+
+        <div class="col m11 offset-m1">
         <?php if(!empty($project->criterions)){ ?>
-        <div class="col-lg-offset-1">
-            <table class="table table-bordered">
+            <table class="bordered highlight">
                 <tr>
-                    <td><?=__('Name')?></td>
-                    <td><?=__('Content')?></td>
-                    <td><?=__('Percent')?></td>
+                    <th><?=__('Name')?></th>
+                    <th><?=__('Content')?></th>
+                    <th><?=__('Percent')?></th>
                 </tr>
-                <?php 
+                <?php
                     foreach ($project->criterions as $key => $criterion) {
                 ?>
                 <tr>
@@ -188,39 +200,44 @@ $images ==> Les noms des images
                 </tr>
                 <?php } ?>
             </table>
-        </div>
+
         <?php }else{ ?>
-            <div class="col-lg-offset-1">
-                <?=__('No .. associated to this', ['', __('criterion'), 'ce '.__('project')])?>
-            </div>
+                <div class="card-alert card grey lighten-5 z-depth-2">
+                    <div class="card-content grey-text">
+                        <p><?=__('No .. associated to this', ['', __('criterion'), 'ce '.__('project')])?></p>
+                    </div>
+                </div>
         <?php } ?>
+        </div>
     </div>
 </div>
 
+<hr>
+
 <div class="row">
-    <div class="col-xs-12">
-        <h3>Gallery</h3>
-        <hr>
+    <div class="col s12">
+        <h4><?=__('Gallery')?></h4>
+
         <div class="row">
-            <?php 
-                if($images !== false) { 
+          <div class="col s12 m11 offset-m1">
+            <?php
+                if($images !== false) {
                     foreach ($images as $key => $image) { ?>
-                        <div class="col-sm-4 col-xs-12 desc">
+                        <div class="col s12 m6 desc">
                             <div class="project-wrapper">
                                 <div class="project">
                                     <div class="photo-wrapper">
                                         <div class="photo">
                                             <!--a class="fancybox" href="../../../webroot/dashgumfree/assets/img/portfolio/port05.jpg"-->
-                                                <?php 
-                                                    echo $this->Html->link( 
-                                                                            $this->Html->image( 
+                                                <?php
+                                                    echo $this->Html->link(
+                                                                            $this->Html->image(
                                                                                                 $this->Url->build(['controller' => 'App',
                                                                                                     'action' => 'viewPic',
                                                                                                     $project->path_dir,
                                                                                                     $image
-                                                                                                ], true), 
-                                                                                                ['class' => 'img-responsive', 
-                                                                                                'style' => '']
+                                                                                                ], true),
+                                                                                                ['class' => 'responsive-img']
                                                                                                 ),
                                                                             $this->Url->build(['controller' => 'App',
                                                                                                     'action' => 'viewPic',
@@ -228,7 +245,7 @@ $images ==> Les noms des images
                                                                                                     $image
                                                                                                 ], true),
                                                                             ['class' => 'fancybox', 'escape' => false]
-                                                                            ); 
+                                                                            );
                                                 ?>
                                                 <!--img class="img-responsive" src="../../../webroot/dashgumfree/assets/img/portfolio/port05.jpg" alt=""-->
                                             <!--/a-->
@@ -238,16 +255,19 @@ $images ==> Les noms des images
                                 </div>
                             </div>
                         </div><!-- col-lg-4 -->
-            <?php 
-                    } 
+            <?php
+                    }
                 }else{
             ?>
-                    <div class="col-lg-offset-1">
-                        <?=__('No attachement', ['e', 'image'])?>
+                    <div class="card-alert card grey lighten-5 z-depth-2">
+                        <div class="card-content grey-text">
+                            <p><?=__('No attachement', ['e', 'image'])?></p>
+                        </div>
                     </div>
             <?php
                 }
             ?>
+          </div>
         </div>
     </div>
 </div><!-- /row -->

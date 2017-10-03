@@ -71,8 +71,8 @@
 
           </div>
           <a href="#!user"><?= $this->Html->image('../machrou3_template/images/anonymous.jpg', ['class' => 'circle', 'alt' => 'User Image']); ?></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <a href="#!name"><span class="white-text name"><?=$this->request->session()->read('Auth.User.name')?></span></a>
+          <a href="#!email"><span class="white-text email"><?=$this->request->session()->read('Auth.User.email')?></span></a>
         </div>
       </li>
       <li>

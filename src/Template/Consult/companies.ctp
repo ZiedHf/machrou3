@@ -11,13 +11,6 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                      <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
-                      >
-                      <?=__('Companies')?>
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="col s12">
                       <h3 class="center"><?=__('Companies')?></h3>
                       <table id="companiesTable" class="table_sorter">

@@ -3,22 +3,12 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
+          <div class="container">
               <div class="row">
-                    <div class="col-lg-9 main-chart page_white">
+                    <div class="col s12">
                         <div class="row">
-                            <div class="col-xs-12">
-                                  <?= $this->Flash->render('auth') ?>
+                            <div class="col s12">
                                   <?= $this->Flash->render() ?>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
-                                >
-                                <?=$this->Html->link(__('Employees list'), ['controller' => 'consult', 'action' => 'employeesList'])?>
-                                >
-                                <?php echo "$user->name $user->lastName"; ?>
                             </div>
                         </div>
 
@@ -26,28 +16,28 @@
                               echo $this->element('pagedata/userinfo', ['user' => $user]);
                           ?>
                     </div>
-                  
-                  
+
+
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-                  
-                    <!--Notifications-->
-                    <?= $this->cell('Slider') ?>
-                  
+      *********************************************************************************************************************************************************** -->
+
               </div><!--/row -->
-          </section>
+          </div>
       </section>
 
-<link rel="stylesheet" type="text/css" href=""/>
- 
-<script type="text/javascript" src=""></script>      
 <?php
-    $this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
-    $this->Html->script('datatables/datatables.min', ['block' => true]);
-        
+    //$this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
+    //$this->Html->script('datatables/datatables.min', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/css/theme.materialize.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.js', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.widgets.js', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/dist/css/jquery.tablesorter.pager.min.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/dist/js/extras/jquery.tablesorter.pager.min.js', ['block' => true]);
+
     $this->Html->scriptStart(['block' => true]);
-        echo "pageName = 'ViewUserInfo';";
-        echo "initializeConsultViewUserPage(pageName);";
+        //echo "pageName = 'ViewUserInfo';";
+        //echo "initializeConsultViewUserPage(pageName);";
+        echo "tableSorterMaster();";
     $this->Html->scriptEnd();
-?>      
+?>

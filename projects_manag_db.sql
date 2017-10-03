@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Jeu 13 Avril 2017 à 13:02
--- Version du serveur :  10.1.21-MariaDB
--- Version de PHP :  7.0.15
+-- Host: 127.0.0.1
+-- Generation Time: Oct 03, 2017 at 05:05 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `projects_manag_db`
+-- Database: `projects_manag_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `actiondisciplinaires`
+-- Table structure for table `actiondisciplinaires`
 --
 
 CREATE TABLE `actiondisciplinaires` (
@@ -41,7 +41,7 @@ CREATE TABLE `actiondisciplinaires` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_clients_projects`
+-- Table structure for table `assoc_clients_projects`
 --
 
 CREATE TABLE `assoc_clients_projects` (
@@ -51,7 +51,7 @@ CREATE TABLE `assoc_clients_projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_clients_projects`
+-- Dumping data for table `assoc_clients_projects`
 --
 
 INSERT INTO `assoc_clients_projects` (`id`, `client_id`, `project_id`) VALUES
@@ -61,12 +61,14 @@ INSERT INTO `assoc_clients_projects` (`id`, `client_id`, `project_id`) VALUES
 (4, 9, 7),
 (5, 9, 8),
 (6, 9, 10),
-(7, 9, 11);
+(7, 9, 11),
+(8, 10, 12),
+(9, 11, 13);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_companies_members`
+-- Table structure for table `assoc_companies_members`
 --
 
 CREATE TABLE `assoc_companies_members` (
@@ -77,10 +79,17 @@ CREATE TABLE `assoc_companies_members` (
   `companyManager` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `assoc_companies_members`
+--
+
+INSERT INTO `assoc_companies_members` (`id`, `member_id`, `company_id`, `accessLevel`, `companyManager`) VALUES
+(2, 5, 1, 5, 0);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_companies_users`
+-- Table structure for table `assoc_companies_users`
 --
 
 CREATE TABLE `assoc_companies_users` (
@@ -92,7 +101,7 @@ CREATE TABLE `assoc_companies_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_companies_users`
+-- Dumping data for table `assoc_companies_users`
 --
 
 INSERT INTO `assoc_companies_users` (`id`, `user_id`, `company_id`, `accessLevel`, `companyManager`) VALUES
@@ -102,7 +111,7 @@ INSERT INTO `assoc_companies_users` (`id`, `user_id`, `company_id`, `accessLevel
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_departements_criterions`
+-- Table structure for table `assoc_departements_criterions`
 --
 
 CREATE TABLE `assoc_departements_criterions` (
@@ -114,7 +123,7 @@ CREATE TABLE `assoc_departements_criterions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_departements_criterions`
+-- Dumping data for table `assoc_departements_criterions`
 --
 
 INSERT INTO `assoc_departements_criterions` (`id`, `departement_id`, `criterion_id`, `content`, `percent`) VALUES
@@ -124,7 +133,7 @@ INSERT INTO `assoc_departements_criterions` (`id`, `departement_id`, `criterion_
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_departements_members`
+-- Table structure for table `assoc_departements_members`
 --
 
 CREATE TABLE `assoc_departements_members` (
@@ -135,10 +144,17 @@ CREATE TABLE `assoc_departements_members` (
   `departementManager` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `assoc_departements_members`
+--
+
+INSERT INTO `assoc_departements_members` (`id`, `departement_id`, `member_id`, `accessLevel`, `departementManager`) VALUES
+(1, 13, 5, 1, 0);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_departements_users`
+-- Table structure for table `assoc_departements_users`
 --
 
 CREATE TABLE `assoc_departements_users` (
@@ -150,7 +166,7 @@ CREATE TABLE `assoc_departements_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_departements_users`
+-- Dumping data for table `assoc_departements_users`
 --
 
 INSERT INTO `assoc_departements_users` (`id`, `departement_id`, `user_id`, `accessLevel`, `departementManager`) VALUES
@@ -160,7 +176,7 @@ INSERT INTO `assoc_departements_users` (`id`, `departement_id`, `user_id`, `acce
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_members_projects`
+-- Table structure for table `assoc_members_projects`
 --
 
 CREATE TABLE `assoc_members_projects` (
@@ -174,7 +190,7 @@ CREATE TABLE `assoc_members_projects` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_projects_criterions`
+-- Table structure for table `assoc_projects_criterions`
 --
 
 CREATE TABLE `assoc_projects_criterions` (
@@ -185,10 +201,18 @@ CREATE TABLE `assoc_projects_criterions` (
   `percent` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `assoc_projects_criterions`
+--
+
+INSERT INTO `assoc_projects_criterions` (`id`, `project_id`, `criterion_id`, `content`, `percent`) VALUES
+(1, 12, 1, 'Ceci est la description de cette indicateur pour ce projet', 30),
+(2, 12, 2, 'Desc Indicateur 2', 90);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_projects_teams`
+-- Table structure for table `assoc_projects_teams`
 --
 
 CREATE TABLE `assoc_projects_teams` (
@@ -198,7 +222,7 @@ CREATE TABLE `assoc_projects_teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_projects_teams`
+-- Dumping data for table `assoc_projects_teams`
 --
 
 INSERT INTO `assoc_projects_teams` (`id`, `project_id`, `team_id`) VALUES
@@ -219,12 +243,15 @@ INSERT INTO `assoc_projects_teams` (`id`, `project_id`, `team_id`) VALUES
 (21, 11, 24),
 (22, 11, 14),
 (23, 11, 15),
-(24, 11, 16);
+(24, 11, 16),
+(25, 12, 26),
+(26, 13, 27),
+(27, 12, 27);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_teams_criterions`
+-- Table structure for table `assoc_teams_criterions`
 --
 
 CREATE TABLE `assoc_teams_criterions` (
@@ -236,7 +263,7 @@ CREATE TABLE `assoc_teams_criterions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_teams_criterions`
+-- Dumping data for table `assoc_teams_criterions`
 --
 
 INSERT INTO `assoc_teams_criterions` (`id`, `team_id`, `criterion_id`, `content`, `percent`) VALUES
@@ -245,7 +272,7 @@ INSERT INTO `assoc_teams_criterions` (`id`, `team_id`, `criterion_id`, `content`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_teams_members`
+-- Table structure for table `assoc_teams_members`
 --
 
 CREATE TABLE `assoc_teams_members` (
@@ -259,7 +286,7 @@ CREATE TABLE `assoc_teams_members` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_teams_users`
+-- Table structure for table `assoc_teams_users`
 --
 
 CREATE TABLE `assoc_teams_users` (
@@ -271,7 +298,7 @@ CREATE TABLE `assoc_teams_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_teams_users`
+-- Dumping data for table `assoc_teams_users`
 --
 
 INSERT INTO `assoc_teams_users` (`id`, `team_id`, `user_id`, `accessLevel`, `teamManager`) VALUES
@@ -303,12 +330,23 @@ INSERT INTO `assoc_teams_users` (`id`, `team_id`, `user_id`, `accessLevel`, `tea
 (57, 21, 12, 3, 0),
 (58, 25, 11, 3, 0),
 (59, 16, 10, 3, 0),
-(60, 14, 10, 3, 0);
+(60, 14, 10, 3, 0),
+(61, 17, 13, 3, 0),
+(62, 20, 13, 3, 0),
+(63, 22, 13, 3, 0),
+(64, 23, 13, 3, 0),
+(65, 26, 14, 3, 0),
+(66, 27, 14, 3, 0),
+(67, 27, 15, 3, 0),
+(68, 28, 1, 3, 0),
+(69, 28, 2, 3, 0),
+(70, 28, 3, 3, 0),
+(71, 28, 4, 3, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_users_actiondisciplinaires`
+-- Table structure for table `assoc_users_actiondisciplinaires`
 --
 
 CREATE TABLE `assoc_users_actiondisciplinaires` (
@@ -320,7 +358,7 @@ CREATE TABLE `assoc_users_actiondisciplinaires` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_users_criterions`
+-- Table structure for table `assoc_users_criterions`
 --
 
 CREATE TABLE `assoc_users_criterions` (
@@ -332,7 +370,7 @@ CREATE TABLE `assoc_users_criterions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_users_criterions`
+-- Dumping data for table `assoc_users_criterions`
 --
 
 INSERT INTO `assoc_users_criterions` (`id`, `user_id`, `criterion_id`, `content`, `percent`) VALUES
@@ -344,7 +382,7 @@ INSERT INTO `assoc_users_criterions` (`id`, `user_id`, `criterion_id`, `content`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assoc_users_projects`
+-- Table structure for table `assoc_users_projects`
 --
 
 CREATE TABLE `assoc_users_projects` (
@@ -357,7 +395,7 @@ CREATE TABLE `assoc_users_projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `assoc_users_projects`
+-- Dumping data for table `assoc_users_projects`
 --
 
 INSERT INTO `assoc_users_projects` (`id`, `user_id`, `project_id`, `time_dedicated`, `projectManager`, `accessLevel`) VALUES
@@ -385,12 +423,15 @@ INSERT INTO `assoc_users_projects` (`id`, `user_id`, `project_id`, `time_dedicat
 (104, 9, 11, NULL, 0, 3),
 (105, 7, 11, NULL, 0, 3),
 (106, 11, 11, NULL, 0, 3),
-(107, 12, 11, NULL, 0, 3);
+(107, 12, 11, NULL, 0, 3),
+(108, 14, 12, 50, 0, 5),
+(109, 14, 13, NULL, 0, 5),
+(110, 15, 12, 30, 0, 3);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `authentifications`
+-- Table structure for table `authentifications`
 --
 
 CREATE TABLE `authentifications` (
@@ -409,7 +450,7 @@ CREATE TABLE `authentifications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `authentifications`
+-- Dumping data for table `authentifications`
 --
 
 INSERT INTO `authentifications` (`id`, `type`, `email`, `password`, `client_id`, `user_id`, `member_id`, `group_manager`, `clients_manager`, `criterions_manager`, `priorities_manager`, `projectstages_manager`) VALUES
@@ -423,17 +464,20 @@ INSERT INTO `authentifications` (`id`, `type`, `email`, `password`, `client_id`,
 (11, 'client', 'test001111@test.com', '$2y$10$CNGDpXCgeEs/5zs1pdVsqeoPEaIsDGRGQ5.NG5VBi4l6m1ze2bWue', 2, NULL, NULL, 0, 0, 0, 0, 0),
 (12, 'client', 'test001111@test.tn', '$2y$10$ZFyNYbgVLxezMIY05CJhhetyeDrI03Uyud4lQcbHYqpMy0CA3EMUa', 3, NULL, NULL, 0, 0, 0, 0, 0),
 (13, 'user', 'sdfsfd@dfsdf.com', '$2y$10$/s/Yn00F20mhDfNc2RB6E.YitebTXqY39BYPWq8rNUSVnrDeG.zv6', NULL, 3, NULL, 0, 0, 0, 0, 0),
-(14, 'member', 'dali@gmail.com', '$2y$10$b0k7uu7lg0SFoUsk1RZoq.N9GuMigRD4mszJw4b5kJGmve2lkW0AO', NULL, NULL, 2, 0, 1, 1, 0, 1),
 (15, 'user', 'test@gmail.com', '$2y$10$spuVygX6elhvbb.7ZW9heOtZyshxYTD5AYTWfGvuhKGltxXiuStHC', NULL, 9, NULL, 0, 1, 1, 1, 0),
 (16, 'user', 'autre1@autre.fr', '$2y$10$9GQprXfwRgbh0zrXMfFSxehPiG1FFWOUxXyCgBJfMj9qivZPHThA6', NULL, 4, NULL, 0, 1, 1, 1, 1),
 (17, 'user', 'mouwafek@gmail.com', '$2y$10$VZ4h72MtDeNkcivesg.T4O6TUY2NSPLm6JbtS7oUiTSXbbHyVj/8a', NULL, 10, NULL, 0, 0, 0, 0, 0),
 (18, 'user', 'test@test.com5555', '$2y$10$SSt36a2GQYJ47lM401NJSOsTeupxH7bDGl5Uas.1wfvOqzP9KIKcu', NULL, 11, NULL, 0, 0, 0, 0, 0),
-(19, 'user', 'test@test.com2222', '$2y$10$ElWuKznR23XEViNYXPIPGuQFGP5XYkD9qbVwHA2.gE6n9tpvhGaJG', NULL, 12, NULL, 0, 0, 0, 0, 0);
+(19, 'user', 'test@test.com2222', '$2y$10$ElWuKznR23XEViNYXPIPGuQFGP5XYkD9qbVwHA2.gE6n9tpvhGaJG', NULL, 12, NULL, 0, 0, 0, 0, 0),
+(20, 'user', 'jamel@jamel.com', '$2y$10$eEeSLtPdgGBUj4ySaR4Iv.DLL1QmNERk3BAhlugypOLhzflTW9vwS', NULL, 13, NULL, 0, 0, 0, 0, 0),
+(22, 'user', 'yomnahannechi@gmail.com', '$2y$10$hiCPDEqiYnXkhMMbmTELH.pl24n0lPAVpi/f1y.1K7AnDRo/XrHD2', NULL, 14, NULL, 0, 0, 0, 0, 0),
+(23, 'user', 'kaiszermani@gmail.com', '$2y$10$dw0a09feEeHqNfRH8pWXG.Q2e7TzRiUGKsamKzt319ynJl9g0OKzO', NULL, 15, NULL, 0, 0, 0, 0, 0),
+(25, 'member', 'member@member.com', '$2y$10$2mco1LiQem3Q/DRU/66svOUKSrg8KT8ZfZs7ccTh6XfeAIKxB8iwe', NULL, NULL, 5, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -451,19 +495,21 @@ CREATE TABLE `clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `clients`
+-- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`id`, `name`, `lastName`, `description`, `path_image`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`) VALUES
 (2, 'qsqsdqsd', 'qsdqdsqds', 'qsdqds', '', '2016-12-27 12:51:56', '2017-01-25 09:16:11', NULL, NULL, NULL, NULL),
 (3, 'azeazaezzaezae', 'azeaez', '', '', '2016-12-29 10:32:09', '2017-01-25 09:26:22', NULL, NULL, NULL, NULL),
 (7, 'test', 'test', 'test', '', '2017-01-24 14:29:25', '2017-01-24 15:32:01', NULL, NULL, NULL, NULL),
-(9, 'mdr', 'mdr', 'mdr', '', '2017-01-24 16:07:40', '2017-01-24 16:07:40', NULL, NULL, NULL, NULL);
+(9, 'mdr', 'mdr', 'mdr', '', '2017-01-24 16:07:40', '2017-01-24 16:07:40', NULL, NULL, NULL, NULL),
+(10, 'Client 1', 'client', '', '', '2017-05-22 08:21:14', '2017-05-22 08:21:14', NULL, NULL, NULL, NULL),
+(11, 'Client 2', 'client', '', '', '2017-05-22 08:21:28', '2017-05-22 08:21:28', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `companies`
+-- Table structure for table `companies`
 --
 
 CREATE TABLE `companies` (
@@ -481,19 +527,21 @@ CREATE TABLE `companies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `companies`
+-- Dumping data for table `companies`
 --
 
 INSERT INTO `companies` (`id`, `name`, `email`, `adresse`, `description`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`) VALUES
-(1, 'Khidma', 'khidma@contact.tn', '1001 Rue de liberté, Tunis, Tunisie', 'Company for doing nothing test', '2017-02-18 15:28:50', '2017-02-28 12:08:51', NULL, NULL, NULL, NULL),
+(1, 'Khidma', 'khidma@contact.tn', '1001 Rue de liberté, Tunis, Tunisie.', 'Company for doing nothing test', '2017-02-18 15:28:50', '2017-08-03 12:33:03', NULL, NULL, NULL, NULL),
 (4, 'Universal', '', '', '', '2017-02-28 12:17:15', '2017-02-28 12:17:15', NULL, NULL, NULL, NULL),
 (5, 'Swift', 'test@test.com', '', '', '2017-03-06 14:32:10', '2017-03-06 14:32:10', NULL, NULL, NULL, NULL),
-(6, 'Aswe9', 'aswe9@gmail.com', '', '', '2017-03-15 08:42:31', '2017-03-15 08:42:31', NULL, NULL, NULL, NULL);
+(6, 'Aswe9', 'aswe9@gmail.com', '', '', '2017-03-15 08:42:31', '2017-03-15 08:42:31', NULL, NULL, NULL, NULL),
+(7, 'KIM', 'kim@kim.com', '10001, rue Tunis, Tunisie', '', '2017-05-22 08:18:35', '2017-05-22 08:18:35', NULL, NULL, NULL, NULL),
+(8, 'test', 'test@testset.test', '', '', '2017-08-01 09:58:18', '2017-08-01 09:58:18', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `criterions`
+-- Table structure for table `criterions`
 --
 
 CREATE TABLE `criterions` (
@@ -503,7 +551,7 @@ CREATE TABLE `criterions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `criterions`
+-- Dumping data for table `criterions`
 --
 
 INSERT INTO `criterions` (`id`, `name`, `type`) VALUES
@@ -518,7 +566,7 @@ INSERT INTO `criterions` (`id`, `name`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `departements`
+-- Table structure for table `departements`
 --
 
 CREATE TABLE `departements` (
@@ -535,7 +583,7 @@ CREATE TABLE `departements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `departements`
+-- Dumping data for table `departements`
 --
 
 INSERT INTO `departements` (`id`, `name`, `description`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`, `company_id`) VALUES
@@ -545,12 +593,13 @@ INSERT INTO `departements` (`id`, `name`, `description`, `created`, `modified`, 
 (12, 'TeamNothing', 'zaeaze', '2016-12-26 10:53:24', '2017-02-18 15:29:39', NULL, NULL, NULL, NULL, 1),
 (13, 'Swift', 'Swift', '2017-03-06 14:32:34', '2017-03-06 14:32:34', NULL, NULL, NULL, NULL, 5),
 (16, 'Aswe9 Dep 1', 'azeazeaze', '2017-03-15 11:09:10', '2017-03-15 11:09:10', NULL, NULL, NULL, NULL, 6),
-(17, 'Aswek Dep 2', 'aze', '2017-03-16 13:47:32', '2017-03-16 13:47:32', NULL, NULL, NULL, NULL, 6);
+(17, 'Aswek Dep 2', 'aze', '2017-03-16 13:47:32', '2017-03-16 13:47:32', NULL, NULL, NULL, NULL, 6),
+(18, 'KIM', 'test', '2017-05-22 08:19:06', '2017-05-22 08:19:06', NULL, NULL, NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `members`
+-- Table structure for table `members`
 --
 
 CREATE TABLE `members` (
@@ -568,17 +617,17 @@ CREATE TABLE `members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `members`
+-- Dumping data for table `members`
 --
 
 INSERT INTO `members` (`id`, `name`, `lastName`, `description`, `path_image`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`) VALUES
 (1, 'super', 'admin', '', '', '2017-01-23 15:25:00', '2017-01-23 15:25:00', NULL, NULL, NULL, NULL),
-(2, 'Dali', 'Test', '', '', '2017-02-23 09:57:28', '2017-03-11 08:44:13', NULL, NULL, NULL, NULL);
+(5, 'member', 'member', '', '', '2017-07-31 12:07:03', '2017-08-01 09:58:33', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `priorities`
+-- Table structure for table `priorities`
 --
 
 CREATE TABLE `priorities` (
@@ -588,7 +637,7 @@ CREATE TABLE `priorities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `priorities`
+-- Dumping data for table `priorities`
 --
 
 INSERT INTO `priorities` (`id`, `name`, `order_priority`) VALUES
@@ -599,7 +648,7 @@ INSERT INTO `priorities` (`id`, `name`, `order_priority`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `projects`
+-- Table structure for table `projects`
 --
 
 CREATE TABLE `projects` (
@@ -622,7 +671,7 @@ CREATE TABLE `projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `projects`
+-- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`id`, `name`, `accomplishment`, `description`, `objective`, `path_dir`, `dateBegin`, `dateEnd`, `project_stage_id`, `priority_id`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`) VALUES
@@ -633,12 +682,14 @@ INSERT INTO `projects` (`id`, `name`, `accomplishment`, `description`, `objectiv
 (8, 'Authorisation', 50, 'Desc', 'Obj', NULL, '2017-03-09 08:00:00', '2017-06-22 08:01:00', 2, 1, '2017-03-02 12:16:11', '2017-03-02 12:16:11', NULL, NULL, NULL, NULL),
 (9, 'Swift Project', 45, '', '', '', NULL, NULL, 2, 1, '2017-03-06 14:33:25', '2017-03-09 08:13:11', NULL, NULL, NULL, NULL),
 (10, 'Project Aswek 1', 0, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 2, 2, '2017-03-16 16:07:41', '2017-03-24 15:19:54', NULL, NULL, NULL, NULL),
-(11, 'Project Aswek 2 test', 27, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 3, 1, '2017-03-16 16:09:24', '2017-03-24 15:20:23', NULL, NULL, NULL, NULL);
+(11, 'Project Aswek 2 test', 27, '', '', '', '2017-03-16 08:00:00', '2017-03-16 18:00:00', 3, 1, '2017-03-16 16:09:24', '2017-03-24 15:20:23', NULL, NULL, NULL, NULL),
+(12, 'Projet Kim 1', 50, 'Description', 'Objectif', '', '2017-05-22 08:00:00', '2017-06-22 18:00:00', 6, 3, '2017-05-22 08:22:55', '2017-05-22 08:26:49', NULL, NULL, NULL, NULL),
+(13, 'Projet Kim 2', 44, '', '', NULL, '2017-05-22 08:00:00', '2017-06-20 18:00:00', 5, 2, '2017-05-22 08:23:52', '2017-05-22 08:23:52', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `project_stages`
+-- Table structure for table `project_stages`
 --
 
 CREATE TABLE `project_stages` (
@@ -648,7 +699,7 @@ CREATE TABLE `project_stages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `project_stages`
+-- Dumping data for table `project_stages`
 --
 
 INSERT INTO `project_stages` (`id`, `name`, `order_stage`) VALUES
@@ -666,7 +717,7 @@ INSERT INTO `project_stages` (`id`, `name`, `order_stage`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `project_urls`
+-- Table structure for table `project_urls`
 --
 
 CREATE TABLE `project_urls` (
@@ -677,7 +728,7 @@ CREATE TABLE `project_urls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `project_urls`
+-- Dumping data for table `project_urls`
 --
 
 INSERT INTO `project_urls` (`id`, `name`, `url`, `project_id`) VALUES
@@ -695,7 +746,7 @@ INSERT INTO `project_urls` (`id`, `name`, `url`, `project_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rapports`
+-- Table structure for table `rapports`
 --
 
 CREATE TABLE `rapports` (
@@ -708,7 +759,7 @@ CREATE TABLE `rapports` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `teams`
+-- Table structure for table `teams`
 --
 
 CREATE TABLE `teams` (
@@ -726,11 +777,11 @@ CREATE TABLE `teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `teams`
+-- Dumping data for table `teams`
 --
 
 INSERT INTO `teams` (`id`, `name`, `description`, `departement_id`, `created`, `modified`, `created_by`, `modified_by`, `created_type`, `modified_type`, `path_image`) VALUES
-(14, 'eq1', 'aze', 9, '2016-12-16 15:06:40', '2017-03-29 14:06:16', NULL, NULL, NULL, NULL, ''),
+(14, 'eq1', 'azeqs', 9, '2016-12-16 15:06:40', '2017-08-03 12:47:01', NULL, NULL, NULL, NULL, ''),
 (15, 'eq2', 'aze', 9, '2016-12-16 15:08:05', '2017-01-04 09:16:06', NULL, NULL, NULL, NULL, ''),
 (16, 'NothingTeam', 'zrzrzer', 12, '2016-12-26 10:53:09', '2017-03-25 09:49:17', NULL, NULL, NULL, NULL, ''),
 (17, 'TeamNothing', 'zaeaez', 12, '2016-12-26 10:54:07', '2017-03-29 14:17:45', NULL, NULL, NULL, NULL, ''),
@@ -741,12 +792,15 @@ INSERT INTO `teams` (`id`, `name`, `description`, `departement_id`, `created`, `
 (22, 'Aswek Team 2', 'sdf', 16, '2017-03-16 13:35:18', '2017-03-16 15:52:13', NULL, NULL, NULL, NULL, '22-sdf'),
 (23, 'Aswek Team 3', 'azezea', 17, '2017-03-16 13:52:39', '2017-03-16 15:52:25', NULL, NULL, NULL, NULL, '23-azeeza'),
 (24, 'Aswek Team 4', 'azesqd', 17, '2017-03-16 13:52:49', '2017-03-16 15:52:49', NULL, NULL, NULL, NULL, '24-azeqsd'),
-(25, 'wxcqsdqsd', 'azezae', 16, '2017-03-23 15:16:16', '2017-03-23 15:16:16', NULL, NULL, NULL, NULL, '25-wxcqsdqsd');
+(25, 'wxcqsdqsd', 'azezae', 16, '2017-03-23 15:16:16', '2017-03-23 15:16:16', NULL, NULL, NULL, NULL, '25-wxcqsdqsd'),
+(26, 'Equipe Kim 1 ', '', 18, '2017-05-22 08:19:37', '2017-05-22 08:19:37', NULL, NULL, NULL, NULL, '26-equipekim1'),
+(27, 'Equipe Kim 2', '', 18, '2017-05-22 08:19:52', '2017-05-22 08:19:52', NULL, NULL, NULL, NULL, '27-equipekim2'),
+(28, 'testtse', 'test', 9, '2017-08-03 12:56:39', '2017-08-03 12:56:39', NULL, NULL, NULL, NULL, '28-testtse');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -764,7 +818,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `lastName`, `description`, `path_image`, `created`, `modified`, `created_by`, `modified_by`, `modified_type`, `created_type`) VALUES
@@ -779,12 +833,15 @@ INSERT INTO `users` (`id`, `name`, `lastName`, `description`, `path_image`, `cre
 (9, 'test', 'test', '', '9-testtest', '2017-02-24 14:42:33', '2017-02-24 14:42:33', NULL, NULL, NULL, NULL),
 (10, 'Mouwafek', 'Zribi', '', '10-mouwafekzribi', '2017-03-15 08:43:34', '2017-03-17 11:01:25', NULL, NULL, NULL, NULL),
 (11, 'Aswek', 'Colaborateur 1', 'azeqsd', '11-aswekcolaborateur1', '2017-03-17 10:02:49', '2017-03-23 12:48:38', NULL, NULL, NULL, NULL),
-(12, 'Aswek', 'Colaborateur 2', '', '12-aswekcolaborateur2', '2017-03-17 10:03:24', '2017-03-17 10:03:24', NULL, NULL, NULL, NULL);
+(12, 'Aswek', 'Colaborateur 2', '', '12-aswekcolaborateur2', '2017-03-17 10:03:24', '2017-03-17 10:03:24', NULL, NULL, NULL, NULL),
+(13, 'jamel', 'jamel', '', '13-jameljamel', '2017-05-17 10:09:18', '2017-05-17 14:44:53', NULL, NULL, NULL, NULL),
+(14, 'Yomna', 'Hannechi', '', '14-yomnahannechi', '2017-05-22 08:20:45', '2017-05-22 08:20:45', NULL, NULL, NULL, NULL),
+(15, 'Kais ', 'Zermeni', '', '15-kaiszermeni', '2017-05-22 08:26:08', '2017-05-22 08:26:08', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_urls`
+-- Table structure for table `user_urls`
 --
 
 CREATE TABLE `user_urls` (
@@ -795,17 +852,17 @@ CREATE TABLE `user_urls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `actiondisciplinaires`
+-- Indexes for table `actiondisciplinaires`
 --
 ALTER TABLE `actiondisciplinaires`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `assoc_clients_projects`
+-- Indexes for table `assoc_clients_projects`
 --
 ALTER TABLE `assoc_clients_projects`
   ADD PRIMARY KEY (`id`),
@@ -813,7 +870,7 @@ ALTER TABLE `assoc_clients_projects`
   ADD KEY `FK_assocCP_clients_idx` (`client_id`);
 
 --
--- Index pour la table `assoc_companies_members`
+-- Indexes for table `assoc_companies_members`
 --
 ALTER TABLE `assoc_companies_members`
   ADD PRIMARY KEY (`id`),
@@ -821,7 +878,7 @@ ALTER TABLE `assoc_companies_members`
   ADD KEY `FK_ACM_members_idx` (`member_id`);
 
 --
--- Index pour la table `assoc_companies_users`
+-- Indexes for table `assoc_companies_users`
 --
 ALTER TABLE `assoc_companies_users`
   ADD PRIMARY KEY (`id`),
@@ -829,7 +886,7 @@ ALTER TABLE `assoc_companies_users`
   ADD KEY `FK_ACU_company_idx` (`company_id`);
 
 --
--- Index pour la table `assoc_departements_criterions`
+-- Indexes for table `assoc_departements_criterions`
 --
 ALTER TABLE `assoc_departements_criterions`
   ADD PRIMARY KEY (`id`),
@@ -837,7 +894,7 @@ ALTER TABLE `assoc_departements_criterions`
   ADD KEY `FK_ADC_criterions_idx` (`criterion_id`);
 
 --
--- Index pour la table `assoc_departements_members`
+-- Indexes for table `assoc_departements_members`
 --
 ALTER TABLE `assoc_departements_members`
   ADD PRIMARY KEY (`id`),
@@ -845,7 +902,7 @@ ALTER TABLE `assoc_departements_members`
   ADD KEY `FK_ADM_members_idx` (`member_id`);
 
 --
--- Index pour la table `assoc_departements_users`
+-- Indexes for table `assoc_departements_users`
 --
 ALTER TABLE `assoc_departements_users`
   ADD PRIMARY KEY (`id`),
@@ -853,7 +910,7 @@ ALTER TABLE `assoc_departements_users`
   ADD KEY `FK_ADU_users_idx` (`user_id`);
 
 --
--- Index pour la table `assoc_members_projects`
+-- Indexes for table `assoc_members_projects`
 --
 ALTER TABLE `assoc_members_projects`
   ADD PRIMARY KEY (`id`),
@@ -861,7 +918,7 @@ ALTER TABLE `assoc_members_projects`
   ADD KEY `FK_AMP_members_idx` (`member_id`);
 
 --
--- Index pour la table `assoc_projects_criterions`
+-- Indexes for table `assoc_projects_criterions`
 --
 ALTER TABLE `assoc_projects_criterions`
   ADD PRIMARY KEY (`id`),
@@ -869,7 +926,7 @@ ALTER TABLE `assoc_projects_criterions`
   ADD KEY `FK_APC_projects_idx` (`project_id`);
 
 --
--- Index pour la table `assoc_projects_teams`
+-- Indexes for table `assoc_projects_teams`
 --
 ALTER TABLE `assoc_projects_teams`
   ADD PRIMARY KEY (`id`),
@@ -877,7 +934,7 @@ ALTER TABLE `assoc_projects_teams`
   ADD KEY `FK_assocPT_teams_idx1` (`project_id`);
 
 --
--- Index pour la table `assoc_teams_criterions`
+-- Indexes for table `assoc_teams_criterions`
 --
 ALTER TABLE `assoc_teams_criterions`
   ADD PRIMARY KEY (`id`),
@@ -885,7 +942,7 @@ ALTER TABLE `assoc_teams_criterions`
   ADD KEY `FK_ATC_criterions_idx` (`criterion_id`);
 
 --
--- Index pour la table `assoc_teams_members`
+-- Indexes for table `assoc_teams_members`
 --
 ALTER TABLE `assoc_teams_members`
   ADD PRIMARY KEY (`id`),
@@ -893,7 +950,7 @@ ALTER TABLE `assoc_teams_members`
   ADD KEY `FK_ATM_members_idx` (`member_id`);
 
 --
--- Index pour la table `assoc_teams_users`
+-- Indexes for table `assoc_teams_users`
 --
 ALTER TABLE `assoc_teams_users`
   ADD PRIMARY KEY (`id`),
@@ -901,7 +958,7 @@ ALTER TABLE `assoc_teams_users`
   ADD KEY `FK_assocTR_users_idx` (`user_id`);
 
 --
--- Index pour la table `assoc_users_actiondisciplinaires`
+-- Indexes for table `assoc_users_actiondisciplinaires`
 --
 ALTER TABLE `assoc_users_actiondisciplinaires`
   ADD PRIMARY KEY (`id`),
@@ -909,7 +966,7 @@ ALTER TABLE `assoc_users_actiondisciplinaires`
   ADD KEY `FK_assocRA_ressources_idx` (`user_id`);
 
 --
--- Index pour la table `assoc_users_criterions`
+-- Indexes for table `assoc_users_criterions`
 --
 ALTER TABLE `assoc_users_criterions`
   ADD PRIMARY KEY (`id`),
@@ -917,7 +974,7 @@ ALTER TABLE `assoc_users_criterions`
   ADD KEY `FK_AUC_criterions_idx` (`criterion_id`);
 
 --
--- Index pour la table `assoc_users_projects`
+-- Indexes for table `assoc_users_projects`
 --
 ALTER TABLE `assoc_users_projects`
   ADD PRIMARY KEY (`id`),
@@ -925,7 +982,7 @@ ALTER TABLE `assoc_users_projects`
   ADD KEY `FK_assocUP_users_idx` (`user_id`);
 
 --
--- Index pour la table `authentifications`
+-- Indexes for table `authentifications`
 --
 ALTER TABLE `authentifications`
   ADD PRIMARY KEY (`id`),
@@ -934,44 +991,44 @@ ALTER TABLE `authentifications`
   ADD KEY `FK_authentifications_members_idx` (`member_id`);
 
 --
--- Index pour la table `clients`
+-- Indexes for table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `companies`
+-- Indexes for table `companies`
 --
 ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `criterions`
+-- Indexes for table `criterions`
 --
 ALTER TABLE `criterions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `departements`
+-- Indexes for table `departements`
 --
 ALTER TABLE `departements`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_departements_companies_idx` (`company_id`);
 
 --
--- Index pour la table `members`
+-- Indexes for table `members`
 --
 ALTER TABLE `members`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `priorities`
+-- Indexes for table `priorities`
 --
 ALTER TABLE `priorities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `projects`
+-- Indexes for table `projects`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`),
@@ -979,310 +1036,310 @@ ALTER TABLE `projects`
   ADD KEY `FK_projects_priorities_idx` (`priority_id`);
 
 --
--- Index pour la table `project_stages`
+-- Indexes for table `project_stages`
 --
 ALTER TABLE `project_stages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `project_urls`
+-- Indexes for table `project_urls`
 --
 ALTER TABLE `project_urls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_project_urls_projects_idx` (`project_id`);
 
 --
--- Index pour la table `rapports`
+-- Indexes for table `rapports`
 --
 ALTER TABLE `rapports`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_rappots_users_idx` (`user_id`);
 
 --
--- Index pour la table `teams`
+-- Indexes for table `teams`
 --
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_teams_departements_idx` (`departement_id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `user_urls`
+-- Indexes for table `user_urls`
 --
 ALTER TABLE `user_urls`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_userUrls_users_idx` (`user_id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `actiondisciplinaires`
+-- AUTO_INCREMENT for table `actiondisciplinaires`
 --
 ALTER TABLE `actiondisciplinaires`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `assoc_clients_projects`
+-- AUTO_INCREMENT for table `assoc_clients_projects`
 --
 ALTER TABLE `assoc_clients_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT pour la table `assoc_companies_members`
+-- AUTO_INCREMENT for table `assoc_companies_members`
 --
 ALTER TABLE `assoc_companies_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `assoc_companies_users`
+-- AUTO_INCREMENT for table `assoc_companies_users`
 --
 ALTER TABLE `assoc_companies_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `assoc_departements_criterions`
+-- AUTO_INCREMENT for table `assoc_departements_criterions`
 --
 ALTER TABLE `assoc_departements_criterions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `assoc_departements_members`
+-- AUTO_INCREMENT for table `assoc_departements_members`
 --
 ALTER TABLE `assoc_departements_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `assoc_departements_users`
+-- AUTO_INCREMENT for table `assoc_departements_users`
 --
 ALTER TABLE `assoc_departements_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT pour la table `assoc_members_projects`
+-- AUTO_INCREMENT for table `assoc_members_projects`
 --
 ALTER TABLE `assoc_members_projects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `assoc_projects_criterions`
+-- AUTO_INCREMENT for table `assoc_projects_criterions`
 --
 ALTER TABLE `assoc_projects_criterions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT pour la table `assoc_projects_teams`
+-- AUTO_INCREMENT for table `assoc_projects_teams`
 --
 ALTER TABLE `assoc_projects_teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
--- AUTO_INCREMENT pour la table `assoc_teams_criterions`
+-- AUTO_INCREMENT for table `assoc_teams_criterions`
 --
 ALTER TABLE `assoc_teams_criterions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `assoc_teams_members`
+-- AUTO_INCREMENT for table `assoc_teams_members`
 --
 ALTER TABLE `assoc_teams_members`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `assoc_teams_users`
+-- AUTO_INCREMENT for table `assoc_teams_users`
 --
 ALTER TABLE `assoc_teams_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
--- AUTO_INCREMENT pour la table `assoc_users_actiondisciplinaires`
+-- AUTO_INCREMENT for table `assoc_users_actiondisciplinaires`
 --
 ALTER TABLE `assoc_users_actiondisciplinaires`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `assoc_users_criterions`
+-- AUTO_INCREMENT for table `assoc_users_criterions`
 --
 ALTER TABLE `assoc_users_criterions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT pour la table `assoc_users_projects`
+-- AUTO_INCREMENT for table `assoc_users_projects`
 --
 ALTER TABLE `assoc_users_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 --
--- AUTO_INCREMENT pour la table `authentifications`
+-- AUTO_INCREMENT for table `authentifications`
 --
 ALTER TABLE `authentifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
--- AUTO_INCREMENT pour la table `clients`
+-- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT pour la table `companies`
+-- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT pour la table `criterions`
+-- AUTO_INCREMENT for table `criterions`
 --
 ALTER TABLE `criterions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT pour la table `departements`
+-- AUTO_INCREMENT for table `departements`
 --
 ALTER TABLE `departements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT pour la table `members`
+-- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT pour la table `priorities`
+-- AUTO_INCREMENT for table `priorities`
 --
 ALTER TABLE `priorities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT pour la table `projects`
+-- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT pour la table `project_stages`
+-- AUTO_INCREMENT for table `project_stages`
 --
 ALTER TABLE `project_stages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT pour la table `project_urls`
+-- AUTO_INCREMENT for table `project_urls`
 --
 ALTER TABLE `project_urls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT pour la table `rapports`
+-- AUTO_INCREMENT for table `rapports`
 --
 ALTER TABLE `rapports`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `teams`
+-- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `user_urls`
+-- AUTO_INCREMENT for table `user_urls`
 --
 ALTER TABLE `user_urls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Contraintes pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `assoc_clients_projects`
+-- Constraints for table `assoc_clients_projects`
 --
 ALTER TABLE `assoc_clients_projects`
   ADD CONSTRAINT `FK_assocCP_clients` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_assocCP_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_companies_members`
+-- Constraints for table `assoc_companies_members`
 --
 ALTER TABLE `assoc_companies_members`
   ADD CONSTRAINT `FK_ACM_company` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ACM_members` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_companies_users`
+-- Constraints for table `assoc_companies_users`
 --
 ALTER TABLE `assoc_companies_users`
   ADD CONSTRAINT `FK_ACU_company` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ACU_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_departements_criterions`
+-- Constraints for table `assoc_departements_criterions`
 --
 ALTER TABLE `assoc_departements_criterions`
   ADD CONSTRAINT `FK_ADC_criterions` FOREIGN KEY (`criterion_id`) REFERENCES `criterions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ADC_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_departements_members`
+-- Constraints for table `assoc_departements_members`
 --
 ALTER TABLE `assoc_departements_members`
   ADD CONSTRAINT `FK_ADM_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ADM_members` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_departements_users`
+-- Constraints for table `assoc_departements_users`
 --
 ALTER TABLE `assoc_departements_users`
   ADD CONSTRAINT `FK_ADU_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ADU_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_members_projects`
+-- Constraints for table `assoc_members_projects`
 --
 ALTER TABLE `assoc_members_projects`
   ADD CONSTRAINT `FK_AMP_members` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_AMP_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `assoc_projects_criterions`
+-- Constraints for table `assoc_projects_criterions`
 --
 ALTER TABLE `assoc_projects_criterions`
   ADD CONSTRAINT `FK_APC_criterions` FOREIGN KEY (`criterion_id`) REFERENCES `criterions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_APC_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_projects_teams`
+-- Constraints for table `assoc_projects_teams`
 --
 ALTER TABLE `assoc_projects_teams`
   ADD CONSTRAINT `FK_assocPT_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_assocPT_teams` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_teams_criterions`
+-- Constraints for table `assoc_teams_criterions`
 --
 ALTER TABLE `assoc_teams_criterions`
   ADD CONSTRAINT `FK_ATC_criterions` FOREIGN KEY (`criterion_id`) REFERENCES `criterions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_teams_criterions` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_teams_members`
+-- Constraints for table `assoc_teams_members`
 --
 ALTER TABLE `assoc_teams_members`
   ADD CONSTRAINT `FK_ATM_members` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_ATM_teams` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_teams_users`
+-- Constraints for table `assoc_teams_users`
 --
 ALTER TABLE `assoc_teams_users`
   ADD CONSTRAINT `FK_assocTR_teams` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_assocTR_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_users_actiondisciplinaires`
+-- Constraints for table `assoc_users_actiondisciplinaires`
 --
 ALTER TABLE `assoc_users_actiondisciplinaires`
   ADD CONSTRAINT `FK_assocRA_actionDisciplinaire` FOREIGN KEY (`actiondisciplinaire_id`) REFERENCES `actiondisciplinaires` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_assocRA_ressources` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_users_criterions`
+-- Constraints for table `assoc_users_criterions`
 --
 ALTER TABLE `assoc_users_criterions`
   ADD CONSTRAINT `FK_AUC_criterions` FOREIGN KEY (`criterion_id`) REFERENCES `criterions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_AUC_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `assoc_users_projects`
+-- Constraints for table `assoc_users_projects`
 --
 ALTER TABLE `assoc_users_projects`
   ADD CONSTRAINT `FK_assocUP_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_assocUP_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `authentifications`
+-- Constraints for table `authentifications`
 --
 ALTER TABLE `authentifications`
   ADD CONSTRAINT `FK_authentifications_clients` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -1290,38 +1347,38 @@ ALTER TABLE `authentifications`
   ADD CONSTRAINT `FK_authentifications_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `departements`
+-- Constraints for table `departements`
 --
 ALTER TABLE `departements`
   ADD CONSTRAINT `FK_departements_companies` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `projects`
+-- Constraints for table `projects`
 --
 ALTER TABLE `projects`
   ADD CONSTRAINT `FK_projects_priorities` FOREIGN KEY (`priority_id`) REFERENCES `priorities` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_projects_ps` FOREIGN KEY (`project_stage_id`) REFERENCES `project_stages` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `project_urls`
+-- Constraints for table `project_urls`
 --
 ALTER TABLE `project_urls`
   ADD CONSTRAINT `FK_project_urls_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `rapports`
+-- Constraints for table `rapports`
 --
 ALTER TABLE `rapports`
   ADD CONSTRAINT `FK_rappots_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `teams`
+-- Constraints for table `teams`
 --
 ALTER TABLE `teams`
   ADD CONSTRAINT `FK_teams_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `user_urls`
+-- Constraints for table `user_urls`
 --
 ALTER TABLE `user_urls`
   ADD CONSTRAINT `FK_userUrls_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

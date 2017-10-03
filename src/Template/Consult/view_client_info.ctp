@@ -3,31 +3,23 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
+          <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 main-chart page_white">
+                    <div class="col s12">
                         <div class="row">
-                            <div class="col-xs-12">
-                                  <?= $this->Flash->render('auth') ?>
+                            <div class="col s12">
                                   <?= $this->Flash->render() ?>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
-                                >
-                                <?=$this->Html->link(__('Clients list'), ['controller' => 'consult', 'action' => 'clientsList'])?>
-                                >
-                                <?php echo "$client->name $client->lastName"; ?>
-                            </div>
-                        </div>
+
+<hr>
 
                         <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <h2><?=__('Client')?> : <?php echo "$client->name $client->lastName"; ?></h2>
-                                <hr>
-                                <div class="col-lg-offset-1">
-                                    <table class="table table-bordered">
+                            <div class="col s12">
+                                <h3><?=__('Client')?> : <?php echo "$client->name $client->lastName"; ?></h3>
+
+                                <div class="col m11 offset-m1">
+                                    <table class="bordered highlight">
                                         <tr>
                                             <th><?=__('Name')?> :</th>
                                             <td><?php echo "$client->name $client->lastName"; ?></td>
@@ -44,13 +36,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <hr>
+
                         <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <h2>Projets :</h2>
-                                <hr>
-                                <div class="col-lg-offset-1">
+                            <div class="col s12">
+                                <h4>Projets :</h4>
+
+                                <div class="col m11 offset-m1">
                                     <?php if(!empty($client->projects)){ ?>
-                                            <table id="projectsTable" class="table table-bordered row-border hover order-column">
+                                            <table id="projectsTable" class="table_sorter bordered highlight">
                                                 <thead>
                                                     <tr>
                                                         <th><?=__('Name')?></th>
@@ -62,26 +57,45 @@
                                                         <th><?=__('Name')?></th>
                                                         <th><?=__('Accomplishment')?></th>
                                                     </tr>
+                                                    <tr class="tablesorter-ignoreRow">
+                                                      <th colspan="2" class="ts-pager form-horizontal">
+                                                        <button type="button" class="btn first"><i class="small material-icons">first_page</i></button>
+                                                        <button type="button" class="btn prev"><i class="small material-icons">navigate_before</i></button>
+                                                        <span class="pagedisplay"></span>
+                                                        <!-- this can be any element, including an input -->
+                                                        <button type="button" class="btn next"><i class="small material-icons">navigate_next</i></button>
+                                                        <button type="button" class="btn last"><i class="small material-icons">last_page</i></button>
+                                                        <select class="pagesize browser-default" title="Select page size">
+                                                          <option selected="selected" value="10">10</option>
+                                                          <option value="20">20</option>
+                                                          <option value="30">30</option>
+                                                          <option value="40">40</option>
+                                                        </select>
+                                                        <select class="pagenum browser-default" title="Select page number"></select>
+                                                      </th>
+                                                    </tr>
                                                 </tfoot>
                                                 <tbody>
-                                                    <?php 
-                                                        foreach ($client->projects as $key => $project) { 
+                                                    <?php
+                                                        foreach ($client->projects as $key => $project) {
                                                     ?>
                                                     <tr>
                                                         <td><?=$project->name?></td>
                                                         <td>
-                                                            <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" aria-valuenow="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" aria-valuemin="0" aria-valuemax="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" style="min-width: 10%; width: <?=$project->accomplishment?>%;">
-                                                                  <?=$project->accomplishment?>%
-                                                                </div>
-                                                            </div>
+                                                          <div class="progress">
+                                                            <div class="determinate" style="width: <?=$project->accomplishment?>%"></div>
+                                                          </div>
                                                         </td>
                                                     </tr>
                                                     <?php } ?>
                                                 </tbody>
                                             </table>
                                     <?php }else{ ?>
-                                    <?=__('No .. associated to this', ['', 'projet', 'ce client'])?>
+                                      <div class="card-alert card grey lighten-5 z-depth-2">
+                                          <div class="card-content grey-text">
+                                              <p><?=__('No .. associated to this', ['', 'projet', 'ce client'])?></p>
+                                          </div>
+                                      </div>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -90,19 +104,23 @@
 
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-
-                    <!--Notifications-->
-                    <?= $this->cell('Slider') ?>
+      *********************************************************************************************************************************************************** -->
 
                 </div><!--/row -->
-          </section>
+          </div>
       </section>
-      
+
 <?php
-    $this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
-    $this->Html->script('datatables/datatables.min', ['block' => true]);
+    //$this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
+    //$this->Html->script('datatables/datatables.min', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/css/theme.materialize.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.js', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.widgets.js', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/dist/css/jquery.tablesorter.pager.min.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/dist/js/extras/jquery.tablesorter.pager.min.js', ['block' => true]);
+
     $this->Html->scriptStart(['block' => true]);
-        echo "initializeConsultViewClientPage();";
+        //echo "initializeConsultViewClientPage();";
+        echo "tableSorterMaster();";
     $this->Html->scriptEnd();
-?>      
+?>

@@ -11,13 +11,6 @@
                                   <?= $this->Flash->render() ?>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <?=$this->Html->link('Accueil', ['controller' => 'consult', 'action' => 'index'])?>
-                                >
-                                <?=__('Teams')?>
-                            </div>
-                        </div>
                   	<div class="row">
                       <div class="col s12">
                         <h3 class="center"><?=__('Teams')?></h3>

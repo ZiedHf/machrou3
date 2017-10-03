@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 /**
  * Authentifications Controller
@@ -41,6 +41,16 @@ class AuthentificationsController extends AppController
             if ($user) {
                 $this->Auth->setUser($user);
                 //$this->Auth->redirectUrl();
+                $this->loadModel('Users');
+                $this->loadModel('Members');
+                if(isset($user['user_id'])){
+                    $userdata = $this->Users->getUserDataById($user['user_id']);
+                }elseif(isset($user['member_id'])){
+                    $userdata = $this->Members->getMemberDataById($user['member_id']);
+                }
+                $name = (isset($userdata)) ? $userdata->name.' '.$userdata->lastName : __('Unknown');
+                $this->request->session()->write('Auth.User.name', ucwords($name));
+
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->materializeWarning(__('Invalid email or password, try again'));

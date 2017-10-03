@@ -3,23 +3,13 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
+        <div class="container">
               <div class="row">
                   <div class="col s12">
                     <div class="row">
                       <div class="col s12 m6 offset-m3">
-                            <?= $this->Flash->render() ?>
+                          <?= $this->Flash->render() ?>
                       </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <?=$this->Html->link('Accueil', ['controller' => 'consult', 'action' => 'index'])?>
-                            >
-                            <?=$this->Html->link('Département', ['controller' => 'consult', 'action' => 'departements'])?>
-                            >
-                            <?=$this->Html->link($departement->name, ['controller' => 'consult', 'action' => 'viewDepartement', $departement->id])?>
-                            >
-                            <?php echo "$user->name $user->lastName"; ?>
-                        </div>
                     </div>
                   	<?php
                             echo $this->element('pagedata/userinfo', ['user' => $user]);
@@ -32,13 +22,21 @@
       *********************************************************************************************************************************************************** -->
 
               </div><!--/row -->
+            </div>
       </section>
 
 <?php
-    $this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
-    $this->Html->script('datatables/datatables.min', ['block' => true]);
+    //$this->Html->css('../js/datatables/datatables.min.css', ['block' => true]);
+    //$this->Html->script('datatables/datatables.min', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/css/theme.materialize.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.js', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/js/jquery.tablesorter.widgets.js', ['block' => true]);
+    $this->Html->css('../js/tablesorter-master/dist/css/jquery.tablesorter.pager.min.css', ['block' => true]);
+    $this->Html->script('../js/tablesorter-master/dist/js/extras/jquery.tablesorter.pager.min.js', ['block' => true]);
+
     $this->Html->scriptStart(['block' => true]);
         echo "pageName = 'ViewUser';";
-        echo "initializeConsultViewUserPage(pageName);";
+        //echo "initializeConsultViewUserPage(pageName);";
+        echo "tableSorterMaster();";
     $this->Html->scriptEnd();
 ?>

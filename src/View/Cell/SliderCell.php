@@ -22,7 +22,7 @@ class SliderCell extends Cell
      *
      * @return void
      */
-    public function display()
+    public function display($breadcrumbs)
     {
         $session = $this->request->session()->read();
         $user = $session['Auth']['User'];
@@ -30,6 +30,6 @@ class SliderCell extends Cell
         //debug($user);die();
         $this->loadModel('Projects');
         $projects = $this->Projects->getLastProjectsDataByUser(10, $user['type'], $user_id, $user['group_manager']);
-        $this->set(compact('projects'));
+        $this->set(compact('projects', 'breadcrumbs'));
     }
 }

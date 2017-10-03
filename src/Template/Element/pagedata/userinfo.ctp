@@ -2,8 +2,8 @@
     <div class="col s12">
         <h4><?=__('Employee')?> : <?php echo "$user->name $user->lastName"; ?></h4>
         <hr>
-        <div class="col-lg-offset-1">
-            <table class="table table-bordered">
+        <div class="col m11 offset-m1">
+            <table class="bordered highlight">
                 <tr>
                     <th><?=__('Name')?> :</th>
                     <td><?php echo "$user->name $user->lastName"; ?></td>
@@ -35,12 +35,16 @@
                 </tr>
             </table>
         </div>
-        <hr>
-        <div class="col-lg-offset-1">
-            <h3><?=__('Project')?> :</h3>
+
+
+
+      <div class="row">
+        <div class="col m11 offset-m1">
+          <hr>
+            <h4><?=__('Project')?> :</h4>
             <?php if(!empty($user->projects)){ ?>
 
-                <table id="projectsTable" class="table table-bordered display" cellspacing="0">
+                <table id="projectsTable" class="table_sorter table table-bordered display" cellspacing="0">
                     <thead>
                         <tr>
                             <th><?=__('Project')?></th>
@@ -55,6 +59,23 @@
                             <th><?=__('Time dedicated')?></th>
                             <th><?=__('Accomplishment')?></th>
                             <th><?=__('ProjectManager')?></th>
+                        </tr>
+                        <tr class="tablesorter-ignoreRow">
+                          <th colspan="4" class="ts-pager form-horizontal">
+                            <button type="button" class="btn first"><i class="small material-icons">first_page</i></button>
+                            <button type="button" class="btn prev"><i class="small material-icons">navigate_before</i></button>
+                            <span class="pagedisplay"></span>
+                            <!-- this can be any element, including an input -->
+                            <button type="button" class="btn next"><i class="small material-icons">navigate_next</i></button>
+                            <button type="button" class="btn last"><i class="small material-icons">last_page</i></button>
+                            <select class="pagesize browser-default" title="Select page size">
+                              <option selected="selected" value="10">10</option>
+                              <option value="20">20</option>
+                              <option value="30">30</option>
+                              <option value="40">40</option>
+                            </select>
+                            <select class="pagenum browser-default" title="Select page number"></select>
+                          </th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -76,11 +97,9 @@
                             <?php } ?>
                         </td>
                         <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" aria-valuemin="0" aria-valuemax="<?=($project->accomplishment > 10) ? $project->accomplishment : 10?>" style="min-width: 10%; width: <?=$project->accomplishment?>%;">
-                                  <?=$project->accomplishment?>%
-                                </div>
-                            </div>
+                          <div class="progress">
+                            <div class="determinate" style="width: <?=$project->accomplishment?>%"></div>
+                          </div>
                         </td>
                         <td>
                             <?php if($project['_joinData']->projectManager === 1){ ?>
@@ -95,22 +114,28 @@
                 </table>
 
             <?php }else{ ?>
-                <div class="col-lg-offset-1">
-                    <?=__('No .. associated to this', ['', __('projet'), 'ce '.__('employee')])?>
+                <div class="card-alert card grey lighten-5 z-depth-2">
+                    <div class="card-content grey-text">
+                        <p><?=__('No .. associated to this', ['', __('projet'), 'ce '.__('employee')])?></p>
+                    </div>
                 </div>
             <?php } ?>
         </div>
-        <hr>
-        <div class="col-lg-offset-1">
-            <div class="col-md-12 col-sm-12">
-                <h3><?=__('Urls')?></h3>
-                <hr>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col m11 offset-m1">
+          <hr>
+                <h4><?=__('Urls')?></h4>
+
                 <?php if(!empty($user->user_urls)){ ?>
                 <div class="col-lg-offset-1">
-                    <table class="table table-bordered">
+                    <table class="bordered highlight">
                         <tr>
-                            <td><?=__('Name')?></td>
-                            <td><?=__('Url')?></td>
+                            <th><?=__('Name')?></th>
+                            <th><?=__('Url')?></th>
                         </tr>
                         <?php
                             foreach ($user->user_urls as $key => $url) {
@@ -123,24 +148,27 @@
                     </table>
                 </div>
                 <?php }else{ ?>
-                    <div class="col-lg-offset-1">
-                        <?=__('No .. associated to this', ['', __('url'), 'ce '.__('employee')])?>
+                    <div class="card-alert card grey lighten-5 z-depth-2">
+                        <div class="card-content grey-text">
+                            <p><?=__('No .. associated to this', ['', __('url'), 'ce '.__('employee')])?></p>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
-        </div>
-        <hr>
-        <div class="col-lg-offset-1">
-            <div class="col-md-12 col-sm-12">
-                <h3><?=__('Criterions')?></h3>
-                <hr>
+      </div>
+
+      <div class="row">
+        <div class="col m11 offset-m1">
+          <hr>
+                <h4><?=__('Criterions')?></h4>
+
                 <?php if(!empty($user->criterions)){ ?>
                 <div class="col-lg-offset-1">
-                    <table class="table table-bordered">
+                    <table class="bordered highlight">
                         <tr>
-                            <td><?=__('Name')?></td>
-                            <td><?=__('Content')?></td>
-                            <td><?=__('Percent')?></td>
+                            <th><?=__('Name')?></th>
+                            <th><?=__('Content')?></th>
+                            <th><?=__('Percent')?></th>
                         </tr>
                         <?php
                             foreach ($user->criterions as $key => $criterion) {
@@ -154,11 +182,14 @@
                     </table>
                 </div>
                 <?php }else{ ?>
-                    <div class="col-lg-offset-1">
-                        <?=__('No .. associated to this', ['', __('criterion'), 'ce '.__('employee')])?>
+                    <div class="card-alert card grey lighten-5 z-depth-2">
+                        <div class="card-content grey-text">
+                            <p><?=__('No .. associated to this', ['', __('criterion'), 'ce '.__('employee')])?></p>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
-        </div>
+      </div>
+
     </div>
 </div>

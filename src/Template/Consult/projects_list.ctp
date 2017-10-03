@@ -8,15 +8,7 @@
                 <div class="col s12 m12 l10 offset-l1">
                     <div class="row">
                         <div class="col s12 m6 offset-m3">
-                              <?= $this->Flash->render('auth') ?>
                               <?= $this->Flash->render() ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <?=$this->Html->link(__('Home'), ['controller' => 'consult', 'action' => 'index'])?>
-                            >
-                            <?=__('Projects')?>
                         </div>
                     </div>
                     <div class="row">
