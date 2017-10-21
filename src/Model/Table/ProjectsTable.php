@@ -536,7 +536,7 @@ class ProjectsTable extends Table
             $results[$keyProject]['departement'] = $arrayDep;
 
             //scan directory and get all files
-            if($project->path_dir !== null){
+            if(($project->path_dir !== null)&&(file_exists(PROJECTS_UPLOAD))){
                 $allFiles = scandir(PROJECTS_UPLOAD.DS.$project->path_dir);
                 $results[$keyProject]['files'] = array_diff($allFiles, array('.', '..')); // les noms des dossiers seulement
             }

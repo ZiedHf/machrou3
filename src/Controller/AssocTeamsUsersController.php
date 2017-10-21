@@ -87,7 +87,7 @@ class AssocTeamsUsersController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $userIdsOfThisTeam = $this->AssocTeamsUsers->getIdsUsersByTeamId($assocUsersProject->team_id);
+            $userIdsOfThisTeam = $this->AssocTeamsUsers->getIdsUsersByTeamId($assocTeamsUser->team_id);
             $addToBase = false;
             if((in_array($this->request->data['user_id'], $userIdsOfThisTeam))&&($this->request->data['accessLevel'] > 1)){
                 $addToBase = true;

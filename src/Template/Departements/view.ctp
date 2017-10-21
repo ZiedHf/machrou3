@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Companies') ?></th>
-                    <td><?= $departement->has('company') ? $this->Html->link($departement->company->name, ['controller' => 'Companiess', 'action' => 'view', $departement->company->id]) : '' ?></td>
+                    <td><?= $departement->has('company') ? $this->Html->link($departement->company->name, ['controller' => 'Companies', 'action' => 'view', $departement->company->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th scope="row"><?= __('Created') ?></th>
@@ -50,14 +50,14 @@
                     </tr>
                     <?php endforeach; ?>
                 </table>
-                <?php 
+                <?php
                     else:
                 ?>
                         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 alert alert-info margintop10px" role="alert">
                             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                             <span class="sr-only"><?=__('Info');?> :</span>
                             <?= __('No .. associated to this', ['e', __('team'), 'ce '.__('departement')]) ?>
-                        </div> 
+                        </div>
                 <?php
                     endif;
                 ?>
@@ -86,14 +86,14 @@
                     </tr>
                     <?php endforeach; ?>
                 </table>
-                <?php 
+                <?php
                     else:
                 ?>
                         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 alert alert-info margintop10px" role="alert">
                             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                             <span class="sr-only"><?=__('Info');?> :</span>
                             <?= __('No .. associated to this', ['', __('criterion'), 'ce '.__('departement')]) ?>
-                        </div> 
+                        </div>
                 <?php
                     endif;
                 ?>

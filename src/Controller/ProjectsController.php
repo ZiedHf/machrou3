@@ -32,12 +32,12 @@ class ProjectsController extends AppController
         $this->loadComponent('Search.Prg', ['actions' => ['index', 'lookup']]);
         $this->loadModel('AssocUsersProjects');
     }
-    
+
     public function isAuthorized($user = null){
         if(parent::isAuthorized($user)){
             return true;
         }
-        
+
         $project_id = (isset($this->request->params['pass'][0])) ? $this->request->params['pass'][0] : null;
         $haveAccessRight = $this->haveAccessRight($user, $project_id);
         if($haveAccessRight === 'DENIED'){
@@ -46,14 +46,14 @@ class ProjectsController extends AppController
         if($haveAccessRight){
             return true;
         }
-        
-        
+
+
         if((isset($user['type']))&&(($user['type'] === 'user')||($user['type'] === 'member'))){
             // Si le user est un chef d'équipe ou dep ou societe il aura l'accés à add function (Voir la fonction haveAccessRight)
             // Ici on teste s'il a l'autorization d'ajouter : 'post'
             $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
             if($this->request->action === 'add'){
-                
+
                 if(!($this->request->is(['patch', 'post', 'put']))){
                     if((($this->Projects->Teams->heIsATeamManager($sessionUserId, $user['type']))||
                     ($this->Projects->Teams->Departements->heIsADepartementManager($sessionUserId, $user['type']))||
@@ -90,8 +90,8 @@ class ProjectsController extends AppController
                     return true; // Si il a passé tous les test on lui donne les access
                 }
             }
-                
-            
+
+
             if(($this->request->action == 'edit')){
                 $project_id = $this->request->params['pass'][0];
                 $teams_id = $this->Projects->getThisProjectTeamsId($project_id);
@@ -145,7 +145,7 @@ class ProjectsController extends AppController
                             }
                             return true;
                         }
-                        
+
                     }
                 }
             }
@@ -157,7 +157,7 @@ class ProjectsController extends AppController
                     return true;
                 }
             }
-            
+
             if($this->request->action == 'view'){
                 $project_id = $this->request->params['pass'][0];
                 $users_team = $this->Projects->getusers_project($project_id);
@@ -166,7 +166,7 @@ class ProjectsController extends AppController
                 }
             }*/
             //Autorisation pour les membres
-        }/*elseif((isset($user['type']))&&($user['type'] === 'member')){ 
+        }/*elseif((isset($user['type']))&&($user['type'] === 'member')){
             if(in_array($this->request->action, ['index'])) {
                 return true;
             }
@@ -174,10 +174,10 @@ class ProjectsController extends AppController
         return false;
     }
     /**
-     * 
+     *
      * @param type $user
      * @param type $project_id
-     * @param type $action ////// QUAND CETTE FONCTION EST APPELEE DEPUIS LE CONTROLLER CONSULT ET AVEC UNE ACTION DE LA 
+     * @param type $action ////// QUAND CETTE FONCTION EST APPELEE DEPUIS LE CONTROLLER CONSULT ET AVEC UNE ACTION DE LA
      * @return boolean|string
      */
     public function haveAccessRight($user, $project_id, $action = null) {
@@ -190,11 +190,11 @@ class ProjectsController extends AppController
         if($user['type'] === 'client'){//Pas d'access aux clients
             return false;
         }
-        
+
         if($this->request->action === 'index') {
             return true;
         }
-        
+
         $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
         //Si l'action est add = test s'il est un Manager d'un departement ou une societé ou un team
         if((in_array($this->request->action, ['add', 'edit']))){
@@ -202,7 +202,7 @@ class ProjectsController extends AppController
         }
         //Celui ci est un CompanyManager = a l'access
         $companies_id = (isset($project_id)) ? $this->Projects->getThisProjectCompaniesId($project_id) : null;
-        
+
         $i = 0;
         $haveCustomizeDenied = false;
         while (isset($companies_id[$i])) {
@@ -210,7 +210,7 @@ class ProjectsController extends AppController
             if($isCompanyManager){
                 return true;
             }
-            
+
             $accessLevel = $this->Projects->Teams->Departements->Companies->getUserAccessByCompany($sessionUserId, $user['type'], $companies_id[$i]);
             
             if(($accessLevel === 2)||($accessLevel === 0)){
@@ -226,7 +226,7 @@ class ProjectsController extends AppController
         if($haveCustomizeDenied){
             return 'DENIED';
         }
-        
+
         //Departement Manager
         $departements_id = (isset($project_id)) ? $this->Projects->getThisProjectDepartementsId($project_id) : null;
         $i = 0;
@@ -236,7 +236,7 @@ class ProjectsController extends AppController
             if($isDepartementManager){
                 return true;
             }
-            
+
             $accessLevel = $this->Projects->Teams->Departements->getUserAccessByDepartement($sessionUserId, $user['type'], $departements_id[$i]);
             if(($accessLevel === 2)||($accessLevel === 0)){
                 $haveCustomizeDenied = true;
@@ -251,7 +251,7 @@ class ProjectsController extends AppController
         if($haveCustomizeDenied){
             return 'DENIED';
         }
-        
+
         //Team Manager
         $teams_id = (isset($project_id)) ? $this->Projects->getThisProjectTeamsId($project_id) : null;
         $i = 0;
@@ -261,14 +261,14 @@ class ProjectsController extends AppController
             if($isTeamManager){
                 return true;
             }
-            
+
             $accessLevel = $this->Projects->Teams->getUserAccessByTeam($sessionUserId, $user['type'], $teams_id[$i]);
             if(($accessLevel === 2)||($accessLevel === 0)){
                 $haveCustomizeDenied = true;
             }
-            
+
             //$allowedByTeam = ((isset($allowedByTeam))&&($allowedByTeam)) ? true : false;
-            
+
             if($this->allowByAccessLevelAndAction($accessLevel, $action)){
                 //return true;
                 if($accessLevel > 3){//S'il est un editeur ou un manager il a l'accès directement
@@ -284,18 +284,18 @@ class ProjectsController extends AppController
         if($haveCustomizeDenied){
             return 'DENIED';
         }
-        
+
         //Project Manager
-        
+
         $project_manager = isset($project_id) ? $this->Projects->getProjectManagerByIdProject($project_id) : null;
         //debug($sessionUserId);die();
         if($project_manager == $sessionUserId){
             return true;
         }
-        
+
         //Get Access Level
         $accessLevel = (isset($project_id)) ? $this->Projects->getUserAccessByProject($user['user_id'], $user['type'], $project_id) : null;
-        
+
         if(($accessLevel === 2)||($accessLevel === 0)){
             return 'DENIED';
         }
@@ -306,7 +306,7 @@ class ProjectsController extends AppController
         //die('aaa');
         return false;
     }
-    
+
     public function allowByAccessLevelAndAction($accessLevel, $action) {
         if((($this->request->action === 'view')||(in_array($action, ['viewProjectInfo', 'viewProject', 'projecUrls/view'])))&&($accessLevel > 0)){
             return true;
@@ -314,7 +314,7 @@ class ProjectsController extends AppController
         if((($this->request->action === 'edit')||(in_array($action, ['projecUrls/add', 'projecUrls/edit'])))&&($accessLevel > 3)){
             return true;
         }
-        
+
         return false;
     }
     /**
@@ -322,7 +322,7 @@ class ProjectsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    
+
     public function index(){
         $this->paginate = [
             'contain' => ['Clients', 'Users'],
@@ -331,7 +331,7 @@ class ProjectsController extends AppController
         $query = $this->Projects
         ->find('search', ['search' => $this->request->query]);
         //->contain(['Clients', 'Users']);
-        
+
         $projects = $this->paginate($query);
         $users = $this->Projects->Users->find('list');
         $clients = $this->Projects->Clients->find('list');
@@ -342,7 +342,7 @@ class ProjectsController extends AppController
         $this->set(compact('projects', 'pageName', 'users', 'clients', 'priorities', 'projectStages'));
         $this->set('_serialize', ['projects']);
         $this->set('isSearch', $this->Projects->isSearch());
-        
+
         /*$projects = $this->paginate($this->Projects);
         $pageName = $this->pageName;
         $this->set(compact('projects', 'pageName'));
@@ -394,7 +394,7 @@ class ProjectsController extends AppController
         //debug($array_datetime);die();
         return $array_datetime;
     }
-    
+
     private function criterions_handle($criterions, $criterions_percent) {
         $criterions_ids = array();
         foreach ($criterions as $key => $criterion) {
@@ -418,24 +418,24 @@ class ProjectsController extends AppController
         }else{
             $data['criterions_ids'] = null;
         }
-        
+
         return $data;
     }
-    
+
     private function criterions_update($criterions, $project_id){
         foreach ($criterions as $key => $criterion) {
             $assoc_id = $this->Projects->AssocProjectsCriterions->getAssocIdByCriterionAndProject($key, $project_id);
             $this->Projects->AssocProjectsCriterions->update_content($assoc_id, $criterion);
         }
     }
-    
+
     private function criterions_update_percent($criterions_percent, $project_id){
         foreach ($criterions_percent as $key => $percent) {
             $assoc_id = $this->Projects->AssocProjectsCriterions->getAssocIdByCriterionAndProject($key, $project_id);
             $this->Projects->AssocProjectsCriterions->update_percent($assoc_id, $percent);
         }
     }
-    
+
     private function usersInTeams($team_ids, $user_ids){
         $this->loadModel('Users');
         $i = 0;
@@ -446,17 +446,17 @@ class ProjectsController extends AppController
         }
         if($inTeam){return true;}else{return false;}
     }
-    
+
     private function projectManager_exitinlist($chefproject_id, $listemployees){
         if((!isset($chefproject_id))&&($chefproject_id === null))
             return true;
         return (\in_array($chefproject_id, $listemployees)) ? true : false;
     }
-    
+
     public function add(){
         $project = $this->Projects->newEntity();
         if ($this->request->is('post')){
-            
+
             $usersInTeams = false;
             $projectManager_exitinlist = false;
             if(isset($this->request->data['employees'])){
@@ -466,21 +466,21 @@ class ProjectsController extends AppController
                 //tester si tout les users correspondent aux équipes selectionnées
                 $usersInTeams = $this->usersInTeams($this->request->data['teams']['_ids'], $user_ids);
             }
-            
+
             //S'il y a des critères :
             if((!empty($this->request->data['criterions']))||(!empty($this->request->data['criterions_percent']))){
                 $criterions_data = $this->criterions_handle($this->request->data['criterions'], $this->request->data['criterions_percent']);
                 unset($this->request->data['criterions']);
                 if($criterions_data['criterions_ids'] !== null) {
                     $this->request->data['criterions']['_ids'] = $criterions_data['criterions_ids'];
-                } 
+                }
             }
-            
+
             if(isset($this->request->data['users']['_ids'])){
                 $this->request->data['chefproject'] = (isset($this->request->data['chefproject'])&&($this->request->data['chefproject'] !== '')) ? $this->request->data['chefproject'] : null;
                 $projectManager_exitinlist = $this->projectManager_exitinlist($this->request->data['chefproject'], $this->request->data['users']['_ids']);
             }
-            
+
             $this->request->data['dateBegin'] = $this->getDateTimeFormat($this->request->data['dateBegin']);
             $this->request->data['dateEnd'] = $this->getDateTimeFormat($this->request->data['dateEnd']);
             //debug($this->request->data); die();
@@ -509,7 +509,7 @@ class ProjectsController extends AppController
                     if((isset($criterions_data['criterions_percent']))&&(!empty($criterions_data['criterions_percent']))){
                         $this->criterions_update_percent($criterions_data['criterions_percent'], $project_id);
                     }
-                    
+
                     if((!empty($this->request->data['path_doc'][0]['name'])) && ($this->request->data['path_doc'][0]['name'] !== '')){
                         $this->file_upload($result->id, $this->request->data);
                     }
@@ -534,14 +534,14 @@ class ProjectsController extends AppController
         $stages = $this->Projects->ProjectStages->getStagesListByOrder();
         $usersbyteam = $this->AssocTeamsUsers->getUsersByTeams();
         $criterions = $this->Projects->Criterions->getCriterionsOfProducts();
-        
+
         $this->set(compact('project', 'teams', 'clients', 'employees', 'usersbyteam', 'priorities', 'stages', 'criterions'));
         $this->set('_serialize', ['project']);
     }
-    
-    
+
+
     /**
-     * 
+     *
      * @param type $id
      * @param type $data
      */
@@ -549,7 +549,7 @@ class ProjectsController extends AppController
         //upload image
         $folderName = $id.'-'.$this->slug($data['name']);
         $pathToDir = $this->dir_projects.DS.$folderName;
-        
+
         if (!file_exists($pathToDir)){
             mkdir($pathToDir, 0777, true);
         }
@@ -571,7 +571,7 @@ class ProjectsController extends AppController
     }
 
     public function keepNotMemberAssociation($members, $notMembers) {
-        
+
     }
     /**
      * Edit method
@@ -605,9 +605,9 @@ class ProjectsController extends AppController
                 unset($this->request->data['criterions']);
                 if($criterions_data['criterions_ids'] !== null) {
                     $this->request->data['criterions']['_ids'] = $criterions_data['criterions_ids'];
-                } 
+                }
             }
-            
+
             if(isset($this->request->data['users']['_ids'])){
                 $this->request->data['chefproject'] = (isset($this->request->data['chefproject'])&&($this->request->data['chefproject'] !== '')) ? $this->request->data['chefproject'] : null;
                 $notMembersIdsOfThisProject = $this->Projects->getNotMembersProject($id); // Les users qui ont access Level mois que 2
@@ -616,14 +616,14 @@ class ProjectsController extends AppController
             }
             //debug($this->request->data['users']['_ids']);die();
             //$this->request->data['users']['_ids'][] = 1;
-            
+
             $this->request->data['dateBegin'] = $this->getDateTimeFormat($this->request->data['dateBegin']);
             $this->request->data['dateEnd'] = $this->getDateTimeFormat($this->request->data['dateEnd']);
             $project = $this->Projects->patchEntity($project, $this->request->data);
             $conn = ConnectionManager::get('default');
             $conn->begin();
             if (($projectManager_exitinlist) && ($usersInTeams) && ($this->Projects->save($project))) {
-                
+
                 try {
                     $project_id = $id;
                     $this->loadModel('ProjectEmployeeInfos');
@@ -637,7 +637,7 @@ class ProjectsController extends AppController
                             $this->Projects->AssocUsersProjects->update_projectManager($assoc_id, 1);
                         }
                     }
-                    
+
                     //S'il y a des critères :
                     if(!empty($this->request->data['criterions'])){
                         $this->criterions_update($criterions_data['criterions'], $project_id);
@@ -645,7 +645,7 @@ class ProjectsController extends AppController
                     if((isset($criterions_data['criterions_percent']))&&(!empty($criterions_data['criterions_percent']))){
                         $this->criterions_update_percent($criterions_data['criterions_percent'], $project_id);
                     }
-                    
+
                     if((!empty($this->request->data['path_doc'][0]['name'])) && ($this->request->data['path_doc'][0]['name'] !== '')){
                         $this->file_upload($project_id, $this->request->data);
                     }
@@ -656,14 +656,14 @@ class ProjectsController extends AppController
                     $this->Flash->error(__('could not be saved. Please, try again.', ['Le ', __('project'), '']));
                 }
                 return $this->redirect(['action' => 'view', $id]);
-                
+
             } else {
                 $this->Flash->error(__('could not be saved. Please, try again.', ['Le ', __('project'), '']));
             }
         }
         //Get project files
         $files = $project->path_dir !== null ? $this->Projects->getFilesByProjects($project->path_dir) : null;
-        
+
         $this->loadModel('Users');
         $this->loadModel('Clients');
         $this->loadModel('AssocTeamsUsers');
@@ -702,7 +702,7 @@ class ProjectsController extends AppController
                     array_map('unlink', glob("$path_file/*.*"));
                     //effacer le dossier
                     rmdir($path_file);
-                }    
+                }
             }
             $this->Flash->success(__('has been deleted.', ['Le ', __('project'), '']));
         } else {
@@ -710,8 +710,8 @@ class ProjectsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
-    
-    
+
+
     public function deletefile($path_dir, $namefile) {
         $msg = '';
         if (isset($path_dir)&&(isset($namefile))) {

@@ -150,6 +150,7 @@ class ConsultController extends AppController
                 $projectsController = New ProjectsController;
                 $project_id = $this->request->params['pass'][1];
                 $haveAccessRightResult = $projectsController->haveAccessRight($user, $project_id, $this->request->action);
+
                 if($haveAccessRightResult === 'DENIED'){
                     return false;
                 }elseif($haveAccessRightResult){

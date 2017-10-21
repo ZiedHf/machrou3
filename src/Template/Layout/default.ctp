@@ -3,7 +3,7 @@
 <head>
     <?= $this->Html->charset('UTF-8') ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <?= $this->Html->meta('favicon.ico', 'favicon/favicon.ico', ['type' => 'icon']); ?>
     <?= $this->Html->meta(['href' => 'favicon/apple-touch-icon.png', 'rel' => 'apple-touch-icon', 'sizes' => '180x180']); ?>
     <?= $this->Html->meta(['href' => 'favicon/favicon-32x32.png', 'rel' => 'icon', 'sizes' => '32x32', 'type' => 'image/png']); ?>
@@ -11,7 +11,7 @@
     <?= $this->Html->meta(['href' => 'favicon/manifest.json', 'rel' => 'manifest']); ?>
     <?= $this->Html->meta(['href' => 'favicon/safari-pinned-tab.svg', 'rel' => 'mask-icon', 'color' => '#5bbad5']); ?>
     <?= $this->Html->meta('theme-color', '#ffffff'); ?>
-    
+
     <title>
         <?php $cakeDescription = 'PM | Dashboard'; ?>
         <?= $cakeDescription ?>:
@@ -30,7 +30,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <?= $this->Html->css('../AdminLTE/dist/css/skins/_all-skins.min.css') ?>
-    
+
     <?= $this->Html->css('style') ?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
 </head>
@@ -49,7 +49,7 @@
     <!-- Logo -->
     <!--a href="#" class="logo"-->
     <?= $this->Html->link('<span class="logo-mini"><b>C</b>PM</span>
-      <span class="logo-lg"><b>Consult</b>PM</span>', 
+      <span class="logo-lg"><b>Consult</b>PM</span>',
             ['controller' => 'Consult', 'action' => 'index', '_full' => true], ['class' => 'logo', 'escape' => false]); ?>
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <!--span class="logo-mini"><b>C</b>PM</span-->
@@ -121,6 +121,7 @@
     </section>
 
     <?= $this->Flash->render() ?>
+    <?= $this->Flash->render('Auth', ['element' => 'error']); ?>
     <!-- Main content -->
     <section class="content">
         <!-- Info boxes -->

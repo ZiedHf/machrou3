@@ -45,6 +45,11 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        if(in_array($this->request->params['controller'], ['Authentifications', 'Consult'])){
+          $element_flash = 'materialize_error';
+        }else{
+          $element_flash = 'error';
+        };
         $this->loadComponent('Auth', [
             'loginAction' => [
                 'controller' => 'Authentifications',
@@ -58,7 +63,7 @@ class AppController extends Controller
             ],
             'storage' => 'Session',
             'authorize' => ['Controller'],
-            'authError' => 'Did you really think you are allowed to see that ?',
+            'authError' => __('Did you really think you are allowed to see that ?'),
             'loginRedirect' => [
                 'controller' => 'Consult',
                 'action' => 'index'
@@ -67,7 +72,7 @@ class AppController extends Controller
                 'controller' => 'Authentifications',
                 'action' => 'login'
             ],
-            'flash' => ['element' => 'materialize_error']
+            'flash' => ['element' => $element_flash]
         ]);
 
         $this->Auth->allow(['login', 'logout']);

@@ -59,15 +59,15 @@ class AssocTeamsUsersTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-        
+
         $validator
             ->integer('accessLevel')
             ->allowEmpty('accessLevel');
-        
+
         $validator
             ->integer('teamManager')
             ->allowEmpty('teamManager');
-        
+
         return $validator;
     }
 
@@ -88,16 +88,16 @@ class AssocTeamsUsersTable extends Table
         ));
         return $rules;
     }
-    
-    
-    public function getUsersByTeams(){ //returner les id des teams et leurs employées       
+
+
+    public function getUsersByTeams(){ //returner les id des teams et leurs employées
         $assocs = TableRegistry::get('AssocTeamsUsers');
         //$results = $teams->find('all')->contain(['Users'])->toArray();
         $results = $assocs->find('all')->where(['accessLevel >' => 1])->toArray();
         return $this->usersbyteams_order($results);
     }
     public function getIdsUsersByTeamId($team_id) {
-        $assocs = TableRegistry::get('AssocTeamsUsers');
+        $assoc = TableRegistry::get('AssocTeamsUsers');
         $result = $assoc->find('list', ['keyField' => 'id', 'valueField' => 'user_id'])->where(['team_id' => $team_id, 'accessLevel >' => 1])->toArray();
         return $result;
     }

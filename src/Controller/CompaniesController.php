@@ -14,7 +14,7 @@ class CompaniesController extends AppController
     public function initialize() {
         parent::initialize();
         $this->pageName = 'Companies';
-        
+
         $this->user_type = $this->Auth->user('type');
         if($this->user_type == 'user'){
             $this->user_id = $this->Auth->user('user_id');
@@ -22,41 +22,41 @@ class CompaniesController extends AppController
             $this->user_id = $this->Auth->user('member_id');
         }
     }
-    
+
     public function isAuthorized($user = null){
         if(parent::isAuthorized($user)){
             return true;
         }
-        
+
         $company_id = (isset($this->request->params['pass'][0])) ? $this->request->params['pass'][0] : null;
         if((isset($company_id))&&($this->haveAccessRight($user, $company_id))){
             return true;
         }
-            
+
         if((isset($user['type']))&&($user['type'] === 'user')){
-            
+
             if(in_array($this->request->action, ['index'])) {
                 return true;
             }
-            
+
             if($this->request->action == 'view'){
-                //Si l'utilisateur appartient à cette societe 
+                //Si l'utilisateur appartient à cette societe
                 $company_id = $this->request->params['pass'][0];
                 $users_company = $this->Companies->getusers_company($company_id);
                 if(in_array($user['user_id'], $users_company)){
                     return true;
                 }
-                //Si l'utilisateur à 
+                //Si l'utilisateur à
             }
             //Autorisation pour les membres
-        }elseif((isset($user['type']))&&($user['type'] === 'member')){ 
+        }elseif((isset($user['type']))&&($user['type'] === 'member')){
             if(in_array($this->request->action, ['index'])) {
                 return true;
             }
         }
         return false;
     }
-    
+
     public function haveAccessRight($user, $company_id) {
         if(in_array($this->request->action, ['delete'])) {//Pas d'access à la suppression
             return false;
@@ -67,7 +67,7 @@ class CompaniesController extends AppController
         if($user['type'] === 'client'){//Pas d'access aux clients
             return false;
         }
-        
+
         $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
         $isCompanyManager = $this->Companies->isCompanyManager($user['user_id'], $company_id, $user['type']);
         $accessLevel = $this->Companies->getUserAccessByCompany($sessionUserId, $user['type'], $company_id);
@@ -124,6 +124,7 @@ class CompaniesController extends AppController
     public function add()
     {
         $company = $this->Companies->newEntity();
+
         if ($this->request->is('post')) {
             $company = $this->Companies->patchEntity($company, $this->request->data);
             if ($this->Companies->save($company)) {

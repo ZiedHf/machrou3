@@ -22,7 +22,7 @@ class TeamsController extends AppController
         $this->pageName = 'Teams';
         $this->dir = TEAMS_UPLOAD;
         $this->loadComponent('Search.Prg', ['actions' => ['index', 'lookup']]);
-        
+
         $this->user_type = $this->Auth->user('type');
         if($this->user_type == 'user'){
             $this->user_id = $this->Auth->user('user_id');
@@ -30,12 +30,12 @@ class TeamsController extends AppController
             $this->user_id = $this->Auth->user('member_id');
         }
     }
-    
+
     public function isAuthorized($user = null){
         if(parent::isAuthorized($user)){
             return true;
         }
-        
+
         $team_id = (isset($this->request->params['pass'][0])) ? $this->request->params['pass'][0] : null;
         $haveAccessRight = $this->haveAccessRight($user, $team_id);
         if($haveAccessRight === 'DENIED'){
@@ -44,7 +44,7 @@ class TeamsController extends AppController
         if($haveAccessRight){
             return true;
         }
-        
+
         if((isset($user['type']))&&(($user['type'] === 'user')||($user['type'] === 'member'))){
             if($this->request->action == 'add'){
                 if($this->request->is(['patch', 'post', 'put'])) {
@@ -59,7 +59,7 @@ class TeamsController extends AppController
                     }
                 }
             }
-        }    
+        }
             /*
              * Donner l'access à tous les membres de projet sans exception
             if($this->request->action == 'view'){
@@ -70,7 +70,7 @@ class TeamsController extends AppController
                 }
             }*/
             //Autorisation pour les membres
-        /*}*//*elseif((isset($user['type']))&&($user['type'] === 'member')){ 
+        /*}*//*elseif((isset($user['type']))&&($user['type'] === 'member')){
             if(in_array($this->request->action, ['index'])) {
                 return true;
             }
@@ -78,10 +78,10 @@ class TeamsController extends AppController
         return false;
     }
     /**
-     * 
+     *
      * @param type $user
      * @param type $project_id
-     * @param type $action ////// QUAND CETTE FONCTION EST APPELEE DEPUIS LE CONTROLLER CONSULT ET AVEC UNE ACTION DE LA 
+     * @param type $action ////// QUAND CETTE FONCTION EST APPELEE DEPUIS LE CONTROLLER CONSULT ET AVEC UNE ACTION DE LA
      * @return boolean|string
      */
     public function haveAccessRight($user, $team_id, $action = null) {
@@ -94,11 +94,11 @@ class TeamsController extends AppController
         if($user['type'] === 'client'){//Pas d'access aux clients
             return false;
         }
-        
+
         if($this->request->action === 'index') {
             return true;
         }
-        
+
         $sessionUserId = ($user['type'] === 'user') ? $user['user_id'] : $user['member_id'];
         //Si l'action est add = test s'il est un Manager d'un departement ou une societé
         if((in_array($this->request->action, ['add']))&&(($this->Teams->Departements->heIsADepartementManager($sessionUserId, $user['type']))||($this->Teams->Departements->Companies->heIsACompanyManager($sessionUserId, $user['type'])))) {
@@ -107,15 +107,15 @@ class TeamsController extends AppController
             }
             return false;//Pas nécessaire de terminer cette fonction
         }
-        
+
         //Celui ci est un CompanyManager = a l'access
         $company_id = (isset($team_id)) ? $this->Teams->getThisTeamCompanyId($team_id) : null;
-        
+
         $isCompanyManager = (isset($company_id)) ? $this->Teams->Departements->Companies->isCompanyManager($sessionUserId, $company_id, $user['type']) : 0;
         if($isCompanyManager){
             return true;
         }
-        
+
         $accessLevel = (isset($company_id)) ? $this->Teams->Departements->Companies->getUserAccessByCompany($sessionUserId, $user['type'], $company_id) : null;
         if(($accessLevel === 2)||($accessLevel === 0)){
             return 'DENIED';
@@ -126,11 +126,11 @@ class TeamsController extends AppController
         //Departement Manager
         $departement_id = (isset($team_id)) ? $this->Teams->getThisTeamDepId($team_id) : null;
         $isDepartementManager = (isset($departement_id)) ? $this->Teams->Departements->isDepartementManager($sessionUserId, $departement_id, $user['type']) : 0;
-        
+
         if($isDepartementManager){
             return true;
         }
-        
+
         $accessLevel = (isset($departement_id)) ? $this->Teams->Departements->getUserAccessByDepartement($sessionUserId, $user['type'], $departement_id) : null;
         if(($accessLevel === 2)||($accessLevel === 0)){
             return 'DENIED';
@@ -144,7 +144,7 @@ class TeamsController extends AppController
         if($isTeamManager){
             return true;
         }
-        
+
         $accessLevel = (isset($team_id)) ? $this->Teams->getUserAccessByTeam($user['user_id'], $user['type'], $team_id) : null;
         if(($accessLevel === 2)||($accessLevel === 0)){
             return 'DENIED';
@@ -152,10 +152,10 @@ class TeamsController extends AppController
         if($this->allowByAccessLevelAndAction($accessLevel, $action)){
             return true;
         }
-            
+
         return false;
     }
-    
+
     public function allowByAccessLevelAndAction($accessLevel, $action) {
         if((($this->request->action === 'view')||(in_array($action, ['teamView', 'teamViewInfo'])))&&($accessLevel > 0)){
             return true;
@@ -163,7 +163,7 @@ class TeamsController extends AppController
         if(($this->request->action === 'edit')&&($accessLevel > 3)){
             return true;
         }
-        
+
         return false;
     }
     /**
@@ -175,18 +175,18 @@ class TeamsController extends AppController
 //        $query = $this->Departements->departementsOfThisUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
 //        $query = $query->find('search', ['search' => $this->request->query]);
 //        $departements = $this->paginate($query);
-        
+
         //debug($teams);die();
-        
+
         $this->paginate = [
             'contain' => ['Departements'],
             'maxLimit' => 15
         ];
         $query = $this->Teams->getTeamsDataByUser($this->user_type, $this->user_id, $this->Auth->user('group_manager'));
         $query = $query->find('search', ['search' => $this->request->query]);
-        
+
         $teams = $this->paginate($query);
-        
+
         $pageName = $this->pageName;
         $this->set(compact('teams', 'pageName'));
         $this->set('_serialize', ['teams']);
@@ -213,8 +213,8 @@ class TeamsController extends AppController
         $this->set('_serialize', ['team']);
     }
 
-    
-    
+
+
     private function criterions_handle($criterions, $criterions_percent) {
         $criterions_ids = array();
         foreach ($criterions as $key => $criterion) {
@@ -238,17 +238,17 @@ class TeamsController extends AppController
         }else{
             $data['criterions_ids'] = null;
         }
-        
+
         return $data;
     }
-    
+
     private function criterions_update($criterions, $team_id){
         foreach ($criterions as $key => $criterion) {
             $assoc_id = $this->Teams->AssocTeamsCriterions->getAssocIdByCriterionAndTeam($key, $team_id);
             $this->Teams->AssocTeamsCriterions->update_content($assoc_id, $criterion);
         }
     }
-    
+
     private function criterions_update_percent($criterions_percent, $team_id){
         foreach ($criterions_percent as $key => $percent) {
             $assoc_id = $this->Teams->AssocTeamsCriterions->getAssocIdByCriterionAndTeam($key, $team_id);
@@ -263,21 +263,21 @@ class TeamsController extends AppController
     public function add(){
         $team = $this->Teams->newEntity();
         if ($this->request->is('post')) {
-            
+
             //S'il y a des critères :
             if((!empty($this->request->data['criterions']))||(!empty($this->request->data['criterions_percent']))){
                 $criterions_data = $this->criterions_handle($this->request->data['criterions'], $this->request->data['criterions_percent']);
                 unset($this->request->data['criterions']);
                 if($criterions_data['criterions_ids'] !== null) {
                     $this->request->data['criterions']['_ids'] = $criterions_data['criterions_ids'];
-                } 
+                }
             }
-            
+
             $team = $this->Teams->patchEntity($team, $this->request->data);
             $conn = ConnectionManager::get('default');
             $conn->begin();
             if ($result = $this->Teams->save($team)) {
-                
+
                 try {
                     $team_id = $result->id;
                     //S'il y a des critères :
@@ -287,7 +287,7 @@ class TeamsController extends AppController
                     if((isset($criterions_data['criterions_percent']))&&(!empty($criterions_data['criterions_percent']))){
                         $this->criterions_update_percent($criterions_data['criterions_percent'], $team_id);
                     }
-                    
+
                     //set image path
                     $this->request->data['path_image'] = $team_id.'-'.$this->slug($this->request->data['name']);
                     $this->Teams->update_path_image($team_id, $this->request->data['path_image']);
@@ -295,7 +295,7 @@ class TeamsController extends AppController
                     if((!empty($this->request->data['image']['name'])) && ($this->request->data['image']['name'] !== '')){
                         $this->app_file_upload($team_id, $this->request->data['image'], $this->request->data['path_image']);
                     }
-                    
+
                     $this->Flash->success(__('has been saved.', ['L\'', __('team'), 'e']));
                     $conn->commit();
                 } catch (\Exception $e) {
@@ -308,7 +308,7 @@ class TeamsController extends AppController
             }
         }
         $departements = $this->Teams->Departements->find('list');
-        
+
         $users = $this->Teams->Users->find('list');
         //$projects = $this->Teams->Projects->find('list');
         $criterions = $this->Teams->Criterions->getCriterionsOfTeams();
@@ -331,7 +331,7 @@ class TeamsController extends AppController
                                                             return $q->where(['AssocTeamsUsers.accessLevel >' => '1']);
                                                         }], 'Criterions']
         ]);
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             //S'il y a des critères :
             if((!empty($this->request->data['criterions']))||(!empty($this->request->data['criterions_percent']))){
@@ -339,15 +339,28 @@ class TeamsController extends AppController
                 unset($this->request->data['criterions']);
                 if($criterions_data['criterions_ids'] !== null) {
                     $this->request->data['criterions']['_ids'] = $criterions_data['criterions_ids'];
-                } 
+                }
             }
-            
+
             $notMembersIdsOfThisTeam = $this->Teams->getNotMembersTeam($id); // Les users qui ont access Level mois que 2
             if(empty($notMembersIdsOfThisTeam)){
                 $notMembersIdsOfThisTeam = array();
             }
-            $this->request->data['users']['_ids'] = (isset($this->request->data['users']['_ids'])) ? array_merge($this->request->data['users']['_ids'], $notMembersIdsOfThisTeam) : array_merge(array(), $notMembersIdsOfThisTeam);
-            
+
+            if($this->request->data['users']['_ids'] == ''){
+              unset($this->request->data['users']['_ids']);
+            }
+            if(isset($this->request->data['users']['_ids'])){
+              $users_ofthisteam = array_merge($this->request->data['users']['_ids'], $notMembersIdsOfThisTeam);
+            }elseif(!empty($notMembersIdsOfThisTeam)){
+              $users_ofthisteam = $notMembersIdsOfThisTeam;
+            }else{
+              $users_ofthisteam = array();
+            }
+            //array_merge($test, $notMembersIdsOfThisTeam)
+
+            $this->request->data['users']['_ids'] = $users_ofthisteam;
+
             $team = $this->Teams->patchEntity($team, $this->request->data);
             $conn = ConnectionManager::get('default');
             $conn->begin();
@@ -373,7 +386,7 @@ class TeamsController extends AppController
                         }else{
                             $path_dir = $team->path_dir;
                         }
-                        
+
                         /*Pour les anciens teams == Fin*/
                         /*La premiere condition pour les anciens users == $user->path_image == null*/
                         if(($team->path_image == null)||((!file_exists($dir)) || (count(scandir($dir)) == 2))){
@@ -382,7 +395,7 @@ class TeamsController extends AppController
                             $this->Flash->error(__('Doc upload : problem.'));
                         }
                     }
-                    
+
                     $this->Flash->success(__('has been saved.', ['L\'', __('team'), 'e']));
                     $conn->commit();
                 } catch (\Exception $e) {
@@ -396,7 +409,7 @@ class TeamsController extends AppController
         }
         //debug($team->path_image); die();
         $files = $this->getFilesByDir(TEAMS_UPLOAD, $team->path_image);
-        
+
         $departements = $this->Teams->Departements->find('list');
         $users = $this->Teams->Users->find('list');
         //$projects = $this->Teams->Projects->find('list');
@@ -404,12 +417,12 @@ class TeamsController extends AppController
         $content_byIds = $this->Teams->AssocTeamsCriterions->getContentByIdTeam($id);
         $percent_byIds = $this->Teams->AssocTeamsCriterions->getPercentByIdTeam($id);
         //$users = $this->Teams->Users->find('list');
-        
+
         $pageName = $this->pageName;
         $this->set(compact('team', 'departements', 'files', 'criterions', 'content_byIds', 'percent_byIds', 'pageName', 'users', 'projects'));
         $this->set('_serialize', ['team']);
     }
-    
+
     /**
      * Delete method
      *
@@ -436,7 +449,7 @@ class TeamsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
     //Delete file
     public function deletefile($path_dir, $namefile) {
         $msg = '';

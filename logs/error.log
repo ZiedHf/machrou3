@@ -14386,3 +14386,1331 @@ Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
 
 
 
+2017-10-05 10:47:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`projects_manag_db`.`teams`, CONSTRAINT `FK_teams_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /companies/delete/4
+Referer URL: http://localhost/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1895): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1826): Cake\ORM\Table->_processDelete(Object(App\Model\Entity\Company), Object(ArrayObject))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1831): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(180): Cake\ORM\Table->delete(Object(App\Model\Entity\Company))
+#10 [internal function]: App\Controller\CompaniesController->delete('4')
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#25 {main}
+
+
+2017-10-05 10:49:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`projects_manag_db`.`teams`, CONSTRAINT `FK_teams_departements` FOREIGN KEY (`departement_id`) REFERENCES `departements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /companies/delete/4
+Referer URL: http://localhost/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1361): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Association\DependentDeleteTrait.php(56): Cake\ORM\Table->deleteAll(Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(275): Cake\ORM\Association\HasMany->cascadeDelete(Object(App\Model\Entity\Company), Array)
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1888): Cake\ORM\AssociationCollection->cascadeDelete(Object(App\Model\Entity\Company), Array)
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1826): Cake\ORM\Table->_processDelete(Object(App\Model\Entity\Company), Object(ArrayObject))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1831): Cake\Database\Connection->transactional(Object(Closure))
+#12 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(180): Cake\ORM\Table->delete(Object(App\Model\Entity\Company))
+#13 [internal function]: App\Controller\CompaniesController->delete('4')
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#28 {main}
+
+
+2017-10-05 10:52:16 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`projects_manag_db`.`assoc_projects_teams`, CONSTRAINT `FK_assocPT_teams` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /companies/delete/4
+Referer URL: http://localhost/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1895): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1826): Cake\ORM\Table->_processDelete(Object(App\Model\Entity\Company), Object(ArrayObject))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1831): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(180): Cake\ORM\Table->delete(Object(App\Model\Entity\Company))
+#10 [internal function]: App\Controller\CompaniesController->delete('4')
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#25 {main}
+
+
+2017-10-05 11:04:38 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`projects_manag_db`.`assoc_teams_users`, CONSTRAINT `FK_assocTR_teams` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /companies/delete/4
+Referer URL: http://localhost/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1895): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1826): Cake\ORM\Table->_processDelete(Object(App\Model\Entity\Company), Object(ArrayObject))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1831): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(180): Cake\ORM\Table->delete(Object(App\Model\Entity\Company))
+#10 [internal function]: App\Controller\CompaniesController->delete('4')
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#25 {main}
+
+
+2017-10-06 09:01:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`projects_manag_db`.`assoc_teams_criterions`, CONSTRAINT `FK_teams_criterions` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /companies/delete/1
+Referer URL: http://192.168.0.115/machrou3/companies
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1895): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1826): Cake\ORM\Table->_processDelete(Object(App\Model\Entity\Company), Object(ArrayObject))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Database\Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Table.php(1831): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\machrou3\src\Controller\CompaniesController.php(180): Cake\ORM\Table->delete(Object(App\Model\Entity\Company))
+#10 [internal function]: App\Controller\CompaniesController->delete('1')
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\CompaniesController))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#25 {main}
+
+
+2017-10-06 09:33:44 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 349]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 349
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:33:44 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:33:44 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:33:44 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:33:44 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:34:34 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 349]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 349
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:34:35 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:34:35 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:34:35 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:34:35 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://192.168.0.115/machrou3/teams/edit/32
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:40:50 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 350]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 350
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:40:50 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:40:51 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:40:51 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:40:51 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:42:38 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 354]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 354
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:42:38 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:42:38 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:42:38 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:42:38 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:45:47 Error: [ParseError] syntax error, unexpected '||' (T_BOOLEAN_OR)
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controller\\...')
+#2 [internal function]: spl_autoload_call('App\\Controller\\...')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(152): class_exists('App\\Controller\\...')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(64): Cake\Core\App::_classExistsInBase('\\Controller\\Tea...', 'App')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(70): Cake\Core\App::className('Teams', 'Controller', 'Controller')
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-10-06 09:45:52 Error: [ParseError] syntax error, unexpected '||' (T_BOOLEAN_OR)
+Request URL: /machrou3/teams/edit/32
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controller\\...')
+#2 [internal function]: spl_autoload_call('App\\Controller\\...')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(152): class_exists('App\\Controller\\...')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(64): Cake\Core\App::_classExistsInBase('\\Controller\\Tea...', 'App')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(70): Cake\Core\App::className('Teams', 'Controller', 'Controller')
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-10-06 09:46:02 Error: [ParseError] syntax error, unexpected '}'
+Request URL: /machrou3/teams/edit/32
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controller\\...')
+#2 [internal function]: spl_autoload_call('App\\Controller\\...')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(152): class_exists('App\\Controller\\...')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(64): Cake\Core\App::_classExistsInBase('\\Controller\\Tea...', 'App')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(70): Cake\Core\App::className('Teams', 'Controller', 'Controller')
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-10-06 09:47:08 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 351]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 351
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:47:09 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:47:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:47:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:47:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:48:33 Warning: Warning (2): array_merge(): Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Controller\TeamsController.php, line 354]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_merge - [internal], line ??
+App\Controller\TeamsController::edit() - APP/Controller\TeamsController.php, line 354
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:48:33 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:48:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:48:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 09:48:33 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/teams/edit/32
+Referer URL: http://localhost/machrou3/teams/edit/32
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:12:30 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-10-06 10:12:30 Error: [Error] Call to a member function find() on null
+Request URL: /machrou3/assoc-teams-users/edit/80
+Referer URL: http://192.168.0.115/machrou3/assoc-teams-users/edit/80
+Client IP: 192.168.0.113
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Controller\AssocTeamsUsersController.php(90): App\Model\Table\AssocTeamsUsersTable->getIdsUsersByTeamId(NULL)
+#1 [internal function]: App\Controller\AssocTeamsUsersController->edit('80')
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\AssocTeamsUsersController))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-10-06 10:30:30 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-10-06 10:30:30 Error: [Error] Call to a member function find() on null
+Request URL: /machrou3/assoc-teams-users/edit/80
+Referer URL: http://localhost/machrou3/assoc-teams-users/edit/80
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Controller\AssocTeamsUsersController.php(90): App\Model\Table\AssocTeamsUsersTable->getIdsUsersByTeamId(NULL)
+#1 [internal function]: App\Controller\AssocTeamsUsersController->edit('80')
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\AssocTeamsUsersController))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-10-06 10:31:55 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-10-06 10:31:55 Error: [Error] Call to a member function find() on null
+Request URL: /machrou3/assoc-teams-users/edit/80
+Referer URL: http://localhost/machrou3/assoc-teams-users/edit/80
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Controller\AssocTeamsUsersController.php(90): App\Model\Table\AssocTeamsUsersTable->getIdsUsersByTeamId(32)
+#1 [internal function]: App\Controller\AssocTeamsUsersController->edit('80')
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\AssocTeamsUsersController))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-10-06 10:32:41 Warning: Headers already sent in C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754
+2017-10-06 10:32:41 Error: [Error] Call to a member function find() on null
+Request URL: /machrou3/assoc-teams-users/edit/80
+Referer URL: http://localhost/machrou3/assoc-teams-users/edit/80
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\src\Controller\AssocTeamsUsersController.php(90): App\Model\Table\AssocTeamsUsersTable->getIdsUsersByTeamId(32)
+#1 [internal function]: App\Controller\AssocTeamsUsersController->edit('80')
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(435): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\AssocTeamsUsersController))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#15 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-10-06 10:39:44 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\,C:\xampp\htdocs\machrou3\webroot\uploads\projects\): The system cannot find the file specified. (code: 2) in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:44 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\) [<a href='http://php.net/function.scandir'>function.scandir</a>]: failed to open dir: No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:44 Warning: Warning (2): scandir() [<a href='http://php.net/function.scandir'>function.scandir</a>]: (errno 0): No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:44 Warning: Warning (2): array_diff() [<a href='http://php.net/function.array-diff'>function.array-diff</a>]: Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 541]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_diff - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 541
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:45 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:45 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:45 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:39:45 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://192.168.0.115/machrou3/consult/view-client-info/12
+Client IP: 192.168.0.113
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\,C:\xampp\htdocs\machrou3\webroot\uploads\projects\): The system cannot find the file specified. (code: 2) in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\) [<a href='http://php.net/function.scandir'>function.scandir</a>]: failed to open dir: No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): scandir() [<a href='http://php.net/function.scandir'>function.scandir</a>]: (errno 0): No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): array_diff() [<a href='http://php.net/function.array-diff'>function.array-diff</a>]: Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 541]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_diff - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 541
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:43:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:19 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\,C:\xampp\htdocs\machrou3\webroot\uploads\projects\): The system cannot find the file specified. (code: 2) in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:19 Warning: Warning (2): scandir(C:\xampp\htdocs\machrou3\webroot\uploads\projects\) [<a href='http://php.net/function.scandir'>function.scandir</a>]: failed to open dir: No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:19 Warning: Warning (2): scandir() [<a href='http://php.net/function.scandir'>function.scandir</a>]: (errno 0): No error in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 540]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+scandir - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 540
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:19 Warning: Warning (2): array_diff() [<a href='http://php.net/function.array-diff'>function.array-diff</a>]: Argument #1 is not an array in [C:\xampp\htdocs\machrou3\src\Model\Table\ProjectsTable.php, line 541]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+array_diff - [internal], line ??
+App\Model\Table\ProjectsTable::getAllProjectDataById() - APP/Model\Table\ProjectsTable.php, line 541
+App\Controller\ConsultController::viewProjectInfo() - APP/Controller\ConsultController.php, line 413
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE\src\Http\ActionDispatcher.php, line 121
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 95
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:20 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php line=754 in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:20 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 145]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:20 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:44:20 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Debugger.php:754) in [C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 170]
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 170
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 116
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-06 10:45:53 Error: [ParseError] syntax error, unexpected '&&' (T_BOOLEAN_AND)
+Request URL: /machrou3/consult/view-project-info/1/14
+Referer URL: http://localhost/machrou3/consult
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Model\\Table...')
+#2 [internal function]: spl_autoload_call('App\\Model\\Table...')
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(152): class_exists('App\\Model\\Table...')
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Core\App.php(64): Cake\Core\App::_classExistsInBase('\\Model\\Table\\Pr...', 'App')
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Locator\TableLocator.php(201): Cake\Core\App::className('Projects', 'Model/Table', 'Table')
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\ORM\Locator\TableLocator.php(156): Cake\ORM\Locator\TableLocator->_getClassName('Projects', Array)
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Datasource\ModelAwareTrait.php(112): Cake\ORM\Locator\TableLocator->get('Projects')
+#8 C:\xampp\htdocs\machrou3\src\Controller\ConsultController.php(25): Cake\Controller\Controller->loadModel('Projects')
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Controller\Controller.php(262): App\Controller\ConsultController->initialize()
+#10 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Consult')
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Consult')
+#12 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#14 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#16 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#18 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#24 {main}
+
+
+2017-10-07 10:14:00 Warning: Warning (2): in_array() expects parameter 2 to be array, string given in [C:\xampp\htdocs\machrou3\src\Controller\AppController.php, line 48]
+Request URL: /machrou3/dashboard
+Referer URL: http://localhost/machrou3/dashboard
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+App\Controller\AppController::initialize() - APP/Controller\AppController.php, line 48
+App\Controller\DashboardController::initialize() - APP/Controller\DashboardController.php, line 10
+Cake\Controller\Controller::__construct() - CORE\src\Controller\Controller.php, line 262
+ReflectionClass::newInstance() - [internal], line ??
+Cake\Http\ControllerFactory::create() - CORE\src\Http\ControllerFactory.php, line 79
+Cake\Http\ActionDispatcher::dispatch() - CORE\src\Http\ActionDispatcher.php, line 92
+Cake\Http\BaseApplication::__invoke() - CORE\src\Http\BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE\src\Routing\Middleware\RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE\src\Routing\Middleware\AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE\src\Error\Middleware\ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE\src\Http\Runner.php, line 65
+Cake\Http\Runner::run() - CORE\src\Http\Runner.php, line 51
+Cake\Http\Server::run() - CORE\src\Http\Server.php, line 90
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-10-11 11:14:54 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Companiess could not be found.
+Exception Attributes: array (
+  'class' => 'Companiess',
+  'plugin' => false,
+  'prefix' => false,
+  '_ext' => false,
+)
+Request URL: /companiess/view/9
+Referer URL: http://localhost/machrou3/departements/view/22
+Stack Trace:
+#0 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(72): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#11 C:\xampp\htdocs\machrou3\vendor\cakephp\cakephp\src\Http\Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#12 C:\xampp\htdocs\machrou3\webroot\index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
